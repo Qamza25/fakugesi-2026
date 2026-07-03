@@ -150,12 +150,30 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
     .spotlight-section{background:var(--lavender);padding:72px 0;position:relative;}
     .spotlight-inner{padding:0 var(--band);}
     .spotlight-title{font-family:'InterDisplay',sans-serif;font-size:38px;font-weight:700;color:var(--dark-text);margin-bottom:40px;}
+    .spotlight-section-title{font-family:'InterDisplay',sans-serif;font-size:38px;font-weight:700;color:var(--dark-text);margin-bottom:40px;}
     .spotlight-top-grid{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:start;}
     .spotlight-img-wrap{width:340px;max-width:100%;}
     .spotlight-img-wrap img{width:100%;height:auto;display:block;}
   
     .spotlight-intro p{font-size:13px;font-weight:400;line-height:1.72;color:var(--body-gray);margin-bottom:16px;break-inside:avoid;-webkit-column-break-inside:avoid;}
     .spotlight-intro p:last-child{margin-bottom:0;}
+
+    .spotlight-second{margin-top:56px;padding-top:56px;border-top:1px solid rgba(26,39,68,0.12);}
+    .spotlight-signature{font-size:14px;font-weight:700;color:var(--dark-navy);opacity:1;margin-top:4px;}
+    .spotlight-readmore-btn{background:none;border:none;padding:0;margin-bottom:16px;color:var(--navy);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:'InterDisplay',sans-serif;transition:opacity 0.25s ease,transform 0.25s ease;}
+    .spotlight-readmore-btn:hover{opacity:0.7;transform:translateX(3px);}
+    .spotlight-readmore-btn .hero-link-arrow{transition:transform 0.22s ease;}
+    .spotlight-readmore-btn:hover .hero-link-arrow{transform:translateX(4px);}
+
+    .spotlight-modal-overlay{display:none;position:fixed;inset:0;background:rgba(13,27,62,0.72);z-index:1000;align-items:center;justify-content:center;padding:40px 20px;}
+    .spotlight-modal-overlay.open{display:flex;}
+    .spotlight-modal{background:var(--white);max-width:720px;width:100%;max-height:84vh;overflow-y:auto;padding:48px 44px;position:relative;}
+    .spotlight-modal-close{position:absolute;top:20px;right:24px;background:none;border:none;font-size:28px;font-weight:300;color:var(--dark-text);cursor:pointer;line-height:1;padding:4px;}
+    .spotlight-modal-close:hover{opacity:0.6;}
+    .spotlight-modal-title{font-family:'InterDisplay',sans-serif;font-size:26px;font-weight:700;color:var(--dark-text);margin-bottom:8px;padding-right:32px;}
+    .spotlight-modal-byline{font-size:12px;font-weight:600;color:var(--body-gray);margin-bottom:24px;}
+    .spotlight-modal-body p{font-size:13px;line-height:1.78;color:var(--body-gray);margin-bottom:16px;}
+    .spotlight-modal-body p:last-child{margin-bottom:0;}
 
     /* WHAT'S HAPPENING */
     .happening-section{background:var(--white);padding:72px 0;overflow:hidden;position:relative;}
@@ -247,7 +265,7 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
       .theme-poster-video{width:50%;opacity:0.6;}
       .countdown-inner{padding:0 48px;}.countdown-grid{gap:32px;}.countdown-num{font-size:44px;}
       .involved-inner{padding:52px 48px;}
-      .spotlight-inner{padding:0 48px;}.spotlight-title{font-size:36px;}.spotlight-img-wrap{width:280px;}.spotlight-intro{column-gap:28px;}
+      .spotlight-inner{padding:0 48px;}.spotlight-title{font-size:36px;}.spotlight-section-title{font-size:36px;}.spotlight-img-wrap{width:280px;}.spotlight-intro{column-gap:28px;}
       .happening-inner{padding:0 48px;}.happening-title{font-size:36px;}
       .tweet-grid{grid-template-columns:1fr 1fr;}
       .happening-caption{padding:0 48px;}
@@ -275,9 +293,13 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
       .involved-cards{grid-template-columns:1fr;gap:12px;}
       .spotlight-section{padding:48px 0;}.spotlight-inner{padding:0 20px;}
       .spotlight-title{font-size:28px;margin-bottom:28px;}
+      .spotlight-section-title{font-size:28px;margin-bottom:28px;}
       .spotlight-top-grid{grid-template-columns:1fr;gap:24px;}
       .spotlight-img-wrap{width:100%;max-width:320px;}
       .spotlight-intro{column-count:1;}
+      .spotlight-second{margin-top:40px;padding-top:40px;}
+      .spotlight-modal{padding:32px 24px;max-height:88vh;}
+      .spotlight-modal-title{font-size:22px;}
       .happening-section{padding:48px 0;}.happening-inner{padding:0 20px;}
       .happening-header{flex-direction:column;align-items:flex-start;gap:16px;}.happening-title{font-size:28px;}
       .strip-img{flex:0 0 200px;height:180px;}
@@ -293,7 +315,7 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
       .btn-get-involved{width:100%;justify-content:center;}
     }
     @media(max-width:480px){
-      .hero-title{font-size:26px;}.theme-head{font-size:22px;}.theme-head-logo{height:32px;}.spotlight-title{font-size:24px;}
+      .hero-title{font-size:26px;}.theme-head{font-size:22px;}.theme-head-logo{height:32px;}.spotlight-title{font-size:24px;}.spotlight-section-title{font-size:24px;}
       .happening-title{font-size:24px;}.partners-title{font-size:22px;}
       .partners-grid{grid-template-columns:repeat(2,1fr);}
       .countdown-num{font-size:28px;}.countdown-grid{gap:16px;}
@@ -429,20 +451,55 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
 <!-- SPOTLIGHT -->
 <section class="spotlight-section reveal">
   <div class="spotlight-inner">
-    <h2 class="spotlight-title">A Message from the Festival Director</h2>
+    <h2 class="spotlight-section-title">A Message from the Festival Director</h2>
 
     <div class="spotlight-top-grid">
       <div class="spotlight-img-wrap"><img src="images/image updates/Director Spotlight.jpeg" alt="Festival Director"/></div>
       <div class="spotlight-intro">
-        <p>Fak'ugesi marks the convergence of people and ideas that might never have crossed paths. An artist finds common ground with an engineer. A student asks a question that reshapes a conversation. That is what Fak'ugesi has always been: not a festival about technology, but a festival about imagination, because imagination determines what we build, whose stories we tell, and which futures we make possible.</p>
-        <p>This year's theme, African Imaginaries, recognises what has always been true: across this continent, artists, technologists and communities have long been imagining new worlds before those worlds became visible as innovation.</p>
-        <p>Our programme unfolds across three frequencies, Memory Engines, Imagination Engines and Future Engines, exploring how we honour what has shaped us, imagine what has never existed, and build futures distinctly our own.</p>
-        <p>Whether you're an artist, developer, researcher or simply curious, welcome. This festival belongs to everyone who believes imagination is one of our greatest forms of infrastructure.</p>
-        <p>On behalf of the Fak'ugesi team,<br/> I look forward to welcoming you to Johannesburg this October.</p>
+        <p>Every year, something extraordinary happens. For a few days in October, Johannesburg becomes a living laboratory of possibility. Artists meet engineers. Designers challenge scientists. Gamers collaborate with musicians. Students spark conversations that grow into partnerships, prototypes and new ways of seeing the world. That is the spirit of Fak'ugesi.</p>
+        <p>For more than a decade, Fak'ugesi has brought together African creativity, technology and culture, not simply to showcase innovation, but to explore the futures we choose to build. This year, we celebrate African Imaginaries. More than a theme, it is a declaration that imagination has always been one of Africa's greatest engines of innovation. Every breakthrough begins with the courage to imagine what does not yet exist. Our 2026 programme unfolds across three interconnected frequencies: Memory Engines, Imagination Engines and Future Engines, exploring how memory informs creation, imagination unlocks possibility, and possibility shapes tomorrow.</p>
+        <p>Across exhibitions, talks, performances, screenings, workshops and immersive experiences, you'll encounter creators expanding the boundaries of African digital culture. You'll leave with fresh perspectives, new collaborators and, I hope, renewed confidence in the power of collective imagination. We look forward to welcoming you to Johannesburg this October, where African imaginaries become shared realities.</p>
+        <p class="spotlight-signature">Alby Micheals,<br/> Festival Director</p>
       </div>
     </div>
+
+    <!-- SECOND SPOTLIGHT -->
+    <div class="spotlight-second">
+      <h2 class="spotlight-section-title">Spotlight</h2>
+      <div class="spotlight-top-grid">
+        <div class="spotlight-img-wrap"><img src="images/image updates/Prof_Lynn_Morris.jpg.jpeg" alt="Professor Lynn Morris"/></div>
+        <div class="spotlight-intro">
+          <p>Wits has been a proud partner of Fak'ugesi since its inception, and over the years I have watched the festival grow into one of the most important spaces for digital creativity, innovation, and critical thinking on the African continent. What makes Fak'ugesi unique is that it brings together artists, researchers, technologists, entrepreneurs, and communities in ways that challenge traditional boundaries between disciplines and between universities and society.</p>
+          <p>As a research-intensive university, Wits is deeply committed to creating knowledge that has impact beyond the academy. One of the great strengths of Fak'ugesi is that it provides a space where ideas can be tested and refined through engagement with diverse audiences and practitioners. It creates a valuable feedback loop between research, creativity and real-world application that is difficult to replicate within conventional academic settings.</p>
+          <button class="spotlight-readmore-btn" onclick="openSpotlightModal()">Read More <span class="hero-link-arrow">→</span></button>
+          <p class="spotlight-signature">Professor Lynn Morris, <br/> Deputy Vice-Chancellor: Research and Innovation, University of the Witwatersrand</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<!-- SPOTLIGHT MODAL -->
+<div id="spotlightModal" class="spotlight-modal-overlay">
+  <div class="spotlight-modal">
+    <button class="spotlight-modal-close" onclick="closeSpotlightModal()" aria-label="Close">×</button>
+    <h3 class="spotlight-modal-title">The Evolution of a Festival</h3>
+    <p class="spotlight-modal-byline">Professor Lynn Morris, Deputy Vice-Chancellor: Research and Innovation, University of the Witwatersrand</p>
+    <div class="spotlight-modal-body">
+      <p>Wits has been a proud partner of Fak'ugesi since its inception, and over the years I have watched the festival grow into one of the most important spaces for digital creativity, innovation, and critical thinking on the African continent. What makes Fak'ugesi unique is that it brings together artists, researchers, technologists, entrepreneurs, and communities in ways that challenge traditional boundaries between disciplines and between universities and society.</p>
+      <p>As a research-intensive university, Wits is deeply committed to creating knowledge that has impact beyond the academy. One of the great strengths of Fak'ugesi is that it provides a space where ideas can be tested and refined through engagement with diverse audiences and practitioners. It creates a valuable feedback loop between research, creativity and real-world application that is difficult to replicate within conventional academic settings.</p>
+      <p>The theme of this year's festival, African Imaginaries, is particularly timely. Universities are often more comfortable dealing with evidence, methodology and established frameworks than with imagination and speculation. Yet the futures we can build are shaped fundamentally by the futures we are able to imagine. The technologies we develop, the research questions we prioritise, and the institutions we create are all influenced by our collective capacity to envision different possibilities. Fak'ugesi reminds us that imagination is not separate from research and innovation; it is central to them.</p>
+      <p>I am especially interested in the Memory Engines strand of the festival. Questions about how African knowledge is collected, preserved, and shared are not simply matters of heritage or cultural preservation. They are fundamental questions about knowledge infrastructure. How we recognise different forms of knowledge, including oral histories and indigenous knowledge systems, has profound implications for research across many disciplines. The work being undertaken in this area challenges us to think differently about archives and the production of knowledge itself.</p>
+      <p>The Imagination Engines programme is equally important, particularly as universities around the world grapple with the opportunities and challenges presented by artificial intelligence. The most important questions are not simply whether AI will transform higher education and research — it already is — but whose knowledge systems, languages and experiences will shape that transformation. These are not peripheral questions; they are central to how we think about the future of research, teaching and innovation in Africa and globally.</p>
+      <p>The Future Engines strand addresses another critical challenge: how we translate knowledge into practical solutions at scale. African cities are confronting some of the most complex social, environmental, and technological challenges of our time, and in doing so they are generating innovative responses that have global relevance. Bringing together researchers, urban planners, technologists, policymakers, and communities is not simply about collaboration; it is about recognising that the challenges we face do not fit neatly within disciplinary boundaries.</p>
+      <p>The Wits Anglo American Digital Dome provides a particularly exciting platform within this year's festival. As Africa's only 8K full-dome immersive environment, it represents much more than a technological achievement. It is a unique research and creative infrastructure that allows us to explore new forms of knowledge production, storytelling and engagement. The immersive experiences developed within the Dome demonstrate how technologies can help us understand complex questions of identity, memory and perception in ways that traditional formats cannot always capture.</p>
+      <p>Twelve years ago, Fak'ugesi posed an important question: whether African digital creativity deserved serious institutional attention. That question has long since been answered. The challenge now is how African-led innovation, creativity and knowledge production can be scaled to address the opportunities and challenges facing our continent and the world.</p>
+      <p>I do not expect a single festival to provide all the answers. But I do expect Fak'ugesi 2026 to move the conversation forward in important and meaningful ways.</p>
+      <p>The Fak'ugesi African Digital Innovation Festival takes place from 13 to 17 October 2026 at the Tshimologong Digital Innovation Precinct. I look forward to imagining the future together.</p>
+    </div>
+  </div>
+</div>
 
 <!-- WHAT'S HAPPENING -->
 <section class="happening-section reveal">
@@ -650,6 +707,19 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
     if (themeInfoOpen) { panel.style.maxHeight = '600px'; panel.style.opacity = '1'; if (btn) btn.textContent = 'VIEW PROGRAMME ▴'; }
     else { panel.style.maxHeight = '0'; panel.style.opacity = '0'; if (btn) btn.textContent = 'VIEW PROGRAMME ▾'; }
   }
+
+  /* ── SPOTLIGHT MODAL ── */
+  function openSpotlightModal() {
+    document.getElementById('spotlightModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSpotlightModal() {
+    document.getElementById('spotlightModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('spotlightModal').addEventListener('click', function(e) {
+    if (e.target === this) closeSpotlightModal();
+  });
 
   /* ── COUNTDOWN TO 13 OCT 2026 ── */
   (function () {

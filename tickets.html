@@ -28,7 +28,7 @@
   animation:kenBurns 18s ease-in-out infinite alternate;
 }
 @keyframes kenBurns{from{transform:scaleX(-1) scale(1)}to{transform:scaleX(-1) scale(1.07)}}
-    .hero-blue-tint{position:absolute;inset:0;background:rgba(0,0,0,0.35);z-index:1;pointer-events:none;}
+    .hero-blue-tint{position:absolute;inset:0;z-index:1;pointer-events:none;}
     .hero-inner{position:relative;z-index:3;width:100%;padding:120px 248px 56px;display:flex;align-items:flex-start;justify-content:space-between;}
     .hero-content{max-width:480px;display:flex;flex-direction:column;align-items:flex-start;}
     .hero-title{font-family:'InterDisplay',sans-serif;font-size:55px;font-weight:600;line-height:1;color:#fff;margin-bottom:20px;}
@@ -173,14 +173,15 @@
     .partners-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;}
     .partner-card{display:flex;flex-direction:column;}
     .partner-logo-link{display:block;text-decoration:none;}
-    .partner-logo-box{background:var(--white);border:1px solid rgba(26,39,68,0.12);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:40px 32px;transition:box-shadow 0.3s,transform 0.3s;}
+    .partner-logo-box{background:var(--white);border:1px solid rgba(26,39,68,0.12);aspect-ratio:1/1;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:40px 32px;transition:box-shadow 0.3s,transform 0.3s;}
     .partner-card:hover .partner-logo-box{box-shadow:0 10px 32px rgba(26,39,68,0.13);transform:translateY(-5px);}
     .partner-logo-box img{max-width:100%;max-height:140px;object-fit:contain;display:block;filter:brightness(0) saturate(100%) invert(18%) sepia(52%) saturate(800%) hue-rotate(197deg) brightness(85%);}
     .partner-logo-box img.keep-color{filter:none !important;}
     .partner-logo-box img[alt="Origins Centre"],
-.partner-logo-box img[alt="Tshimologong"] {
-  max-height: 80px;
-}
+    .partner-logo-box img[alt="Tshimologong"]{
+      max-height:70px;
+      max-width:85%;
+    }
 
     .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.75s ease,transform 0.75s ease;}
     .reveal.visible{opacity:1;transform:none;}

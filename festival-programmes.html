@@ -59,7 +59,7 @@
 
     /* ── TICKER ── */
     .ticker-wrap{width:100%;overflow:hidden;background:var(--navy);border-top:1px solid rgba(26,39,68,.1);border-bottom:1px solid rgba(26,39,68,.1);padding:11px 0;position:relative;z-index:10;transition:background 0.28s ease;}
-    .ticker-track{display:flex;width:max-content;animation:tickerScroll 55s linear infinite;}
+    .ticker-track{display:flex;width:max-content;animation:tickerScroll 35s linear infinite;}
     @keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
     .ticker-item{display:flex;align-items:center;gap:6px;color:var(--white);font-size:12.5px;font-weight:700;white-space:nowrap;padding:0 32px;letter-spacing:0.06em;}
     .ticker-wrap:hover{background:#ffffff!important;}
@@ -68,20 +68,22 @@
 
     /* ── FREQUENCIES SECTION (gradient bg, no image) ── */
     .freq-section{position:relative;display:flex;align-items:center;overflow:hidden;background:linear-gradient(180deg,#c8cede 0%,#e5e7ef 100%);}
-    .freq-inner{position:relative;z-index:3;width:100%;padding:88px var(--band) 80px;}
+    .freq-inner{position:relative;z-index:3;width:100%;padding:88px 248px 80px;}
 
-    /* Leader copy above cards */
-    .freq-leader{max-width:760px;margin-bottom:48px;}
+    /* Leader copy above cards — matches about.html "Who We Are" style exactly */
+    .freq-leader{max-width:100%;margin-bottom:48px;}
     .freq-leader-eyebrow {
-  font-size: 38px;
-  font-weight: 700;
+  font-size: 50px;
+  font-weight: 900;
   letter-spacing: 0;
   text-transform: none;
   opacity: 1;
   color: var(--dark-text);
-  margin-bottom: 20px;
+  line-height: 1.05;
+  margin-bottom: 32px;
 }
-    .freq-leader-body{font-size:15px;line-height:1.85;color:var(--body-gray);}
+    .freq-leader-body{font-size:14px;line-height:1.75;color:var(--dark-text);max-width:100%;}
+    .freq-leader-body p{margin-top:0;}
 
     /* 3-card grid */
     .freq-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch;margin-bottom:0;}
@@ -165,6 +167,7 @@
       .hero-inner{padding:100px 48px 52px;}
       .hero-title{font-size:52px;}
       .freq-inner{padding:60px 48px 56px;}
+      .freq-leader-eyebrow{font-size:38px;}
       .spot-cta-content{padding:60px 48px;}
       .spot-cta-title{font-size:36px;}
       .partners-inner{padding:0 48px;}
@@ -186,6 +189,7 @@
       .hero-logo{display:none;}
       .freq-section{min-height:auto;}
       .freq-inner{padding:48px 20px 40px;}
+      .freq-leader-eyebrow{font-size:32px;margin-bottom:20px;}
       .freq-cards{grid-template-columns:1fr;gap:12px;}
       .spot-cta-section{min-height:auto;}
       .spot-cta-content{padding:56px 20px;}
@@ -202,6 +206,7 @@
     }
     @media(max-width:480px){
       .hero-title{font-size:26px;}
+      .freq-leader-eyebrow{font-size:26px;}
       .spot-cta-title{font-size:24px;}
       .partners-grid{grid-template-columns:repeat(2,1fr);}
     }
@@ -327,6 +332,14 @@
 
 <!-- ── OUR MAIN PARTNERS ── -->
 <section class="partners-section reveal">
+  <div class="sec-crosses sec-crosses-top">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="8" y1="0" x2="8" y2="16" stroke="rgba(26,39,68,0.28)" stroke-width="1"/><line x1="0" y1="8" x2="16" y2="8" stroke="rgba(26,39,68,0.28)" stroke-width="1"/></svg>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="8" y1="0" x2="8" y2="16" stroke="rgba(26,39,68,0.28)" stroke-width="1"/><line x1="0" y1="8" x2="16" y2="8" stroke="rgba(26,39,68,0.28)" stroke-width="1"/></svg>
+  </div>
+  <div class="sec-crosses sec-crosses-bottom">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="8" y1="0" x2="8" y2="16" stroke="rgba(26,39,68,0.28)" stroke-width="1"/><line x1="0" y1="8" x2="16" y2="8" stroke="rgba(26,39,68,0.28)" stroke-width="1"/></svg>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="8" y1="0" x2="8" y2="16" stroke="rgba(26,39,68,0.28)" stroke-width="1"/><line x1="0" y1="8" x2="16" y2="8" stroke="rgba(26,39,68,0.28)" stroke-width="1"/></svg>
+  </div>
   <div class="partners-inner">
     <div class="partners-header">
       <h2 class="partners-title">Our Main Partners</h2>
