@@ -235,52 +235,22 @@
     }
 
     /* ── PARTNERS ── */
-    .partners-section {
-      background: var(--lavender);
-      padding: 0;
-      position: relative;
-    }
-    .partners-inner { padding: 40px 248px 72px; }
-    .partners-header {
-      display: flex; justify-content: space-between;
-      align-items: center; margin-bottom: 40px;
-    }
-    .partners-title { font-size: 38px; font-weight: 700; color: var(--dark-text); }
-    .partners-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 20px;
-    }
-    .partner-card { display: flex; flex-direction: column; }
-    .partner-logo-link { display: block; text-decoration: none; }
-    .partner-logo-box {
-      background: var(--white);
-      border: 1px solid rgba(26,39,68,0.12);
-      aspect-ratio: 1 / 1;
-      display: flex; align-items: center; justify-content: center;
-      padding: 40px 32px;
-      transition: box-shadow 0.3s, transform 0.3s;
-      margin-bottom: 0;
-    }
-    .partner-card:hover .partner-logo-box {
-      box-shadow: 0 10px 32px rgba(26,39,68,0.13);
-      transform: translateY(-5px);
-    }
-    .partner-logo-box img {
-      max-width: 100%;
-      max-height: 110px;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      display: block;
-      filter: brightness(0) saturate(100%) invert(18%) sepia(52%) saturate(800%) hue-rotate(197deg) brightness(85%);
-    }
+    /* PARTNERS */
+    .partners-section{background:var(--lavender);padding:64px 248px 72px;position:relative;}
+    .partners-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:44px;}
+    .partners-title{font-size:42px;font-weight:600;color:var(--dark-text);}
+    .partners-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;}
+    .partner-card{display:flex;flex-direction:column;}
+    .partner-logo-link{display:block;text-decoration:none;}
+    .partner-logo-box{background:var(--white);border:1px solid rgba(26,39,68,0.12);aspect-ratio:1/1;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:40px 32px;transition:box-shadow 0.3s,transform 0.3s;}
+    .partner-card:hover .partner-logo-box{box-shadow:0 10px 32px rgba(26,39,68,0.13);transform:translateY(-5px);}
+    .partner-logo-box img{max-width:100%;max-height:140px;object-fit:contain;display:block;filter:brightness(0) saturate(100%) invert(18%) sepia(52%) saturate(800%) hue-rotate(197deg) brightness(85%);}
+    .partner-logo-box img.keep-color{filter:none !important;}
     .partner-logo-box img[alt="Origins Centre"],
-    .partner-logo-box img[alt="Tshimologong"] {
-    max-height: 60px;
-    max-width: 85%;
-}
-    .partner-logo-box img.keep-color { filter: none !important; }
+    .partner-logo-box img[alt="Tshimologong"]{
+      max-height:70px;
+      max-width:85%;
+    }
 
     /* ── REVEAL ── */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
