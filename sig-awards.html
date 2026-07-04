@@ -324,13 +324,13 @@
     .cat-apply-link { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.65); text-decoration: underline; letter-spacing: 0.06em; white-space: nowrap; margin-top: 12px; cursor: pointer; text-underline-offset: 3px; transition: color 0.2s; }
     .cat-apply-link:hover { color: #fff; }
     .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: stretch; }
-    .cat-card { cursor: pointer; border: 1px solid rgba(255,255,255,0.35); padding: 18px 18px 22px; position: relative; background: rgba(0,0,0,0.35); transition: background 0.22s, border-color 0.22s; min-height: 220px; display: flex; flex-direction: column; }
+    .cat-card { cursor: pointer; border: 1px solid rgba(255,255,255,0.35); padding: 18px 18px 22px; position: relative; background: rgba(0,0,0,0.35); transition: background 0.22s, border-color 0.22s; min-height: 160px; display: flex; flex-direction: column; }
     .cat-card.active { background: rgba(0,0,0,0.45); border-color: rgba(255,255,255,0.75); }
     .cat-card.active .cat-card-tag, .cat-card.active .cat-card-title,
     .cat-card.active .cat-card-items li { color: #fff; }
     .cat-card.active .cat-card-num { color: rgba(255,255,255,1); }
     .cat-card:hover { background: rgba(0,0,0,0.45); }
-    .cat-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+    .cat-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
     .cat-card-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.85); }
     .cat-card-num { font-size: 36px; font-weight: 700; color: rgba(255,255,255,0.75); line-height: 1; }
     .cat-card-title { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.9); line-height: 1.35; margin-bottom: 16px; letter-spacing: 0.01em; }
@@ -439,6 +439,9 @@
       .cat-inner { padding: 36px 20px 44px; }
       .cat-title { font-size: 32px; }
       .cat-grid { grid-template-columns: 1fr; }
+      .cat-inner { padding-left: 20px; padding-right: 20px; }
+      .cat-grid { gap: 16px; justify-items: stretch; }
+      .cat-card { margin: 0; width: 100%; }
       .req-section { padding: 48px 20px; }
       .faq-section { padding: 40px 20px 56px; }
       .faq-layout { grid-template-columns: 1fr; gap: 24px; }
@@ -786,7 +789,7 @@
     <div class="cat-grid">
       <div class="cat-card" data-bg="images/supercut/winners/animation/NAJIAMINI- Poster - Dianne Maryline Charles Rwativenga.png">
         <div class="cat-card-header"><span class="cat-card-tag">Animation</span><span class="cat-card-num">01</span></div>
-        <h3 class="cat-card-title">Animation</h3>
+        
         <ul class="cat-card-items">
           <li>Short films, feature length, title animations</li>
           <li>Student animations</li>
@@ -795,7 +798,7 @@
       </div>
       <div class="cat-card" data-bg="images/supercut/winners/video games/JPEG_Relooted_Thumbnail_Image 1920 x 1080p (4) - Ben Myres.jpg">
         <div class="cat-card-header"><span class="cat-card-tag">Video Games</span><span class="cat-card-num">02</span></div>
-        <h3 class="cat-card-title">Video Games</h3>
+     
         <ul class="cat-card-items">
           <li>Mobile</li>
           <li>Desktop</li>
@@ -804,7 +807,7 @@
       </div>
       <div class="cat-card" data-bg="images/supercut/winners/immersive media/Still from The Well of Hajar - shameelah khan.png">
         <div class="cat-card-header"><span class="cat-card-tag">Immersive Media (XR)</span><span class="cat-card-num">03</span></div>
-        <h3 class="cat-card-title">Immersive Media (XR)</h3>
+        
         <ul class="cat-card-items">
           <li>Augmented Reality (AR)</li>
           <li>Virtual Reality (VR)</li>
@@ -813,7 +816,7 @@
       </div>
       <div class="cat-card" data-bg="images/supercut/winners/digital art/VOF Voices of fire print - Joseph Dairo.jpg">
         <div class="cat-card-header"><span class="cat-card-tag">Digital Arts</span><span class="cat-card-num">04</span></div>
-        <h3 class="cat-card-title">Digital Arts</h3>
+       
         <ul class="cat-card-items">
           <li>Digital film, photography &amp; digi-manipulation</li>
           <li>Performance with digital components</li>
@@ -822,7 +825,7 @@
       </div>
       <div class="cat-card" data-bg="images/supercut/winners/design/IMG_8523 - Athanasius Johnson.jpeg">
         <div class="cat-card-header"><span class="cat-card-tag">Design</span><span class="cat-card-num">05</span></div>
-        <h3 class="cat-card-title">Design</h3>
+       
         <ul class="cat-card-items">
           <li>Industrial design, architecture &amp; fashion</li>
           <li>Digital, spatial & speculative design</li>
@@ -832,7 +835,7 @@
       </div>
       <div class="cat-card" data-bg="images/supercut/winners/digital art/1 - goodwill mokoka.jpg">
         <div class="cat-card-header"><span class="cat-card-tag">Cross-Sector Music</span><span class="cat-card-num">06</span></div>
-        <h3 class="cat-card-title">Cross-Sector Music</h3>
+        
         <ul class="cat-card-items">
           <li>Compositions linked to animation</li>
           <li>Video games, immersive media, digital art</li>
@@ -841,7 +844,7 @@
       </div>
       <div class="cat-card" data-bg="images/image updates/Festival Directors Award.png">
         <div class="cat-card-header"><span class="cat-card-tag">Festival Director's Award</span><span class="cat-card-num">07</span></div>
-        <h3 class="cat-card-title">Festival Director's Award</h3>
+        
         <ul class="cat-card-items">
           <li>Imagination sustained over time</li>
           <li>Work that opens new pathways and builds communities</li>
