@@ -246,7 +246,7 @@
     <div id="fug-social-band">
       <p>Follow us on socials @fakugesi</p>
       <div class="fsb-icons">
-        <a href="https://www.instagram.com/fakugesi/" target="_blank" rel="noopener" aria-label="Instagram">
+        <a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener" aria-label="Instagram">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="2" y="2" width="20" height="20" rx="5"/>
             <circle cx="12" cy="12" r="4"/>
