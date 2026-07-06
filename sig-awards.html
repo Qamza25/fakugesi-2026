@@ -432,7 +432,15 @@
     @media (max-width: 768px) {
       .hero { min-height: auto; }
       .hero-inner { padding: 80px 20px 40px !important; flex-direction: column !important; align-items: flex-start !important; gap: 20px !important; }
-      .hero-logo-col { display: none !important; }
+      .hero-logo-col {
+  display: flex !important;
+  padding-top: 0 !important;
+  margin-top: 8px;
+  align-items: flex-start !important;
+}
+.hero-logo-col img {
+  height: 56px !important;
+}
       .hero-title { font-size: 36px !important; }
       .intro-section { padding: 40px 20px 36px; }
       .winners-header { padding: 16px 20px 0; }

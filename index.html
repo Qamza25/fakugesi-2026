@@ -89,8 +89,7 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
   transform-origin:center;
 }
     .theme-inner{position:relative;z-index:3;width:100%;padding:60px var(--band);}
-    .theme-content{max-width:560px;position:relative;z-index:2;}
-    .theme-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg, rgba(255,255,255,0.86) 0%, rgba(255,255,255,0.58) 45%, rgba(255,255,255,0.18) 75%, rgba(255,255,255,0) 100%);}
+    .theme-content{max-width:560px;}
     .theme-year-label{font-family:'InterDisplay','Inter',Arial,sans-serif !important;font-size:52px !important;font-weight:600 !important;color:var(--dark-text) !important;opacity:1 !important;display:block !important;margin-bottom:16px !important;letter-spacing:-0.01em !important;line-height:1.05 !important;}
     .theme-sub{font-family:'InterDisplay',sans-serif;font-size:16px;font-weight:400;letter-spacing:0.06em;opacity:0.75;margin-bottom:12px;color:var(--dark-text);}
     .theme-head{font-family:'InterDisplay',sans-serif;font-size:38px;font-weight:600;line-height:1.05;margin-bottom:18px;color:var(--dark-text);}
@@ -102,7 +101,11 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
     .theme-section .btn-outline-white:hover{background:#00f4f5;color:var(--dark-text);border-color:#ffffff;box-shadow:0 0 20px #f8fafa,0 0 44px #00f4f5;}
     .theme-section .theme-year-label,.theme-section .theme-sub,.theme-section .theme-body,.theme-section .theme-dates{font-family:'InterDisplay','Inter',Arial,sans-serif !important;}
 
-    
+    /* Theme mobile collapsible toggle + close button (hidden/inactive on desktop) */
+    .theme-toggle-btn{display:none;}
+    .theme-close-btn{display:none;}
+    .theme-expandable-year,.theme-expandable-sub,.theme-expandable-logo{display:none;}
+
     /* COUNTDOWN */
     .countdown-section{background:var(--navy);padding:52px 0;position:relative;overflow:hidden;}
     .countdown-inner{padding:0 var(--band);text-align:center;}
@@ -336,11 +339,15 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
 
       /* Fixed, viewport-height panel holding the video + the compact box */
       .theme-visual{position:relative;width:100%;height:100vh;overflow:hidden;}
-      .theme-poster-video{object-position:78% center;}
+      .theme-poster-video{
+        object-position:78% center;
+        filter: blur(7px);
+        transform: scale(1.08); /* hides the blurred edge from filter */
+      }
 
       .theme-mobile-box{
         position:absolute;
-        left:20px;right:20px;bottom:24px;
+        left:20px;right:20px;bottom:30vh;
         background:rgba(0,0,0,0.35);
         border:1px solid rgba(255,255,255,0.35);
         padding:18px 18px 6px;
@@ -348,7 +355,7 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
       }
       .theme-mobile-box .theme-year-label{font-size:30px !important;margin-bottom:8px !important;color:#ffffff !important;}
       .theme-mobile-box .theme-sub{font-size:14px;margin-bottom:12px;color:#ffffff !important;opacity:0.92;}
-      .theme-mobile-box .theme-head-logo{height:48px;width:auto;max-width:80%;margin-bottom:8px;filter:brightness(0) invert(1);}
+      .theme-mobile-box .theme-head-logo{height:34px;margin-bottom:4px;}
 
       .theme-toggle-btn{
         display:flex;
@@ -372,22 +379,29 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
 
       
       .theme-expandable{
-        max-height:0;
-        overflow:hidden;
-        background:var(--lavender);
-        transition:max-height 0.6s ease;
-      }
-      .theme-expandable.open{max-height:2200px;}
+  position:absolute;
+  left:20px;right:20px;bottom:18vh;
+  max-height:0;
+  overflow:hidden;
+  background:rgba(0,0,0,0.55);
+  backdrop-filter:blur(4px);
+  border:1px solid rgba(255,255,255,0.35);
+  transition:max-height 0.6s ease;
+  z-index:5;
+}
+.theme-expandable.open{
+  max-height:calc(100vh - 36vh);
+  overflow-y:auto;
+}
       .theme-expandable-inner{padding:28px 20px 32px;}
-      .theme-expandable-year,.theme-expandable-sub,.theme-expandable-logo{display:block;}
-      .theme-expandable-year{font-size:26px !important;margin-bottom:8px !important;color:var(--dark-text) !important;}
-      .theme-expandable-sub{margin-bottom:14px;color:var(--dark-text) !important;opacity:0.75;}
+      .theme-expandable-year{font-size:26px !important;margin-bottom:8px !important;color:#ffffff !important;}
+      .theme-expandable-sub{margin-bottom:14px;color:#ffffff !important;opacity:0.85;}
       .theme-expandable-logo{height:32px;margin-bottom:20px;}
-      .theme-expandable .theme-body{color:var(--dark-text) !important;opacity:0.88;margin-bottom:20px;}
-      .theme-expandable .theme-dates{color:var(--dark-text) !important;opacity:0.9;margin-bottom:24px;}
+      .theme-expandable .theme-body{color:#ffffff !important;opacity:0.9;margin-bottom:20px;}
+      .theme-expandable .theme-dates{color:#ffffff !important;opacity:0.9;margin-bottom:24px;}
       .theme-expandable .btn-row{margin-bottom:20px;}
-      .theme-expandable .btn-outline-white{border-color:var(--dark-text);color:var(--dark-text);}
-      .theme-expandable .btn-outline-white:hover{background:#00f4f5;color:var(--dark-text);border-color:var(--dark-text);}
+      .theme-expandable .btn-outline-white{border-color:#ffffff;color:#ffffff;}
+      .theme-expandable .btn-outline-white:hover{background:#00f4f5;color:var(--dark-text);border-color:#ffffff;}
 
       
       .theme-mobile-box.is-hidden{display:none;}
@@ -396,8 +410,8 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
         display:flex !important;align-items:center;justify-content:center;gap:8px;
         width:100%;
         background:none;
-        border:1px solid rgba(13,27,62,0.4);
-        color:var(--dark-text);
+        border:1px solid rgba(255,255,255,0.4);
+        color:#ffffff;
         padding:13px;
         font-size:11px;
         font-weight:700;
@@ -407,7 +421,7 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
         font-family:'InterDisplay',sans-serif;
         transition:background 0.2s ease,color 0.2s ease;
       }
-      .theme-close-btn:hover{background:var(--dark-text);color:#ffffff;}
+      .theme-close-btn:hover{background:#ffffff;color:var(--dark-text);}
 
       .countdown-section{padding:36px 0;}.countdown-inner{padding:0 20px;}.countdown-grid{gap:20px;}.countdown-num{font-size:34px;}.countdown-item{min-width:56px;}
       .involved-inner{padding:40px 20px;}
@@ -682,18 +696,18 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
   <!-- INSTAGRAM -->
   <div class="soc-feed-panel active" id="feed-instagram">
     <div class="happening-strip-outer"><div class="happening-strip">
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/Copy_of__MGL4129.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/_MGL7139.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/image updates/Festival Directors Award.png" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/_MGL2775.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/Fak_ugesi_2025-32.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/Copy_of__MGL4129.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/image00028.jpeg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/Copy_of__MGL0176.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/Copy of _MGL4253.jpg" alt="Instagram"/></a></div>
-      <div class="strip-img"><a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener"><img src="images/Fak_ugesi_2025-32.jpg" alt="Instagram"/></a></div>
+      <div class="strip-img"><a href="https://www.instagram.com/fakugesi/" target="_blank" rel="noopener"><img src="images/Copy_of__MGL4129.jpg" alt="Instagram"/></a></div>
+      <div class="strip-img"><a href="https://www.instagram.com/fakugesi/" target="_blank" rel="noopener"><img src="images/_MGL7139.jpg" alt="Instagram"/></a></div>
+      <div class="strip-img"><a href="https://www.instagram.com/fakugesi/" target="_blank" rel="noopener"><img src="images/image updates/Festival Directors Award.png" alt="Instagram"/></a></div>
+      <div class="strip-img"><a href="https://www.instagram.com/fakugesi/" target="_blank" rel="noopener"><img src="images/_MGL2775.jpg" alt="Instagram"/></a></div>
+      <div class="strip-img"><a href="https://www.instagram.com/fakugesi/" target="_blank" rel="noopener"><img src="images/Fak_ugesi_2025-32.jpg" alt="Instagram"/></a></div>
+      <div class="strip-img"><a href="https://www.instagram.com/fakugesi/" target="_blank" rel="noopener"><img src="images/Copy_of__MGL4129.jpg" alt="Instagram"/></a></div>
+      <div class="strip-img"><a href="https://www.instagram.com/fakugesi/" target="_blank" rel="noopener"><img src="images/image00028.jpeg" alt="Instagram"/></a></div>
+      <div class="strip-img"><a href="https://www.instagram.com/fakugesi/" target="_blank" rel="noopener"><img src="images/Copy_of__MGL0176.jpg" alt="Instagram"/></a></div>
+      <div class="strip-img"><a href="https://www.instagram.com/fakugesi/" target="_blank" rel="noopener"><img src="images/Copy of _MGL4253.jpg" alt="Instagram"/></a></div>
+      <div class="strip-img"><a href="https://www.instagram.com/fakugesi/" target="_blank" rel="noopener"><img src="images/Fak_ugesi_2025-32.jpg" alt="Instagram"/></a></div>
     </div></div>
-    <p class="happening-caption">Follow <a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener" style="color:var(--navy)">@fakugesi</a> on Instagram for live festival updates</p>
+    <p class="happening-caption">Follow <a href="https://www.instagram.com/fakugesi/" target="_blank" rel="noopener" style="color:var(--navy)">@fakugesi</a> on Instagram for live festival updates</p>
   </div>
   <!-- TWITTER -->
   <div class="soc-feed-panel" id="feed-twitter">
@@ -868,7 +882,21 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
     }
   }
 
-  
+  /* ── THEME MOBILE COLLAPSIBLE BOX ── */
+  function toggleThemeMobile() {
+    var exp = document.getElementById('themeExpandable');
+    var box = document.getElementById('themeMobileBox');
+    var btn = document.getElementById('themeToggleBtn');
+    var isOpen = exp.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    var label = btn.querySelector('.theme-toggle-label');
+    if (label) label.textContent = isOpen ? 'Hide Details' : 'View Details';
+
+    if (box) box.classList.toggle('is-hidden', isOpen);
+
+    
+  }
 
   /* ── DIRECTOR MESSAGE MODAL (mobile read-more) ── */
   function openDirectorModal() {
