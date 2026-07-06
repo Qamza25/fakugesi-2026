@@ -89,7 +89,8 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
   transform-origin:center;
 }
     .theme-inner{position:relative;z-index:3;width:100%;padding:60px var(--band);}
-    .theme-content{max-width:560px;}
+    .theme-content{max-width:560px;position:relative;z-index:2;}
+    .theme-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg, rgba(255,255,255,0.86) 0%, rgba(255,255,255,0.58) 45%, rgba(255,255,255,0.18) 75%, rgba(255,255,255,0) 100%);}
     .theme-year-label{font-family:'InterDisplay','Inter',Arial,sans-serif !important;font-size:52px !important;font-weight:600 !important;color:var(--dark-text) !important;opacity:1 !important;display:block !important;margin-bottom:16px !important;letter-spacing:-0.01em !important;line-height:1.05 !important;}
     .theme-sub{font-family:'InterDisplay',sans-serif;font-size:16px;font-weight:400;letter-spacing:0.06em;opacity:0.75;margin-bottom:12px;color:var(--dark-text);}
     .theme-head{font-family:'InterDisplay',sans-serif;font-size:38px;font-weight:600;line-height:1.05;margin-bottom:18px;color:var(--dark-text);}
@@ -101,11 +102,7 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
     .theme-section .btn-outline-white:hover{background:#00f4f5;color:var(--dark-text);border-color:#ffffff;box-shadow:0 0 20px #f8fafa,0 0 44px #00f4f5;}
     .theme-section .theme-year-label,.theme-section .theme-sub,.theme-section .theme-body,.theme-section .theme-dates{font-family:'InterDisplay','Inter',Arial,sans-serif !important;}
 
-    /* Theme mobile collapsible toggle + close button (hidden/inactive on desktop) */
-    .theme-toggle-btn{display:none;}
-    .theme-close-btn{display:none;}
-    .theme-expandable-year,.theme-expandable-sub,.theme-expandable-logo{display:none;}
-
+    
     /* COUNTDOWN */
     .countdown-section{background:var(--navy);padding:52px 0;position:relative;overflow:hidden;}
     .countdown-inner{padding:0 var(--band);text-align:center;}
@@ -605,7 +602,7 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
         <p>Every year, something extraordinary happens. For a few days in October, Johannesburg becomes a living laboratory of possibility. Artists meet engineers. Designers challenge scientists. Gamers collaborate with musicians. Students spark conversations that grow into partnerships, prototypes and new ways of seeing the world. That is the spirit of Fak'ugesi.</p>
         <p class="spotlight-hide-mobile">For more than a decade, Fak'ugesi has brought together African creativity, technology and culture, not simply to showcase innovation, but to explore the futures we choose to build. This year, we celebrate African Imaginaries. More than a theme, it is a declaration that imagination has always been one of Africa's greatest engines of innovation. Every breakthrough begins with the courage to imagine what does not yet exist. Our 2026 programme unfolds across three interconnected frequencies: Memory Engines, Imagination Engines and Future Engines, exploring how memory informs creation, imagination unlocks possibility, and possibility shapes tomorrow.</p>
         <p class="spotlight-hide-mobile">Throughout exhibitions, talks, performances, screenings, workshops and immersive experiences, you'll encounter creators expanding the boundaries of African digital culture. You'll leave with fresh perspectives, new collaborators and, I hope, renewed confidence in the power of collective imagination. We look forward to welcoming you to Johannesburg this October, where African imaginaries become shared realities.</p>
-        <button class="spotlight-readmore-btn spotlight-readmore-mobile-only" onclick="openDirectorModal()">Read More <span class="hero-link-arrow">→</span></button>
+        <button class="spotlight-readmore-btn" onclick="openDirectorModal()">Read More <span class="hero-link-arrow">→</span></button>
         <p class="spotlight-signature">Alby Micheals,<br/> Festival Director</p>
       </div>
     </div>
@@ -871,29 +868,7 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
     }
   }
 
-  /* ── THEME MOBILE COLLAPSIBLE BOX ── */
-  function toggleThemeMobile() {
-    var exp = document.getElementById('themeExpandable');
-    var box = document.getElementById('themeMobileBox');
-    var btn = document.getElementById('themeToggleBtn');
-    var isOpen = exp.classList.toggle('open');
-    btn.classList.toggle('open', isOpen);
-    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    var label = btn.querySelector('.theme-toggle-label');
-    if (label) label.textContent = isOpen ? 'Hide Details' : 'View Details';
-
-    if (box) box.classList.toggle('is-hidden', isOpen);
-
-    if (isOpen) {
-      setTimeout(function () {
-        exp.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 150);
-    } else {
-      setTimeout(function () {
-        box.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 50);
-    }
-  }
+  
 
   /* ── DIRECTOR MESSAGE MODAL (mobile read-more) ── */
   function openDirectorModal() {
