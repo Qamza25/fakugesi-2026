@@ -4,8 +4,15 @@
   function isActive(href) {
     return page === href.replace(/^\//, '').replace(/\.html$/, '');
   }
-
+  document.head.insertAdjacentHTML('beforeend', `
+<link rel="icon" type="image/x-icon" href="/images/favicon_io/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_io/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/images/favicon_io/apple-touch-icon.png">
+<link rel="manifest" href="/images/favicon_io/site.webmanifest">
+`);
   document.head.insertAdjacentHTML('beforeend', `<style>
+    
     #main-nav {
       position:fixed; top:0; left:0; right:0; z-index:1000;
       display:flex; align-items:center; height:58px;

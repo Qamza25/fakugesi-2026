@@ -311,13 +311,10 @@
       cursor: pointer; text-underline-offset: 3px; transition: opacity 0.2s;
     }
     .partners-view-link:hover { opacity: 0.6; }
-    .partners-grid {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-}
-.partners-grid .partner-card {
-  flex: 0 0 calc((100% - 4 * 18px) / 5);
+  .partners-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
 }
     .partner-card { display: flex; flex-direction: column; }
     .partner-logo-link { display: block; text-decoration: none; }
