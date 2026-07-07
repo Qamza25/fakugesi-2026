@@ -200,11 +200,20 @@
       .hero { min-height: auto; }
       .hero-bg { background-position: center center; }
       .hero-inner { padding: 80px 20px 40px; }
-      .hero-top-row { margin-bottom: 10px; }
-      .hero-logo { bottom: 120px; right: 20px; top: auto; }
+      .hero-top-row { display: contents; margin-bottom: 0; }
+      .hero-eyebrow { order: 1; margin-bottom: 10px; }
+      .hero-title { order: 2; font-size: 28px; margin-bottom: 14px; max-width: 100%; }
+      .hero-body { order: 3; font-size: 12px; max-width: 100%; margin-bottom: 0; }
+      .hero-logo {
+        order: 4;
+        position: static;
+        bottom: auto;
+        right: auto;
+        width: 100%;
+        justify-content: flex-start;
+        margin-top: 24px;
+      }
       .hero-logo img { height: 60px; }
-      .hero-title { font-size: 28px; margin-bottom: 14px; max-width: calc(100% - 90px); }
-      .hero-body { font-size: 12px; max-width: 100%; margin-bottom: 0; }
       .crosses-bar,.team-crosses-top { padding: 14px 20px; }
       .who-layout { padding: 0 20px 40px; }
       .who-title { font-size: 32px; margin-bottom: 20px; }
@@ -484,8 +493,10 @@
 </div>
 
   </div>
-  <div class="cross-icon cross-icon--navy" style="bottom:20px;left:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/></svg></div>
-  <div class="cross-icon cross-icon--navy" style="bottom:20px;right:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/></svg></div>
+  <div class="team-crosses-top">
+    <div class="cross-icon cross-icon--navy" style="position:relative;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/></svg></div>
+    <div class="cross-icon cross-icon--navy" style="position:relative;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/></svg></div>
+  </div>
 </section>
 
 <!-- GET IN TOUCH -->
@@ -530,8 +541,10 @@
 
 <!-- OUR MAIN PARTNERS -->
 <section class="partners-section" id="partners">
-  <div class="cross-icon cross-icon--navy" style="top:20px;left:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/></svg></div>
-  <div class="cross-icon cross-icon--navy" style="top:20px;right:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/></svg></div>
+  <div class="team-crosses-top">
+    <div class="cross-icon cross-icon--navy" style="position:relative;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/></svg></div>
+    <div class="cross-icon cross-icon--navy" style="position:relative;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.3)" stroke-width="1.5"/></svg></div>
+  </div>
   <div class="partners-inner">
     <div class="partners-header">
       <h2 class="partners-title">Our Main Partners</h2>

@@ -187,7 +187,7 @@
     .highlights-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; width: 100%; align-items: stretch; }
     .highlight-card { min-width: 0; display: flex; flex-direction: column; height: 100%; }
     .highlight-img-wrap { width: 100%; height: 260px; overflow: hidden; position: relative; flex-shrink: 0; }
-    .highlight-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .highlight-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; transition: transform 0.5s ease; }
     .highlight-card:hover .highlight-img-wrap img { transform: scale(1.04); }
     .highlight-info { padding: 12px 0 0; display: flex; flex-direction: column; flex: 1; }
     .highlight-cat { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--body-gray); margin-bottom: 6px; }
@@ -367,6 +367,7 @@
       .highlights-strip { grid-template-columns: 1fr 1fr; }
       .highlights-title { font-size: 32px; }
       .highlight-img-wrap { height: 180px; }
+      .highlight-img-wrap img { object-position: center 25%; }
       .faq-section { padding: 40px 20px 56px; }
       .faq-layout { grid-template-columns: 1fr; gap: 24px; }
       .faq-title-left { font-size: 32px; }
@@ -515,7 +516,7 @@
 
       <!-- Card 3 -->
       <div class="highlight-card">
-        <div class="highlight-img-wrap"><img src="/images/image updates/pro highlights/electric futures.png" alt="Electric Futures" /></div>
+        <div class="highlight-img-wrap"><img class="highlight-img-electric" src="/images/image updates/pro highlights/electric futures.png" alt="Electric Futures" /></div>
         <div class="highlight-info">
           <p class="highlight-cat">Keynote Provocation</p>
           <p class="highlight-name">Electric Futures</p>
