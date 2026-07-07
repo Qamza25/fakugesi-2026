@@ -279,7 +279,10 @@
       .partners-title { font-size: 34px; }
       .partners-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
       .partner-logo-box { padding: 24px 20px; }
-      .cross-icon { display: none; }
+      /* keep crosses visible, just pull them in from the fixed 200px offsets */
+      .cross-icon { width: 15px; height: 15px; }
+      .cross-icon[style*="left:200px"] { left: 24px !important; }
+      .cross-icon[style*="right:200px"] { right: 24px !important; }
     }
 
     @media (max-width: 768px) {
@@ -304,7 +307,11 @@
       .partners-header{flex-direction:column!important;align-items:flex-start!important;gap:12px!important;}
       .partners-title{font-size:28px!important;}.partners-grid{grid-template-columns:1fr 1fr!important;gap:14px!important;}
       .sec-crosses{padding:0 24px;}
-      .cross-icon { display: none; }
+    
+      .cross-icon { padding:0 24px !important; }
+      .cross-icon{padding:0 24px !important; }
+      .cross-icon{padding:0 24px !important;}
+      .cross-icon{padding:0 24px !important; }
     }
 
     @media (max-width: 425.99px) {
@@ -324,6 +331,9 @@
       .partners-title { font-size: 22px; }
       .partners-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
       .partner-logo-box { padding: 20px 16px; }
+       .cross-icon { padding:0 24px !important; }
+      .cross-icon{padding:0 24px !important; }
+      .cross-icon{padding:0 24px !important;}
     }
 
     @media (max-width: 375px) {

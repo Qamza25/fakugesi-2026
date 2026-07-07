@@ -39,13 +39,23 @@
     /* ── CROSS ICONS ── */
     .cross-icon {
       display: inline-flex; align-items: center; justify-content: center;
-      width: 18px; height: 18px; flex-shrink: 0; position: absolute; z-index: 6;
+      width: 18px; height: 18px; flex-shrink: 0; position: relative; z-index: 6;
       opacity: 0.45; transition: transform 0.1s linear;
     }
     .cross-icon svg { width: 100%; height: 100%; }
     .cross-icon--navy{opacity:1;}
     .cross-icon--navy svg line{stroke:#1a2744;stroke-width:0.4;}
     .cross-icon.cross-icon--navy{opacity:1 !important;}
+
+    /* Cross-icon bar: matches the .team-crosses-top pattern used on the Discover page —
+       a flex row in normal flow that scales via --band instead of fixed absolute offsets */
+    .fug-crosses-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px var(--band);
+      position: relative;
+    }
 
     /* ── HERO ── */
     .hero {
@@ -265,8 +275,6 @@
       .partners-title { font-size: 30px; }
       .partners-grid { gap: 16px; }
       .partner-logo-box { padding: 28px 20px; }
-      .cross-icon[style*="left:200px"],
-      .cross-icon[style*="right:200px"] { display: none; }
       .tsim-body-inner { grid-template-columns: 1fr; gap: 0; }
       .tsim-title { font-size: 22px; }
     }
@@ -297,7 +305,7 @@
       .partners-header{flex-direction:column!important;align-items:flex-start!important;gap:12px!important;}
       .partners-title{font-size:28px!important;}.partners-grid{grid-template-columns:1fr 1fr!important;gap:14px!important;}
       .sec-crosses{padding:0 24px;}
-      .cross-icon { display: none; }
+      .fug-crosses-bar { padding: 14px 20px; }
       .tsim-body-inner { grid-template-columns: 1fr; }
     }
 
@@ -349,9 +357,11 @@
 
 <!-- LOCATIONS -->
 <section class="locations-section reveal">
-  <div class="cross-icon cross-icon--navy" style="top:20px;left:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/></svg></div>
-  <div class="cross-icon cross-icon--navy" style="top:20px;left:50%;transform:translateX(-50%);"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/></svg></div>
-  <div class="cross-icon cross-icon--navy" style="top:20px;right:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/></svg></div>
+  <div class="fug-crosses-bar">
+    <div class="cross-icon cross-icon--navy"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/></svg></div>
+    <div class="cross-icon cross-icon--navy"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/></svg></div>
+    <div class="cross-icon cross-icon--navy"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/><line x1="0" y1="9" x2="18" y2="9" stroke="rgba(26,39,68,0.35)" stroke-width="1.5"/></svg></div>
+  </div>
 
   <div class="locations-inner">
     <div class="locations-header">
@@ -489,9 +499,11 @@
 
 <!-- FAQ -->
 <section class="faq-section reveal">
-  <div class="cross-icon" style="top:16px;left:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div>
-  <div class="cross-icon" style="top:16px;left:50%;transform:translateX(-50%);"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div>
-  <div class="cross-icon" style="top:16px;right:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div>
+  <div class="fug-crosses-bar">
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div>
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div>
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div>
+  </div>
   <div class="faq-layout">
     <div>
       <h2 class="faq-title-left">FAQ</h2>
@@ -500,8 +512,10 @@
       <div class="faq-items-wrap" id="faqAccordion"></div>
     </div>
   </div>
-  <div class="cross-icon" style="bottom:16px;left:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div>
-  <div class="cross-icon" style="bottom:16px;right:200px;"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div>
+  <div class="fug-crosses-bar">
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div>
+    <div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div>
+  </div>
 </section>
 
 <!-- OUR MAIN PARTNERS -->
