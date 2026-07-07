@@ -28,10 +28,20 @@
     /* ── CROSS ICONS ── */
     .cross-icon {
       display: inline-flex; align-items: center; justify-content: center;
-      width: 18px; height: 18px; flex-shrink: 0; position: absolute;
+      width: 18px; height: 18px; flex-shrink: 0; position: relative;
       z-index: 6; opacity: 0.55; transition: transform 0.1s linear;
     }
     .cross-icon svg { width: 100%; height: 100%; }
+
+    /* Cross-icon bar: matches the .team-crosses-top pattern used on the Discover page —
+       a flex row in normal flow that scales via --band instead of fixed absolute offsets */
+    .fug-crosses-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px var(--band);
+      position: relative;
+    }
 
     /* ── REVEAL ── */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
@@ -242,7 +252,7 @@
     .highlight-card { min-width: 0; cursor: pointer; }
     .highlight-img-wrap { width: 100%; height: 280px; overflow: hidden; position: relative; }
     .highlight-img-wrap img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
+      width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
       transition: transform 0.5s ease;
     }
     .highlight-card:hover .highlight-img-wrap img { transform: scale(1.04); }
@@ -310,7 +320,6 @@
     }
     @media (max-width: 768px) {
       :root { --band: 20px; }
-      .cross-icon { display: none; }
       .hero { min-height: auto; }
       .hero-inner { padding: 80px 20px 40px !important; flex-direction: column !important; align-items: flex-start !important; gap: 20px !important; }
       .hero-logo-col { display: flex !important; align-items: center; justify-content: flex-start; padding-top: 0; margin-top: 4px; }
@@ -323,9 +332,11 @@
       .network-title { font-size: 30px; }
       .highlights-header { padding: 16px 20px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
       .highlights-strip-outer { padding: 0 20px 40px; }
-      .highlights-strip { grid-template-columns: 1fr 1fr; }
+      /* Highlights: switch from a fixed 200px crop to a consistent square crop so
+         the subject isn't cut off when the card width shrinks on narrow screens */
+      .highlights-strip { grid-template-columns: 1fr 1fr; gap: 10px; }
       .highlights-title { font-size: 32px; }
-      .highlight-img-wrap { height: 200px; }
+      .highlight-img-wrap { height: auto; aspect-ratio: 1 / 1; }
       .faq-section { padding: 40px 20px 56px; }
       .faq-layout { grid-template-columns: 1fr; gap: 24px; }
       .faq-title-left { font-size: 32px; }
@@ -337,11 +348,13 @@
       .partner-logo-box { padding: 12px 10px; }
       .partner-logo-box img { max-height: 46px; }
       .fug-sig-strip-inner { justify-content: flex-start; }
+      .fug-crosses-bar { padding: 14px 20px; }
     }
     @media (max-width: 480px) {
       .hero-title { font-size: 26px; }
       .intro-title { font-size: 26px; }
       .highlights-strip { grid-template-columns: 1fr; }
+      .highlight-img-wrap { aspect-ratio: 16 / 10; }
       .partners-title { font-size: 22px; }
       .partners-grid { grid-template-columns: repeat(2, 1fr); }
     }
@@ -410,19 +423,23 @@
 
 <!-- ═══ WHAT IS DALA KHONA ═══ -->
 <section class="intro-section reveal">
-  <div class="cross-icon" style="top:16px;left:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
-  </div>
-  <div class="cross-icon" style="top:16px;right:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+  <div class="fug-crosses-bar">
+    <div class="cross-icon">
+      <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+    </div>
+    <div class="cross-icon">
+      <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+    </div>
   </div>
   <div class="intro-header">
     <h2 class="intro-title">African Games. Global Play.</h2>
   </div>
   <p class="intro-body">African-made and global games take centre stage at this dedicated space. From independent developers to established studios, or new voices developed through the Digital Lab Africa pipeline and our Gaming Hub, Dala Khona is where game development becomes visible, playable, and public. Discover new games. Meet the developers. Test prototypes. Compete. Come back. Players, families, students, educators, researchers, industry professionals, and people who have never held a controller before are all welcomed.</p>
   <div class="intro-cards"></div>
-  <div class="cross-icon" style="bottom:16px;right:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+  <div class="fug-crosses-bar" style="justify-content:flex-end;">
+    <div class="cross-icon">
+      <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+    </div>
   </div>
 </section>
 
@@ -442,14 +459,16 @@
 <!-- ═══ 2025 HIGHLIGHTS ═══ -->
 <section class="highlights-section reveal">
   <div class="highlights-top-spacer">
-    <div class="cross-icon" style="top:16px;left:200px;">
-      <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
-    </div>
-    <div class="cross-icon" style="top:16px;left:50%;transform:translateX(-50%);">
-      <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
-    </div>
-    <div class="cross-icon" style="top:16px;right:200px;">
-      <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+    <div class="fug-crosses-bar">
+      <div class="cross-icon">
+        <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+      </div>
+      <div class="cross-icon">
+        <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+      </div>
+      <div class="cross-icon">
+        <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+      </div>
     </div>
   </div>
   <div class="highlights-header">
@@ -483,11 +502,13 @@
 
 <!-- ═══ FAQ ═══ -->
 <section class="faq-section reveal">
-  <div class="cross-icon" style="top:16px;left:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
-  </div>
-  <div class="cross-icon" style="top:16px;right:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+  <div class="fug-crosses-bar">
+    <div class="cross-icon">
+      <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+    </div>
+    <div class="cross-icon">
+      <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+    </div>
   </div>
   <div class="faq-layout">
     <div>
@@ -497,21 +518,25 @@
       <div class="faq-items-wrap" id="faqAccordion"></div>
     </div>
   </div>
-  <div class="cross-icon" style="bottom:16px;left:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
-  </div>
-  <div class="cross-icon" style="bottom:16px;right:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+  <div class="fug-crosses-bar">
+    <div class="cross-icon">
+      <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+    </div>
+    <div class="cross-icon">
+      <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+    </div>
   </div>
 </section>
 
 <!-- ═══ PARTNERS — matched to index.html ═══ -->
 <section class="partners-section reveal">
-  <div class="cross-icon" style="top:20px;left:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
-  </div>
-  <div class="cross-icon" style="top:20px;right:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+  <div class="fug-crosses-bar">
+    <div class="cross-icon">
+      <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+    </div>
+    <div class="cross-icon">
+      <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+    </div>
   </div>
   <div class="partners-inner">
     <div class="partners-header">
@@ -555,11 +580,13 @@
       </div>
     </div>
   </div>
-  <div class="cross-icon" style="bottom:20px;left:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
-  </div>
-  <div class="cross-icon" style="bottom:20px;right:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+  <div class="fug-crosses-bar">
+    <div class="cross-icon">
+      <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+    </div>
+    <div class="cross-icon">
+      <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
+    </div>
   </div>
 </section>
 
