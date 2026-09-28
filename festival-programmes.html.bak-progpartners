@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -466,53 +466,19 @@
     <h2 class="prog-partners-title">Programme Partners</h2>
     <div class="prog-carousel-outer">
       <div class="prog-carousel-track" id="progPartnersTrack">
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Bath%20Spa%20University/Slate%20Blue%20Logo_RGB.png" alt="Bath Spa University" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/CTIAF/CTIAF-logo-white.png" alt="CTIAF"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Dark%20Room%20Contemporary/drc.png" alt="Dark Room Contemporary" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Digital%20Lab%20Africa/DLA-01.png" alt="Digital Lab Africa" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/HabitatXR/habitatxr.png" alt="HabitatXR" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Highly%20Dedicated/HD.jpg" alt="Highly Dedicated" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Iziko/Logos%20for%20Iziko%20x%20DSAC/DSACxIziko_Logos.jpg" alt="Iziko" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Jack%20Ginsberg%20Centre%20for%20Book%20Arts/wits_jgcba_logos_02.png" alt="Jack Ginsberg Centre for Book Arts" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Japan%20Foundation/Lockup1_A_1.jpg" alt="Japan Foundation" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/JIWE/jiwe-io-lockup-dark.svg" alt="JIWE" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/JIX/Logo%20Black.png" alt="JIX" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Latitudes%20Art%20Fair/RMBLat-b.png" alt="Latitudes Art Fair" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Matamba%20Film%20Labs/matambafilms.png" alt="Matamba Film Labs" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Mollo/Mollo-Logo-web-3906027300.png" alt="Mollo" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Naledi3D/cropped-cropped-logo-512.png" alt="Naledi3D" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/NORMVL/cropped-NORMVL-2025-Logo-11-scaled.png" alt="NORMVL" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Open%20Restitution%20Africa/Open-Restitution-Africa-_ORA-Logo-White.svg" alt="Open Restitution Africa"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Red%20Balloon/rbf-logo-r.svg" alt="Red Balloon" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Redbull/redbull.svg" alt="Red Bull" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/SAMPRA/sampra-logo-1.svg" alt="SAMPRA" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/University%20of%20Johannesburg/uj.svg" alt="University of Johannesburg" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/VR%20Capture/vrcapture.svg" alt="VR Capture" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/XR%20Native/XR%20Native%20HighRes%20Black.png" alt="XR Native" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="/images/logos/tshimologong/logo_tshimologong_dark.svg" alt="Tshimologong"/></div>
+        <div class="prog-partner-logo"><img src="/images/logos/wits/logo_wits_colour_colloquial_extended.svg" alt="Wits University" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="/images/logos/immersiveAfrica/digitaldome.svg" alt="Digital Dome"/></div>
+        <div class="prog-partner-logo"><img src="/images/logos/wits/origins-centre-logox200.png" alt="Origins Centre" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/logos/BPP_black_cropped.png" alt="Black Pepper" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="/images/image updates/WT New CI Short-03.png" alt="Web Tickets" class="keep-color"/></div>
         <!-- duplicate set for seamless loop -->
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Bath%20Spa%20University/Slate%20Blue%20Logo_RGB.png" alt="Bath Spa University" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/CTIAF/CTIAF-logo-white.png" alt="CTIAF"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Dark%20Room%20Contemporary/drc.png" alt="Dark Room Contemporary" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Digital%20Lab%20Africa/DLA-01.png" alt="Digital Lab Africa" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/HabitatXR/habitatxr.png" alt="HabitatXR" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Highly%20Dedicated/HD.jpg" alt="Highly Dedicated" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Iziko/Logos%20for%20Iziko%20x%20DSAC/DSACxIziko_Logos.jpg" alt="Iziko" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Jack%20Ginsberg%20Centre%20for%20Book%20Arts/wits_jgcba_logos_02.png" alt="Jack Ginsberg Centre for Book Arts" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Japan%20Foundation/Lockup1_A_1.jpg" alt="Japan Foundation" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/JIWE/jiwe-io-lockup-dark.svg" alt="JIWE" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/JIX/Logo%20Black.png" alt="JIX" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Latitudes%20Art%20Fair/RMBLat-b.png" alt="Latitudes Art Fair" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Matamba%20Film%20Labs/matambafilms.png" alt="Matamba Film Labs" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Mollo/Mollo-Logo-web-3906027300.png" alt="Mollo" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Naledi3D/cropped-cropped-logo-512.png" alt="Naledi3D" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/NORMVL/cropped-NORMVL-2025-Logo-11-scaled.png" alt="NORMVL" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Open%20Restitution%20Africa/Open-Restitution-Africa-_ORA-Logo-White.svg" alt="Open Restitution Africa"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Red%20Balloon/rbf-logo-r.svg" alt="Red Balloon" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Redbull/redbull.svg" alt="Red Bull" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/SAMPRA/sampra-logo-1.svg" alt="SAMPRA" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/University%20of%20Johannesburg/uj.svg" alt="University of Johannesburg" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/VR%20Capture/vrcapture.svg" alt="VR Capture" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/XR%20Native/XR%20Native%20HighRes%20Black.png" alt="XR Native" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="/images/logos/tshimologong/logo_tshimologong_dark.svg" alt="Tshimologong"/></div>
+        <div class="prog-partner-logo"><img src="/images/logos/wits/logo_wits_colour_colloquial_extended.svg" alt="Wits University" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="/images/logos/immersiveAfrica/digitaldome.svg" alt="Digital Dome"/></div>
+        <div class="prog-partner-logo"><img src="/images/logos/wits/origins-centre-logox200.png" alt="Origins Centre" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/logos/BPP_black_cropped.png" alt="Black Pepper" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="/images/image updates/WT New CI Short-03.png" alt="Web Tickets" class="keep-color"/></div>
       </div>
     </div>
   </div>
