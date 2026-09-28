@@ -163,3 +163,4 @@ chrome-user-data/
 !.gitignore
 !.keep
 !.gitkeep
+.vercel

@@ -101,6 +101,29 @@
     }
     .btn-apply:hover { background: var(--navy); border-color: var(--navy); color: #fff; transform: translateY(-1px); }
 
+    /* SIGNAL GUIDE BUTTON — rounded, transparent, ticket-style hover */
+    .btn-signal-guide{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      border:1.5px solid rgba(255,255,255,0.55);
+      color:#fff;
+      background:transparent;
+      border-radius:999px;
+      padding:11px 26px;
+      font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+      font-family:'InterDisplay',sans-serif;
+      text-decoration:none;
+      cursor:pointer;
+      margin-top:4px;
+      transition:background 0.22s,color 0.22s,border-color 0.22s,transform 0.18s,box-shadow 0.35s;
+    }
+    .btn-signal-guide:hover{
+      background:#00f4f5;
+      color:#0d1b3e;
+      border-color:#00f4f5;
+      box-shadow:0 0 20px #00f4f5,0 0 44px #00f4f5;
+      transform:translateY(-1px);
+    }
+
     .hero-logo-col {
       display: flex; align-items: flex-start;
       padding-top: 158px; flex-shrink: 0;
@@ -399,6 +422,21 @@
     .partner-desc { font-size: 12px; font-weight: 400; color: var(--body-gray); line-height: 1.65; }
 
     /* ══════════════════════════════════════════════
+       PROGRAMME PARTNERS CAROUSEL
+    ══════════════════════════════════════════════ */
+    .prog-partners-section{background:var(--white);padding:40px 0;position:relative;border-top:1px solid rgba(26,39,68,0.08);}
+    .prog-partners-inner{padding:0 var(--band);}
+    .prog-partners-title{font-family:'InterDisplay',sans-serif;font-size:26px;font-weight:700;color:var(--dark-text);margin-bottom:24px;}
+    .prog-carousel-outer{overflow:hidden;width:100%;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);}
+    .prog-carousel-track{display:flex;align-items:center;gap:36px;width:max-content;animation:progCarouselScroll 80s linear infinite;}
+    .prog-carousel-track:hover{animation-play-state:paused;}
+    @keyframes progCarouselScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .prog-partner-logo{flex:0 0 auto;height:56px;width:140px;display:flex;align-items:center;justify-content:center;}
+    .prog-partner-logo img{max-height:40px;max-width:100%;object-fit:contain;display:block;filter:brightness(0) saturate(100%) invert(18%) sepia(52%) saturate(800%) hue-rotate(197deg) brightness(85%);opacity:0.75;transition:opacity 0.25s;}
+    .prog-partner-logo img.keep-color{filter:none !important;}
+    .prog-partner-logo:hover img{opacity:1;}
+
+    /* ══════════════════════════════════════════════
        RESPONSIVE
     ══════════════════════════════════════════════ */
     @media (max-width: 1024px) {
@@ -424,6 +462,7 @@
       .partners-grid { grid-template-columns: repeat(5, 1fr); gap: 10px; }
       .partner-logo-box { padding: 14px 12px; }
       .partner-logo-box img { max-height: 58px; }
+      .prog-partners-inner{ padding: 0 48px; }
       .sec-crosses{padding:0 48px;}
     }
     @media (max-width: 900px) {
@@ -469,6 +508,11 @@
       .partners-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
       .partner-logo-box { padding: 12px 10px; }
       .partner-logo-box img { max-height: 48px; }
+      .prog-partners-section{padding:28px 0;}
+      .prog-partners-inner{padding:0 20px;}
+      .prog-partners-title{font-size:20px;margin-bottom:18px;}
+      .prog-partner-logo{height:44px;width:110px;}
+      .prog-partner-logo img{max-height:30px;}
       .sec-crosses{padding:0 20px;}
     }
     @media (max-width: 480px) {
@@ -476,8 +520,78 @@
       .partners-grid { grid-template-columns: 1fr 1fr; }
       .faq-q-text { font-size: 14px; }
     }
-  </style>
-</head>
+  
+    /* ── MEDIA + SUPPORTING PARTNERS ── */
+    .media-partners-section{background:#dde3f0;border-top:none;}
+    .media-partners-section .prog-partner-logo img{mix-blend-mode:multiply;opacity:1;}
+    .supporting-partners-section{background:#ffffff;}</style>
+  <style id="fug-fullbleed">
+    /* Backgrounds (higher specificity so page-level rules can't override them) */
+    .prog-partners-section.media-partners-section{background:#dde3f0 !important;border-top:none !important;}
+    .prog-partners-section.media-partners-section .prog-partner-logo img{mix-blend-mode:multiply;opacity:1;}
+    .prog-partners-section.supporting-partners-section{background:#ffffff !important;}
+
+    /* Corner-to-corner carousels: title keeps the page margin, the strip runs edge to edge */
+    .prog-partners-section .prog-partners-inner{padding:0 !important;}
+    .prog-partners-section .prog-partners-title{padding:0 248px !important;}
+    .prog-partners-section .prog-carousel-outer{-webkit-mask-image:none !important;mask-image:none !important;width:100% !important;}
+    @media(max-width:1024px){.prog-partners-section .prog-partners-title{padding:0 48px !important;}}
+    @media(max-width:768px){.prog-partners-section .prog-partners-title{padding:0 20px !important;}}
+  </style>  <style id="fug-nominees">
+    .nom-tabs{display:flex;gap:0;padding:32px 248px 0;border-bottom:1px solid rgba(26,39,68,0.12);overflow-x:auto;scrollbar-width:none;}
+    .nom-tabs::-webkit-scrollbar{display:none;}
+    .nom-tab{padding:10px 22px 12px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#3a4060;opacity:0.45;cursor:pointer;border:none;background:none;font-family:'InterDisplay',sans-serif;position:relative;white-space:nowrap;transition:color 0.22s,opacity 0.22s,font-size 0.22s;flex-shrink:0;}
+    .nom-tab::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:#1a2744;transform:scaleX(0);transition:transform 0.25s ease;}
+    .nom-tab:hover{color:#1a2744;opacity:0.75;}
+    .nom-tab.active{color:#1a2744;opacity:1;font-size:11.5px;}
+    .nom-tab.active::after{transform:scaleX(1);}
+    .nom-panel{display:none;padding-top:32px;}
+    .nom-panel.active{display:block;}
+    .nom-panel .winners-strip{gap:16px 2px;}
+    @media(max-width:1024px){.nom-tabs{padding:24px 48px 0;}}
+    @media(max-width:768px){.nom-tabs{padding:16px 20px 0;}.nom-tab{padding:10px 14px 12px;font-size:9px;}.nom-panel .winners-strip{gap:28px;}}
+  </style>  <style id="fug-nominees-row">
+    /* One scrolling row instead of a stacked grid */
+    .nom-panel .winners-strip-outer{position:relative;overflow:visible;}
+    .nom-panel .winners-strip{
+      display:flex !important;flex-wrap:nowrap;gap:2px !important;
+      overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;
+      scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;
+      transform:none !important;
+    }
+    .nom-panel .winners-strip::-webkit-scrollbar{display:none;}
+    .nom-panel .winner-card{flex:0 0 calc((100% - 4px) / 3);scroll-snap-align:start;}
+
+    /* Side arrows */
+    .nom-arrow{
+      position:absolute;top:160px;transform:translateY(-50%);z-index:8;
+      width:44px;height:44px;border-radius:50%;
+      border:1.5px solid #1a2744;background:#ffffff;color:#1a2744;
+      font-size:20px;line-height:1;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      font-family:'InterDisplay',sans-serif;
+      transition:background 0.2s,color 0.2s,opacity 0.2s,transform 0.18s;
+    }
+    .nom-arrow:hover{background:#1a2744;color:#ffffff;transform:translateY(-50%) scale(1.06);}
+    .nom-arrow[disabled]{opacity:0.25;pointer-events:none;}
+    .nom-arrow-prev{left:calc(248px - 56px);}
+    .nom-arrow-next{right:calc(248px - 56px);}
+
+    @media(max-width:1200px){
+      .nom-arrow-prev{left:calc(248px - 56px);}
+    }
+    @media(max-width:1024px){
+      .nom-panel .winner-card{flex-basis:calc((100% - 2px) / 2);}
+      .nom-arrow-prev{left:2px;}
+      .nom-arrow-next{right:2px;}
+    }
+    @media(max-width:768px){
+      .nom-panel .winner-card{flex-basis:82%;}
+      .nom-arrow{top:130px;width:36px;height:36px;font-size:16px;}
+      .nom-arrow-prev{left:22px;}
+      .nom-arrow-next{right:22px;}
+    }
+  </style></head>
 <body>
 
 <script src="nav.js"></script>
@@ -492,6 +606,7 @@
       <h1 class="hero-title">Celebrating the Best<br> in African Digital Creativity</h1>
       <div class="hero-divider"></div>
       <p class="hero-body"> The Fak'ugesi Awards are the premier recognition of digital creative excellence on the African continent.<br/> Presented annually as a highlight of the Fak'ugesi African Digital Innovation Festival, the Awards honour outstanding creative work across immersive media, video games, animation, digital art, design and music. Now in their fourth edition, the Awards have become the definitive measure of where African digital creativity is and where it is headed.<br/>Founded in 2023 as a collaboration between Tshimologong Digital Innovation Precinct and the Wits School of Arts Digital Arts Department, the Fak'ugesi Awards exist on a simple conviction: the most significant digital creative work on the continent deserves to be seen, named and celebrated.</p>
+      <a class="btn-signal-guide" href="https://claude.ai/code/artifact/7c466634-baab-4a48-84d8-3f2ce3cc9463" target="_blank" rel="noopener">Signal Guide</a>
     </div>
     <div class="hero-logo-col">
       <img src="images/logos/signatureProgrammes/awards_logo_light.svg" alt="Fak'ugesi Awards" />
@@ -539,6 +654,363 @@
 
 
 <!-- ═══════════════════════════════ 2025 WINNERS ═══════════════════════════════ -->
+<!-- ═══════════════════════════════ 2026 NOMINEES ═══════════════════════════════ -->
+<section class="winners-section nominees-section reveal" id="nominees-2026">
+  <div class="winners-top-spacer">
+    <div class="sec-crosses sec-crosses-top"><div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div><div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div><div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div></div>
+  </div>
+  <div class="winners-header">
+    <h2 class="winners-title">2026 Nominees</h2>
+  </div>
+  <div class="nom-tabs" role="tablist">
+    <button class="nom-tab active" role="tab" data-nomtab="animation">Animation</button>
+    <button class="nom-tab" role="tab" data-nomtab="design">Design</button>
+    <button class="nom-tab" role="tab" data-nomtab="digital-art">Digital Art</button>
+    <button class="nom-tab" role="tab" data-nomtab="immersive-media">Immersive Media</button>
+    <button class="nom-tab" role="tab" data-nomtab="music">Music</button>
+    <button class="nom-tab" role="tab" data-nomtab="video-games">Video Games</button>
+  </div>
+
+  <div class="nom-panel active" data-nompanel="animation">
+    <div class="winners-strip-outer">
+      <div class="winners-strip">
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Animation&quot;,&quot;name&quot;:&quot;Ashay Parbhoo&quot;,&quot;src&quot;:&quot;images/Nominees/animation/20250902_145451%20-%20Ashay%20Parbhoo.jpg&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/animation/20250902_145451%20-%20Ashay%20Parbhoo.jpg" alt="Ashay Parbhoo" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Animation</p>
+            <p class="winner-name">Ashay Parbhoo</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Animation&quot;,&quot;name&quot;:&quot;Leal Bob Bernstein&quot;,&quot;src&quot;:&quot;images/Nominees/animation/ALL%20SONGS%20WRITTEN%20AND%20PRODUCED%20BY%20NEO%20SHINGWENYANA%20(6)%20-%20Leal%20_Bob_%20Bernstein.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/animation/ALL%20SONGS%20WRITTEN%20AND%20PRODUCED%20BY%20NEO%20SHINGWENYANA%20(6)%20-%20Leal%20_Bob_%20Bernstein.png" alt="Leal Bob Bernstein" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Animation</p>
+            <p class="winner-name">Leal Bob Bernstein</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Animation&quot;,&quot;name&quot;:&quot;Lola Aikins&quot;,&quot;src&quot;:&quot;images/Nominees/animation/Athlos_Comp_0090576%20-%20Lola%20Aikins.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/animation/Athlos_Comp_0090576%20-%20Lola%20Aikins.png" alt="Lola Aikins" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Animation</p>
+            <p class="winner-name">Lola Aikins</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Animation&quot;,&quot;name&quot;:&quot;Joshua Penniken&quot;,&quot;src&quot;:&quot;images/Nominees/animation/BNT%20STILL%2007%20-%20Joshua%20Penniken.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/animation/BNT%20STILL%2007%20-%20Joshua%20Penniken.png" alt="Joshua Penniken" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Animation</p>
+            <p class="winner-name">Joshua Penniken</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Animation&quot;,&quot;name&quot;:&quot;Lebo Magolego&quot;,&quot;src&quot;:&quot;images/Nominees/animation/CoffeeJoint_2%20-%20Lebo%20Magolego.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/animation/CoffeeJoint_2%20-%20Lebo%20Magolego.png" alt="Lebo Magolego" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Animation</p>
+            <p class="winner-name">Lebo Magolego</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Animation&quot;,&quot;name&quot;:&quot;Siya Peter&quot;,&quot;src&quot;:&quot;images/Nominees/animation/Fakugesi%20Poster_002%20-%20Siya%20Peter.jpg&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/animation/Fakugesi%20Poster_002%20-%20Siya%20Peter.jpg" alt="Siya Peter" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Animation</p>
+            <p class="winner-name">Siya Peter</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Animation&quot;,&quot;name&quot;:&quot;tafadzwa e shumba&quot;,&quot;src&quot;:&quot;images/Nominees/animation/Poster%20-%20tafadzwa%20e%20shumba.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/animation/Poster%20-%20tafadzwa%20e%20shumba.png" alt="tafadzwa e shumba" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Animation</p>
+            <p class="winner-name">tafadzwa e shumba</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Animation&quot;,&quot;name&quot;:&quot;Tabproduction Studios Ltd.&quot;,&quot;src&quot;:&quot;images/Nominees/animation/Tsoro%20-%20Tabproduction%20Studios%20Ltd..png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/animation/Tsoro%20-%20Tabproduction%20Studios%20Ltd..png" alt="Tabproduction Studios Ltd." loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Animation</p>
+            <p class="winner-name">Tabproduction Studios Ltd.</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Animation&quot;,&quot;name&quot;:&quot;Gladwin Stellenberg&quot;,&quot;src&quot;:&quot;images/Nominees/animation/updated%20-%20Gladwin%20Stellenberg.jpg&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/animation/updated%20-%20Gladwin%20Stellenberg.jpg" alt="Gladwin Stellenberg" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Animation</p>
+            <p class="winner-name">Gladwin Stellenberg</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nom-panel" data-nompanel="design">
+    <div class="winners-strip-outer">
+      <div class="winners-strip">
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Design&quot;,&quot;name&quot;:&quot;EZEKIEL OSUNLANA&quot;,&quot;src&quot;:&quot;images/Nominees/design/6034905530716851069%20-%20EZEKIEL%20OSUNLANA.jpg&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/design/6034905530716851069%20-%20EZEKIEL%20OSUNLANA.jpg" alt="EZEKIEL OSUNLANA" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Design</p>
+            <p class="winner-name">EZEKIEL OSUNLANA</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Design&quot;,&quot;name&quot;:&quot;Adeyemi Temidayo&quot;,&quot;src&quot;:&quot;images/Nominees/design/Furniture%20Visualization%20(3)%20-%20Adeyemi%20Temidayo.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/design/Furniture%20Visualization%20(3)%20-%20Adeyemi%20Temidayo.png" alt="Adeyemi Temidayo" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Design</p>
+            <p class="winner-name">Adeyemi Temidayo</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Design&quot;,&quot;name&quot;:&quot;imvelaphi tech&quot;,&quot;src&quot;:&quot;images/Nominees/design/Imbiza%20BluetoothSpeaker%20-%20imvelaphi%20tech.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/design/Imbiza%20BluetoothSpeaker%20-%20imvelaphi%20tech.png" alt="imvelaphi tech" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Design</p>
+            <p class="winner-name">imvelaphi tech</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Design&quot;,&quot;name&quot;:&quot;Shaquille Abdul-Rasheed&quot;,&quot;src&quot;:&quot;images/Nominees/design/Juicy-Collection%20-%20Shaquille%20Abdul-Rasheed.JPG&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/design/Juicy-Collection%20-%20Shaquille%20Abdul-Rasheed.JPG" alt="Shaquille Abdul-Rasheed" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Design</p>
+            <p class="winner-name">Shaquille Abdul-Rasheed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nom-panel" data-nompanel="digital-art">
+    <div class="winners-strip-outer">
+      <div class="winners-strip">
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Digital Art&quot;,&quot;name&quot;:&quot;Kamo Mashele&quot;,&quot;src&quot;:&quot;images/Nominees/digital%20art/ART_044.%20-%20Kamo%20Mashele.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/digital%20art/ART_044.%20-%20Kamo%20Mashele.png" alt="Kamo Mashele" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Digital Art</p>
+            <p class="winner-name">Kamo Mashele</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Digital Art&quot;,&quot;name&quot;:&quot;Gugulethu Ndlalani&quot;,&quot;src&quot;:&quot;images/Nominees/digital%20art/Artwork%203%2C%20Gugulethu%20Ndlalani%2C%2002.23.04%2C%202023%20-%20Gugulethu%20Ndlalani.JPG&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/digital%20art/Artwork%203%2C%20Gugulethu%20Ndlalani%2C%2002.23.04%2C%202023%20-%20Gugulethu%20Ndlalani.JPG" alt="Gugulethu Ndlalani" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Digital Art</p>
+            <p class="winner-name">Gugulethu Ndlalani</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Digital Art&quot;,&quot;name&quot;:&quot;nhlanhla dhlamini&quot;,&quot;src&quot;:&quot;images/Nominees/digital%20art/inbound7628989340143033819%20-%20nhlanhla%20dhlamini.jpg&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/digital%20art/inbound7628989340143033819%20-%20nhlanhla%20dhlamini.jpg" alt="nhlanhla dhlamini" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Digital Art</p>
+            <p class="winner-name">nhlanhla dhlamini</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Digital Art&quot;,&quot;name&quot;:&quot;Mahoutondji Kinmagbo&quot;,&quot;src&quot;:&quot;images/Nominees/digital%20art/memory_performer%20-%20Mahoutondji%20Kinmagbo.jpg&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/digital%20art/memory_performer%20-%20Mahoutondji%20Kinmagbo.jpg" alt="Mahoutondji Kinmagbo" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Digital Art</p>
+            <p class="winner-name">Mahoutondji Kinmagbo</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Digital Art&quot;,&quot;name&quot;:&quot;Mogomotsi Mogomotsi&quot;,&quot;src&quot;:&quot;images/Nominees/digital%20art/SmoshFin%20-%20Mogomotsi%20Mogomotsi.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/digital%20art/SmoshFin%20-%20Mogomotsi%20Mogomotsi.png" alt="Mogomotsi Mogomotsi" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Digital Art</p>
+            <p class="winner-name">Mogomotsi Mogomotsi</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Digital Art&quot;,&quot;name&quot;:&quot;ARTdirector&quot;,&quot;src&quot;:&quot;images/Nominees/digital%20art/upsaide%20down2%20-%20ARTdirector.jpg&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/digital%20art/upsaide%20down2%20-%20ARTdirector.jpg" alt="ARTdirector" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Digital Art</p>
+            <p class="winner-name">ARTdirector</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Digital Art&quot;,&quot;name&quot;:&quot;Simamkele Mrwetyana&quot;,&quot;src&quot;:&quot;images/Nominees/digital%20art/WhatsApp%20Image%202026-05-29%20at%2012.05.13%20PM%20-%20Simamkele%20Mrwetyana.jpeg&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/digital%20art/WhatsApp%20Image%202026-05-29%20at%2012.05.13%20PM%20-%20Simamkele%20Mrwetyana.jpeg" alt="Simamkele Mrwetyana" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Digital Art</p>
+            <p class="winner-name">Simamkele Mrwetyana</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nom-panel" data-nompanel="immersive-media">
+    <div class="winners-strip-outer">
+      <div class="winners-strip">
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Immersive Media&quot;,&quot;name&quot;:&quot;Aurelio Mofuga&quot;,&quot;src&quot;:&quot;images/Nominees/immersive%20media/1%20-%20Aurelio%20Mofuga.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/immersive%20media/1%20-%20Aurelio%20Mofuga.png" alt="Aurelio Mofuga" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Immersive Media</p>
+            <p class="winner-name">Aurelio Mofuga</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Immersive Media&quot;,&quot;name&quot;:&quot;closerlook-vr-oldways-official-trailer-game-devs-of-color-ex wwwp.1200-2806839620&quot;,&quot;src&quot;:&quot;images/Nominees/immersive%20media/closerlook-vr-oldways-official-trailer-game-devs-of-color-ex_wwwp.1200-2806839620.jpg&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/immersive%20media/closerlook-vr-oldways-official-trailer-game-devs-of-color-ex_wwwp.1200-2806839620.jpg" alt="closerlook-vr-oldways-official-trailer-game-devs-of-color-ex wwwp.1200-2806839620" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Immersive Media</p>
+            <p class="winner-name">closerlook-vr-oldways-official-trailer-game-devs-of-color-ex wwwp.1200-2806839620</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Immersive Media&quot;,&quot;name&quot;:&quot;Alex Mkwizu&quot;,&quot;src&quot;:&quot;images/Nominees/immersive%20media/documentary-film-poster%205.0%20-%20Alex%20Mkwizu.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/immersive%20media/documentary-film-poster%205.0%20-%20Alex%20Mkwizu.png" alt="Alex Mkwizu" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Immersive Media</p>
+            <p class="winner-name">Alex Mkwizu</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Immersive Media&quot;,&quot;name&quot;:&quot;oliyad tesfaye&quot;,&quot;src&quot;:&quot;images/Nominees/immersive%20media/Gift%20collector%20XR%20-%20oliyad%20tesfaye.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/immersive%20media/Gift%20collector%20XR%20-%20oliyad%20tesfaye.png" alt="oliyad tesfaye" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Immersive Media</p>
+            <p class="winner-name">oliyad tesfaye</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Immersive Media&quot;,&quot;name&quot;:&quot;oliyad tesfaye&quot;,&quot;src&quot;:&quot;images/Nominees/immersive%20media/Immersive%20Lab%20VR%20Cover%20By%20Tobiya%20Studio%20-%20oliyad%20tesfaye.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/immersive%20media/Immersive%20Lab%20VR%20Cover%20By%20Tobiya%20Studio%20-%20oliyad%20tesfaye.png" alt="oliyad tesfaye" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Immersive Media</p>
+            <p class="winner-name">oliyad tesfaye</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Immersive Media&quot;,&quot;name&quot;:&quot;Arielle Marinakis&quot;,&quot;src&quot;:&quot;images/Nominees/immersive%20media/Ponte%20Project%20Still%20Image%20-%20Arielle%20Marinakis.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/immersive%20media/Ponte%20Project%20Still%20Image%20-%20Arielle%20Marinakis.png" alt="Arielle Marinakis" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Immersive Media</p>
+            <p class="winner-name">Arielle Marinakis</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nom-panel" data-nompanel="music">
+    <div class="winners-strip-outer">
+      <div class="winners-strip">
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Music&quot;,&quot;name&quot;:&quot;Lutho Kondlo&quot;,&quot;src&quot;:&quot;images/Nominees/music/79C3B477-6463-4FF5-83D3-F34DBA7395B9%20-%20Lutho%20Kondlo.jpeg&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/music/79C3B477-6463-4FF5-83D3-F34DBA7395B9%20-%20Lutho%20Kondlo.jpeg" alt="Lutho Kondlo" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Music</p>
+            <p class="winner-name">Lutho Kondlo</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Music&quot;,&quot;name&quot;:&quot;Leal Bob Bernstein&quot;,&quot;src&quot;:&quot;images/Nominees/music/ALL%20SONGS%20WRITTEN%20AND%20PRODUCED%20BY%20NEO%20SHINGWENYANA%20(3)%20-%20Leal%20_Bob_%20Bernstein.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/music/ALL%20SONGS%20WRITTEN%20AND%20PRODUCED%20BY%20NEO%20SHINGWENYANA%20(3)%20-%20Leal%20_Bob_%20Bernstein.png" alt="Leal Bob Bernstein" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Music</p>
+            <p class="winner-name">Leal Bob Bernstein</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Music&quot;,&quot;name&quot;:&quot;Mike Ngudle&quot;,&quot;src&quot;:&quot;images/Nominees/music/E-23-24.2%20-%20Mike%20Ngudle.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/music/E-23-24.2%20-%20Mike%20Ngudle.png" alt="Mike Ngudle" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Music</p>
+            <p class="winner-name">Mike Ngudle</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Music&quot;,&quot;name&quot;:&quot;Kabelo Gopane&quot;,&quot;src&quot;:&quot;images/Nominees/music/Endgame_low%20res0%20-%20Kabelo%20Gopane.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/music/Endgame_low%20res0%20-%20Kabelo%20Gopane.png" alt="Kabelo Gopane" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Music</p>
+            <p class="winner-name">Kabelo Gopane</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Music&quot;,&quot;name&quot;:&quot;Tabproduction Studios Ltd.&quot;,&quot;src&quot;:&quot;images/Nominees/music/Rain%20Cover%20-%20Tabproduction%20Studios%20Ltd..png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/music/Rain%20Cover%20-%20Tabproduction%20Studios%20Ltd..png" alt="Tabproduction Studios Ltd." loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Music</p>
+            <p class="winner-name">Tabproduction Studios Ltd.</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Music&quot;,&quot;name&quot;:&quot;Rowan Chiyanike&quot;,&quot;src&quot;:&quot;images/Nominees/music/Upfoto_vugKgj2WVrQQ4wo1fLIkuLEGuPWez5xbVWYg3XKW8okc2%20-%20Rowan%20Chiyanike.jpg&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/music/Upfoto_vugKgj2WVrQQ4wo1fLIkuLEGuPWez5xbVWYg3XKW8okc2%20-%20Rowan%20Chiyanike.jpg" alt="Rowan Chiyanike" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Music</p>
+            <p class="winner-name">Rowan Chiyanike</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nom-panel" data-nompanel="video-games">
+    <div class="winners-strip-outer">
+      <div class="winners-strip">
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Video Games&quot;,&quot;name&quot;:&quot;zinhle mazibuko&quot;,&quot;src&quot;:&quot;images/Nominees/video%20games/africa%20-%20zinhle%20mazibuko.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/video%20games/africa%20-%20zinhle%20mazibuko.png" alt="zinhle mazibuko" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Video Games</p>
+            <p class="winner-name">zinhle mazibuko</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Video Games&quot;,&quot;name&quot;:&quot;nhlanganiso tshabangu&quot;,&quot;src&quot;:&quot;images/Nominees/video%20games/AzaniaSL_UI%20Design%20-%20Phone%20Format_Main%20Menu%20-%20nhlanganiso%20tshabangu.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/video%20games/AzaniaSL_UI%20Design%20-%20Phone%20Format_Main%20Menu%20-%20nhlanganiso%20tshabangu.png" alt="nhlanganiso tshabangu" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Video Games</p>
+            <p class="winner-name">nhlanganiso tshabangu</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Video Games&quot;,&quot;name&quot;:&quot;DELUXE CREATION STUDIOS&quot;,&quot;src&quot;:&quot;images/Nominees/video%20games/dambe-hero%20-%20DELUXE%20CREATION%20STUDIOS.jpg&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/video%20games/dambe-hero%20-%20DELUXE%20CREATION%20STUDIOS.jpg" alt="DELUXE CREATION STUDIOS" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Video Games</p>
+            <p class="winner-name">DELUXE CREATION STUDIOS</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Video Games&quot;,&quot;name&quot;:&quot;LuandaMagere&quot;,&quot;src&quot;:&quot;images/Nominees/video%20games/LuandaMagere.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/video%20games/LuandaMagere.png" alt="LuandaMagere" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Video Games</p>
+            <p class="winner-name">LuandaMagere</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Video Games&quot;,&quot;name&quot;:&quot;Ma3Simulator Poster&quot;,&quot;src&quot;:&quot;images/Nominees/video%20games/Ma3Simulator%20Poster.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/video%20games/Ma3Simulator%20Poster.png" alt="Ma3Simulator Poster" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Video Games</p>
+            <p class="winner-name">Ma3Simulator Poster</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Video Games&quot;,&quot;name&quot;:&quot;Sangwani Joe Mkandawire&quot;,&quot;src&quot;:&quot;images/Nominees/video%20games/Movie_001%20-%20frame%20at%200m2s%20-%20Sangwani%20Joe%20Mkandawire.jpg&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/video%20games/Movie_001%20-%20frame%20at%200m2s%20-%20Sangwani%20Joe%20Mkandawire.jpg" alt="Sangwani Joe Mkandawire" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Video Games</p>
+            <p class="winner-name">Sangwani Joe Mkandawire</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Video Games&quot;,&quot;name&quot;:&quot;Siphelele Mabaso&quot;,&quot;src&quot;:&quot;images/Nominees/video%20games/Power%20to%20the%20People%20-%20Siphelele%20Mabaso.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/video%20games/Power%20to%20the%20People%20-%20Siphelele%20Mabaso.png" alt="Siphelele Mabaso" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Video Games</p>
+            <p class="winner-name">Siphelele Mabaso</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Video Games&quot;,&quot;name&quot;:&quot;Dolapo Olaopa-Thompson&quot;,&quot;src&quot;:&quot;images/Nominees/video%20games/Shot0%20-%20Dolapo%20Olaopa-Thompson.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/video%20games/Shot0%20-%20Dolapo%20Olaopa-Thompson.png" alt="Dolapo Olaopa-Thompson" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Video Games</p>
+            <p class="winner-name">Dolapo Olaopa-Thompson</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Video Games&quot;,&quot;name&quot;:&quot;nhlanganiso tshabangu&quot;,&quot;src&quot;:&quot;images/Nominees/video%20games/Title%20design%20smol%20-%20nhlanganiso%20tshabangu.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/video%20games/Title%20design%20smol%20-%20nhlanganiso%20tshabangu.png" alt="nhlanganiso tshabangu" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Video Games</p>
+            <p class="winner-name">nhlanganiso tshabangu</p>
+          </div>
+        </div>
+        <div class="winner-card" data-lightbox="{&quot;country&quot;:&quot;&quot;,&quot;meta&quot;:&quot;2026 Nominee&quot;,&quot;cat&quot;:&quot;Nominee &#183; Video Games&quot;,&quot;name&quot;:&quot;Bisrat ashagre&quot;,&quot;src&quot;:&quot;images/Nominees/video%20games/Veiled%20Pitch%20Deck%20-%20Bisrat%20ashagre.png&quot;}">
+          <div class="winner-img-wrap"><img src="images/Nominees/video%20games/Veiled%20Pitch%20Deck%20-%20Bisrat%20ashagre.png" alt="Bisrat ashagre" loading="lazy" /></div>
+          <div class="winner-info">
+            <p class="winner-cat">Nominee · Video Games</p>
+            <p class="winner-name">Bisrat ashagre</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="position:relative;height:52px;margin-top:0;">
+    <div class="sec-crosses sec-crosses-top-sm"><div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div><div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div><div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div></div>
+  </div>
+</section>
 <section class="winners-section reveal">
 
   <div class="winners-top-spacer">
@@ -956,6 +1428,132 @@
   </div>
 </section>
 
+<!-- ═══════════════════════════════ PROGRAMME PARTNERS CAROUSEL ═══════════════════════════════ -->
+<section class="prog-partners-section">
+  <div class="prog-partners-inner">
+    <h2 class="prog-partners-title">Programme Partners</h2>
+    <div class="prog-carousel-outer">
+      <div class="prog-carousel-track" id="progPartnersTrack">
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Bath%20Spa%20University/Slate%20Blue%20Logo_RGB.png" alt="Bath Spa University" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/CTIAF/CTIAF-logo-white.png" alt="CTIAF"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Dark%20Room%20Contemporary/drc.png" alt="Dark Room Contemporary" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Digital%20Lab%20Africa/DLA-01.png" alt="Digital Lab Africa" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/HabitatXR/habitatxr.png" alt="HabitatXR" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Highly%20Dedicated/HD.jpg" alt="Highly Dedicated" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Iziko/Logos%20for%20Iziko%20x%20DSAC/DSACxIziko_Logos.jpg" alt="Iziko" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Jack%20Ginsberg%20Centre%20for%20Book%20Arts/wits_jgcba_logos_02.png" alt="Jack Ginsberg Centre for Book Arts" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Japan%20Foundation/Lockup1_A_1.jpg" alt="Japan Foundation" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/JIWE/jiwe-io-lockup-dark.svg" alt="JIWE" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/JIX/Logo%20Black.png" alt="JIX" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Latitudes%20Art%20Fair/RMBLat-b.png" alt="Latitudes Art Fair" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Matamba%20Film%20Labs/matambafilms.png" alt="Matamba Film Labs" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Mollo/Mollo-Logo-web-3906027300.png" alt="Mollo" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Naledi3D/cropped-cropped-logo-512.png" alt="Naledi3D" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/NORMVL/cropped-NORMVL-2025-Logo-11-scaled.png" alt="NORMVL" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Open%20Restitution%20Africa/Open-Restitution-Africa-_ORA-Logo-White.svg" alt="Open Restitution Africa"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Red%20Balloon/rbf-logo-r.svg" alt="Red Balloon" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Redbull/redbull.svg" alt="Red Bull" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/SAMPRA/sampra-logo-1.svg" alt="SAMPRA" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/University%20of%20Johannesburg/uj.svg" alt="University of Johannesburg" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/VR%20Capture/vrcapture.svg" alt="VR Capture" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/XR%20Native/XR%20Native%20HighRes%20Black.png" alt="XR Native" class="keep-color"/></div>
+        <!-- duplicate set for seamless loop -->
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Bath%20Spa%20University/Slate%20Blue%20Logo_RGB.png" alt="Bath Spa University" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/CTIAF/CTIAF-logo-white.png" alt="CTIAF"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Dark%20Room%20Contemporary/drc.png" alt="Dark Room Contemporary" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Digital%20Lab%20Africa/DLA-01.png" alt="Digital Lab Africa" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/HabitatXR/habitatxr.png" alt="HabitatXR" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Highly%20Dedicated/HD.jpg" alt="Highly Dedicated" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Iziko/Logos%20for%20Iziko%20x%20DSAC/DSACxIziko_Logos.jpg" alt="Iziko" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Jack%20Ginsberg%20Centre%20for%20Book%20Arts/wits_jgcba_logos_02.png" alt="Jack Ginsberg Centre for Book Arts" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Japan%20Foundation/Lockup1_A_1.jpg" alt="Japan Foundation" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/JIWE/jiwe-io-lockup-dark.svg" alt="JIWE" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/JIX/Logo%20Black.png" alt="JIX" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Latitudes%20Art%20Fair/RMBLat-b.png" alt="Latitudes Art Fair" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Matamba%20Film%20Labs/matambafilms.png" alt="Matamba Film Labs" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Mollo/Mollo-Logo-web-3906027300.png" alt="Mollo" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Naledi3D/cropped-cropped-logo-512.png" alt="Naledi3D" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/NORMVL/cropped-NORMVL-2025-Logo-11-scaled.png" alt="NORMVL" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Open%20Restitution%20Africa/Open-Restitution-Africa-_ORA-Logo-White.svg" alt="Open Restitution Africa"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Red%20Balloon/rbf-logo-r.svg" alt="Red Balloon" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/Redbull/redbull.svg" alt="Red Bull" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/SAMPRA/sampra-logo-1.svg" alt="SAMPRA" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/University%20of%20Johannesburg/uj.svg" alt="University of Johannesburg" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/VR%20Capture/vrcapture.svg" alt="VR Capture" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Programme%20partners/XR%20Native/XR%20Native%20HighRes%20Black.png" alt="XR Native" class="keep-color"/></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ── Media Partners ── -->
+<section class="prog-partners-section media-partners-section">
+  <div class="prog-partners-inner">
+    <h2 class="prog-partners-title">Media Partners</h2>
+    <div class="prog-carousel-outer">
+      <div class="prog-carousel-track" style="animation-duration:53s">
+        <div class="prog-partner-logo"><img src="images/media partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail & Gaurdian" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail & Gaurdian" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail & Gaurdian" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail & Gaurdian" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail & Gaurdian" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail & Gaurdian" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ── Supporting Partners ── -->
+<section class="prog-partners-section supporting-partners-section">
+  <div class="prog-partners-inner">
+    <h2 class="prog-partners-title">Supporting Partners</h2>
+    <div class="prog-carousel-outer">
+      <div class="prog-carousel-track" style="animation-duration:32s">
+        <div class="prog-partner-logo"><img src="images/Supporting Partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting Partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting Partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting Partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting Partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting Partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting Partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting Partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting Partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting Partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting Partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting Partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting Partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting Partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting Partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting Partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting Partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting Partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <script src="footer.js"></script>
 
 <script>
@@ -1196,5 +1794,57 @@ faqData.forEach((faq, i) => {
 })();
 </script>
 
+<script>
+/* ── 2026 NOMINEES TABS ── */
+(function () {
+  var tabs = document.querySelectorAll('.nom-tab'), panels = document.querySelectorAll('.nom-panel');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) { t.classList.remove('active'); });
+      panels.forEach(function (p) { p.classList.remove('active'); });
+      tab.classList.add('active');
+      var p = document.querySelector('.nom-panel[data-nompanel="' + tab.getAttribute('data-nomtab') + '"]');
+      if (p) p.classList.add('active');
+    });
+  });
+})();
+</script>
+<script>
+/* ── 2026 NOMINEES: single row with side arrows ── */
+(function () {
+  document.querySelectorAll('.nom-panel').forEach(function (panel) {
+    var outer = panel.querySelector('.winners-strip-outer');
+    var strip = panel.querySelector('.winners-strip');
+    if (!outer || !strip) return;
+
+    var prev = document.createElement('button');
+    var next = document.createElement('button');
+    prev.className = 'nom-arrow nom-arrow-prev'; prev.setAttribute('aria-label', 'Previous nominees'); prev.innerHTML = '&larr;';
+    next.className = 'nom-arrow nom-arrow-next'; next.setAttribute('aria-label', 'Next nominees'); next.innerHTML = '&rarr;';
+    outer.appendChild(prev); outer.appendChild(next);
+
+    function update() {
+      prev.disabled = strip.scrollLeft <= 2;
+      next.disabled = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 2;
+    }
+    prev.addEventListener('click', function () { strip.scrollBy({ left: -strip.clientWidth, behavior: 'smooth' }); });
+    next.addEventListener('click', function () { strip.scrollBy({ left:  strip.clientWidth, behavior: 'smooth' }); });
+    strip.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    panel._navUpdate = update;
+    update();
+  });
+
+  /* Recalculate arrow state when a tab is switched (hidden panels have no width) */
+  document.querySelectorAll('.nom-tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      setTimeout(function () {
+        var p = document.querySelector('.nom-panel.active');
+        if (p) { var s = p.querySelector('.winners-strip'); if (s) s.scrollLeft = 0; if (p._navUpdate) p._navUpdate(); }
+      }, 30);
+    });
+  });
+})();
+</script>
 </body>
 </html>

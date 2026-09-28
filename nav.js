@@ -311,6 +311,7 @@
   const links = [
     { label: 'Home',                 href: '/index.html' },
     { label: 'Festival Programme',   href: '/festival-programmes.html' },
+    { label: 'Signal Guide',         href: 'https://claude.ai/code/artifact/7c466634-baab-4a48-84d8-3f2ce3cc9463', external: true },
     { label: 'Signature Programmes', href: '/sig-awards.html', sigDd: true },
     { label: 'Discover',             href: '#', dd: [
       { label: 'About Us',   href: '/about.html' },
@@ -329,7 +330,7 @@
       const ddHTML = `<div class="nav-dd">${l.dd.map(d => `<a href="${d.href}">${d.label}</a>`).join('')}</div>`;
       return `<li data-i="${i}"><span class="${active ? 'active' : ''}">${l.label} ▾</span>${ddHTML}</li>`;
     }
-    return `<li data-i="${i}"><a href="${l.href}"${active ? ' class="active"' : ''}>${l.label}</a></li>`;
+    return `<li data-i="${i}"><a href="${l.href}"${active ? ' class="active"' : ''}${l.external ? ' target="_blank" rel="noopener"' : ''}>${l.label}</a></li>`;
   }).join('');
 
   /* ── Mobile menu items ── */
@@ -359,7 +360,7 @@
           <ul class="mob-sub" id="mob-sub-${i}">${subItems}</ul>
         </li>`;
     }
-    return `<li><a href="${l.href}"${active ? ' class="active"' : ''} data-nav-link>${l.label}</a></li>`;
+    return `<li><a href="${l.href}"${active ? ' class="active"' : ''}${l.external ? ' target="_blank" rel="noopener"' : ''} data-nav-link>${l.label}</a></li>`;
   }).join('');
 
   document.body.insertAdjacentHTML('afterbegin', `
@@ -494,13 +495,16 @@
     { title: 'Research & Resources', section: 'Resources', url: '/discover/resources.html', tags: ['research','resources','report','intermediaries report','download','pdf'] },
     { title: 'Get Involved', section: 'Get Involved', url: '/get-involved.html', tags: ['get involved','investors','funders','volunteers','exhibitors','sponsors','apply'] },
     { title: "Director's Highlights", section: 'Highlights', url: '/director-highlights.html', tags: ["director's highlights","director highlights","festival highlights","highlights"] },
+
+    // Signal Guide (external)
+    { title: 'Signal Guide', section: 'Signal Guide', url: 'https://claude.ai/code/artifact/7c466634-baab-4a48-84d8-3f2ce3cc9463', tags: ['signal','guide','signal guide'] },
   ];
 
   const categoryColors = {
     'Home': '#4a90d9', 'About': '#5a6a7a', 'Tickets': '#a03a3a', 'Venues': '#4a7a4a',
     'Awards': '#b8860b', 'Dala Khona': '#1a7a4a', 'PRO': '#3a5a9a', 'Immersive Africa': '#7a3a8a',
     'JAMZ': '#c43a3a', 'Pitchathon': '#2a6a8a', 'Market': '#3a8a6a', 'Resources': '#3a6a7a',
-    'Get Involved': '#7b68ee', 'Highlights': '#c46200'
+    'Get Involved': '#7b68ee', 'Highlights': '#c46200', 'Signal Guide': '#00a6a6'
   };
 
   const searchBar    = document.getElementById('nav-search-bar');
@@ -552,6 +556,7 @@
       el.href = r.url;
       el.className = 'nsr-item';
       el.dataset.navLink = '';
+      if (/^https?:\/\//.test(r.url)) { el.target = '_blank'; el.rel = 'noopener'; }
       el.innerHTML = `
         <div class="nsr-section" style="color:${categoryColors[r.section] || 'rgba(255,255,255,0.35)'}">${r.section}</div>
         <div class="nsr-title">${highlight(r.title, q)}</div>
