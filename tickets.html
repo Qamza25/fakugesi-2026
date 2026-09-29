@@ -224,22 +224,22 @@
     /* ── PROGRAMME PARTNERS CAROUSEL ── */
     .prog-partners-section{background:#ffffff;padding:40px 0;position:relative;border-top:1px solid rgba(26,39,68,0.08);}
     .prog-partners-inner{padding:0 248px;}
-    .prog-partners-title{font-family:'InterDisplay',sans-serif;font-size:26px;font-weight:700;color:#0d1b3e;margin-bottom:24px;}
+    .prog-partners-title{font-family:'InterDisplay',sans-serif;font-size:22px;font-weight:700;color:#0d1b3e;margin-bottom:64px;}
     .prog-carousel-outer{overflow:hidden;width:100%;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);}
-    .prog-carousel-track{display:flex;align-items:center;gap:36px;width:max-content;animation:progCarouselScroll 80s linear infinite;}
+    .prog-carousel-track{display:flex;align-items:center;gap:36px;width:max-content;animation:progCarouselScroll 40s linear infinite;}
     .prog-carousel-track:hover{animation-play-state:paused;}
     @keyframes progCarouselScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-    .prog-partner-logo{flex:0 0 auto;height:56px;width:140px;display:flex;align-items:center;justify-content:center;}
-    .prog-partner-logo img{max-height:40px;max-width:100%;object-fit:contain;display:block;filter:brightness(0) saturate(100%) invert(18%) sepia(52%) saturate(800%) hue-rotate(197deg) brightness(85%);opacity:0.75;transition:opacity 0.25s;}
+    .prog-partner-logo{flex:0 0 auto;height:28px;width:74px;display:flex;align-items:center;justify-content:center;}
+    .prog-partner-logo img{max-height:18px;max-width:100%;object-fit:contain;display:block;filter:brightness(0) saturate(100%) invert(18%) sepia(52%) saturate(800%) hue-rotate(197deg) brightness(85%);opacity:0.75;transition:opacity 0.25s;}
     .prog-partner-logo img.keep-color{filter:none !important;}
     .prog-partner-logo:hover img{opacity:1;}
     @media(max-width:1024px){.prog-partners-inner{padding:0 48px;}}
     @media(max-width:768px){
       .prog-partners-section{padding:28px 0;}
       .prog-partners-inner{padding:0 20px;}
-      .prog-partners-title{font-size:20px;margin-bottom:18px;}
-      .prog-partner-logo{height:44px;width:110px;}
-      .prog-partner-logo img{max-height:30px;}
+      .prog-partners-title{font-size:17px;margin-bottom:32px;}
+      .prog-partner-logo{height:22px;width:60px;}
+      .prog-partner-logo img{max-height:14px;}
     }
     /* ── MEDIA + SUPPORTING PARTNERS ── */
     .media-partners-section{background:#dde3f0;border-top:none;}
@@ -491,6 +491,7 @@
 <!-- ── PROGRAMME PARTNERS CAROUSEL ── -->
 <section class="prog-partners-section">
   <div class="prog-partners-inner">
+    <h2 class="prog-partners-title">Programme Partners</h2>
     <div class="prog-carousel-outer">
       <div class="prog-carousel-track" id="progPartnersTrack">
         <div class="prog-partner-logo"><img src="images/Programme%20partners/Bath%20Spa%20University/Slate%20Blue%20Logo_RGB.png" alt="Bath Spa University" class="keep-color"/></div>
@@ -547,8 +548,9 @@
 <!-- ── Media Partners ── -->
 <section class="prog-partners-section media-partners-section">
   <div class="prog-partners-inner">
+    <h2 class="prog-partners-title">Media Partners</h2>
     <div class="prog-carousel-outer">
-      <div class="prog-carousel-track" style="animation-duration:53s">
+      <div class="prog-carousel-track" style="animation-duration:40s">
         <div class="prog-partner-logo"><img src="images/media partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
         <div class="prog-partner-logo"><img src="images/media partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
         <div class="prog-partner-logo"><img src="images/media partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail & Gaurdian" class="keep-color"/></div>
@@ -586,8 +588,9 @@
 <!-- ── Supporting Partners ── -->
 <section class="prog-partners-section supporting-partners-section">
   <div class="prog-partners-inner">
+    <h2 class="prog-partners-title">Support Partners</h2>
     <div class="prog-carousel-outer">
-      <div class="prog-carousel-track" style="animation-duration:32s">
+      <div class="prog-carousel-track" style="animation-duration:40s">
         <div class="prog-partner-logo"><img src="images/Supporting Partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
         <div class="prog-partner-logo"><img src="images/Supporting Partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
         <div class="prog-partner-logo"><img src="images/Supporting Partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
@@ -663,3 +666,7 @@ faqData.forEach((faq, i) => {
 </script>
 </body>
 </html>
+
+
+
+
