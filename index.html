@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -606,6 +606,82 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
       font-family: 'RobotoMono', monospace !important;
     }
   </style>
+<style id="fug-partner-size">
+  .prog-partners-section:not(.supporting-partners-section) .prog-carousel-track{gap:40px !important;}
+  .prog-partners-section:not(.supporting-partners-section) .prog-partner-logo{height:38px !important;width:104px !important;}
+  .prog-partners-section:not(.supporting-partners-section) .prog-partner-logo img{max-height:26px !important;}
+  .prog-partner-logo img.logo-dark{filter:brightness(0) saturate(100%) invert(18%) sepia(52%) saturate(800%) hue-rotate(197deg) brightness(85%) !important;opacity:1 !important;mix-blend-mode:normal !important;}
+  .prog-partner-logo.logo-bg-dark{background:#1a2744 !important;padding:0 10px !important;}
+  .prog-partner-logo.logo-bg-dark img{filter:none !important;opacity:1 !important;mix-blend-mode:normal !important;}
+  @media(max-width:768px){
+    .prog-partners-section:not(.supporting-partners-section) .prog-carousel-track{gap:24px !important;}
+    .prog-partners-section:not(.supporting-partners-section) .prog-partner-logo{height:30px !important;width:80px !important;}
+    .prog-partners-section:not(.supporting-partners-section) .prog-partner-logo img{max-height:20px !important;}
+  }
+</style>
+<style id="fug-logo-colors">
+  /* Force these logos dark (navy), by filename */
+  .prog-partners-section .prog-carousel-track .prog-partner-logo img[src*="vrcapture.svg"],
+  .prog-partners-section .prog-carousel-track .prog-partner-logo img[src*="cropped-logo-2026.png"],
+  .prog-partners-section .prog-carousel-track .prog-partner-logo img[src*="CTIAF-logo-white.png"],
+  .prog-partners-section .prog-carousel-track .prog-partner-logo img[src*="subverso.png"]{
+    filter:brightness(0) saturate(100%) invert(18%) sepia(52%) saturate(800%) hue-rotate(197deg) brightness(85%) !important;
+    opacity:1 !important;
+    mix-blend-mode:normal !important;
+  }
+  /* Dark tile behind the UVM logo */
+  .prog-partners-section .prog-carousel-track .prog-partner-logo:has(img[src*="uvm_understanding_visual_music.png"]){
+    background:#1a2744 !important;
+    padding:0 10px !important;
+  }
+  .prog-partners-section .prog-carousel-track .prog-partner-logo img[src*="uvm_understanding_visual_music.png"]{
+    filter:none !important;
+    opacity:1 !important;
+    mix-blend-mode:normal !important;
+  }
+</style>
+
+<style id="featured-section-styles">
+  .featured-section{background:var(--navy);padding:72px 0;position:relative;overflow:hidden;}
+  .featured-inner{padding:0 var(--band);}
+  .featured-header{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px;flex-wrap:wrap;}
+  .featured-title{font-family:'RobotoMono',monospace;font-size:38px;font-weight:700;color:var(--white);line-height:1.05;}
+  .featured-sub{font-family:'InterDisplay',sans-serif;font-size:14px;font-weight:400;letter-spacing:0.06em;color:var(--turquoise);opacity:0.9;max-width:380px;line-height:1.5;}
+  .featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch;}
+ 
+  .featured-card{position:relative;display:flex;flex-direction:column;padding:28px 24px 24px;border:1px solid rgba(255,255,255,0.22);background:rgba(255,255,255,0.03);transition:background 0.25s ease,border-color 0.25s ease,transform 0.25s ease,box-shadow 0.35s ease;}
+  .featured-card:hover{background:rgba(0,244,245,0.07);border-color:var(--turquoise);transform:translateY(-4px);box-shadow:0 10px 32px rgba(0,244,245,0.12);}
+  .featured-num{position:absolute;top:14px;right:18px;font-family:'InterDisplay',sans-serif;font-size:36px;font-weight:700;color:var(--white);opacity:0.9;line-height:1;}
+  .featured-tag{font-family:'InterDisplay',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);opacity:0.6;margin-top:28px;margin-bottom:8px;}
+  .featured-name{font-family:'InterDisplay',sans-serif;font-size:24px;font-weight:600;line-height:1.15;color:var(--white);margin-bottom:10px;}
+  .featured-role{font-family:'InterDisplay',sans-serif;font-size:12px;font-weight:500;color:var(--white);opacity:0.7;margin-bottom:18px;}
+  .featured-hook{font-family:'InterDisplay',sans-serif;font-size:17px;font-weight:600;font-style:italic;color:var(--turquoise);line-height:1.3;margin-bottom:16px;}
+  .featured-body{font-family:'InterDisplay',sans-serif;font-size:12.5px;font-weight:400;line-height:1.7;color:var(--white);opacity:0.82;margin-bottom:22px;flex:1;}
+ 
+  .featured-session{border-top:1px solid rgba(255,255,255,0.22);padding-top:16px;}
+  .featured-session-label{font-family:'InterDisplay',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--turquoise);margin-bottom:6px;}
+  .featured-session-title{font-family:'InterDisplay',sans-serif;font-size:14px;font-weight:600;line-height:1.35;color:var(--white);margin-bottom:10px;}
+  .featured-meta{font-family:'InterDisplay',sans-serif;font-size:12px;line-height:1.6;color:var(--white);opacity:0.85;}
+  .featured-meta strong{font-weight:600;}
+  .featured-credit{font-family:'InterDisplay',sans-serif;font-size:10.5px;line-height:1.55;color:var(--white);opacity:0.55;margin-top:12px;}
+ 
+  @media(max-width:1024px){
+    .featured-inner{padding:0 48px;}
+    .featured-title{font-size:32px;}
+    .featured-grid{grid-template-columns:1fr 1fr;}
+    .featured-card:last-child{grid-column:1 / -1;}
+  }
+  @media(max-width:768px){
+    .featured-section{padding:48px 0;}
+    .featured-inner{padding:0 20px;}
+    .featured-header{flex-direction:column;align-items:flex-start;gap:12px;margin-bottom:28px;}
+    .featured-title{font-size:26px;}
+    .featured-grid{grid-template-columns:1fr;gap:12px;}
+    .featured-card:last-child{grid-column:auto;}
+  }
+  @media(max-width:480px){.featured-title{font-size:22px;}}
+</style>
+ 
 </head>
 <body>
 
@@ -613,16 +689,16 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
 
 <!-- HERO -->
 <section class="hero">
-  <img class="hero-video" src="/images/_MGL2775.jpg" alt="Fak'ugesi Festival" autoplay muted loop playsinline preload="auto">
+  <img class="hero-video" src="images/IMG_1696 (1).png" alt="Fak'ugesi Festival" autoplay muted loop playsinline preload="auto">
   <div class="hero-overlay"></div>
   <div class="hero-inner">
     <div class="hero-content">
       <p class="hero-subtitle">African Digital &amp; Innovation Festival</p>
       <h2 class="hero-title">Fak'ugesi<br>Festival</h2>
-      <p class="hero-body">African thinkers, makers, coders, creatives, and archivists are already building the systems through which the future will be lived, remembered, and shared. where that work meets the world.</p>
-      <a class="hero-link" href="about.html">What is Fak'ugesi? <span class="hero-link-arrow">→</span></a>
+      <p class="hero-body">African thinkers, makers, coders, creatives, and archivists are already building the systems through which the future will be lived, remembered, and shared. Where that work meets the world.</p>
+      <a class="hero-link" href="about.html">More About Fak'ugesi 2026<span class="hero-link-arrow">→</span></a>
       <div>
-        <a class="btn-signal-guide" href="https://claude.ai/code/artifact/7c466634-baab-4a48-84d8-3f2ce3cc9463" target="_blank" rel="noopener">Signal Guide</a>
+        <a class="btn-signal-guide" href="https://claude.ai/code/artifact/7c466634-baab-4a48-84d8-3f2ce3cc9463" target="_blank" rel="noopener">Live Signal Guide</a>
       </div>
     </div>
     <div class="hero-logo"><img src="images/logos/fakugesi/logo_fakugesi_light.svg" alt="Fak'ugesi Festival"/></div>
@@ -806,6 +882,76 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
   </div>
 </div>
 
+<!-- FEATURED ARTISTS -->
+<section class="featured-section reveal">
+  <div class="sec-crosses sec-crosses-top">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.55)" stroke-width="1"/><line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.55)" stroke-width="1"/></svg>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.55)" stroke-width="1"/><line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.55)" stroke-width="1"/></svg>
+  </div>
+  <div class="sec-crosses sec-crosses-bottom">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.55)" stroke-width="1"/><line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.55)" stroke-width="1"/></svg>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.55)" stroke-width="1"/><line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.55)" stroke-width="1"/></svg>
+  </div>
+ 
+  <div class="featured-inner">
+    <div class="featured-header">
+      <h2 class="featured-title">Featured Artists</h2>
+      <p class="featured-sub">Featured artists interrogate the machine. Three ways through AI: the image, the archive, the body.</p>
+    </div>
+ 
+    <div class="featured-grid">
+ 
+      <!-- 01 EVANS AKANYIJUKA -->
+      <article class="featured-card">
+        <span class="featured-num">01</span>
+        <p class="featured-tag">The Image</p>
+        <h3 class="featured-name">Evans Akanyijuka</h3>
+        <p class="featured-role">Digital artist · Kampala, Uganda</p>
+        <p class="featured-hook">Who gets to image Africa?</p>
+        <p class="featured-body">Akanyijuka builds hyperreal images by collaging photographs with AI-generated material, drawing on African graphic traditions and historical memory. One series revisits the Battle of Kagogo, where the small state of Rujumbura resisted Ankole rule. He was one of nine artists selected for S+T+ARTS Afropean Intelligence, hosted in Johannesburg by the Market Photo Workshop, where "LoRAs as an Archive, A Living Archive" trains custom models on co-curated archival photographs and lets audiences reshape the archive in real time.</p>
+        <div class="featured-session">
+          <p class="featured-session-label">At Fak'ugesi</p>
+          <p class="featured-session-title">"AI and Photography"</p>
+          <p class="featured-meta"><strong>13 October</strong>, 09:00 to 17:00<br>Tshimologong Digital Innovation Precinct</p>
+          <p class="featured-credit">Presented with the support of the Institut français through Appui aux Opérateurs Culturels en Afrique.</p>
+        </div>
+      </article>
+ 
+      <!-- 02 RENZO FILINICH OROZCO -->
+      <article class="featured-card">
+        <span class="featured-num">02</span>
+        <p class="featured-tag">The Archive</p>
+        <h3 class="featured-name">Renzo Filinich Orozco</h3>
+        <p class="featured-role">Media artist and researcher · Wits University</p>
+        <p class="featured-hook">Listen to what the machine hears.</p>
+        <p class="featured-body">A Chilean media artist and postdoctoral research fellow at Wits, Filinich Orozco argues that technology is not a neutral carrier of information. "Quantum Echoes of Humanity" (2024) processes the Origins Centre's anthropological collection through facial recognition built to allow recursion and misrecognition, so no image appears twice.</p>
+        <div class="featured-session">
+          <p class="featured-session-label">At Fak'ugesi</p>
+          <p class="featured-session-title">"Quantum Echoes of Humanity" and "Echoes of the Machine: A Cybernetic Song"</p>
+          <p class="featured-meta"><strong>14 to 16 October</strong>, 09:00 to 17:00 daily<br>Tshimologong Digital Innovation Precinct</p>
+        </div>
+      </article>
+ 
+      <!-- 03 DAGMAR SCHÜRRER -->
+      <article class="featured-card">
+        <span class="featured-num">03</span>
+        <p class="featured-tag">The Body</p>
+        <h3 class="featured-name">Dagmar Schürrer</h3>
+        <p class="featured-role">Expanded animation and XR artist · Berlin</p>
+        <p class="featured-hook">Same prompt, different planet.</p>
+        <p class="featured-body">Schürrer is an Austrian artist who turns concepts from biology and neuroscience into contemplative animations and spatial installations about consciousness and its environment. She has shown at the ICA London, Centre Pompidou, Haus der Kulturen der Welt, Ars Electronica, Belvedere 21 and Tate Modern. At Fak'ugesi she asks who is prompting, and from where.</p>
+        <div class="featured-session">
+          <p class="featured-session-label">At Fak'ugesi</p>
+          <p class="featured-session-title">"Same Prompt, Different Planet"</p>
+          <p class="featured-meta"><strong>15 October</strong>, 12:45 to 13:30<br>Chris Seabrooke Music Hall</p>
+          <p class="featured-credit">Presented in partnership with the Austrian Cultural Forum and Austrian Embassy.</p>
+        </div>
+      </article>
+ 
+    </div>
+  </div>
+</section>
+
 <!-- WHAT'S HAPPENING -->
 <section class="happening-section reveal">
   <div class="sec-crosses sec-crosses-top">
@@ -829,7 +975,7 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
   <!-- INSTAGRAM -->
 <div class="soc-feed-panel active" id="feed-instagram">
   <div class="ig-fullwidth-break">
-    <div class="elfsight-app-e5fff4f8-2f2a-485a-82c2-97cee41e0868" data-elfsight-app-lazy></div>
+    <div class="elfsight-app-d3393fa3-d87a-41aa-a70a-6056fd71509d" data-elfsight-app-lazy></div>
   </div>
   <div class="happening-inner" style="padding-top:16px;">
     <p class="happening-caption" style="padding:0;">Follow <a href="https://www.instagram.com/fakugesi?igsh=MTh2YTI3cTN6M2YyZg==" target="_blank" rel="noopener" style="color:var(--navy)">@fakugesi</a> on Instagram for live festival updates</p>
@@ -857,7 +1003,7 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
  <!-- FACEBOOK -->
 <div class="soc-feed-panel" id="feed-facebook">
   <div class="happening-inner" style="padding-top:0;">
-    <div class="elfsight-app-7f96cfa3-33b1-4f64-a28d-ace6953f13a2" data-elfsight-app-lazy></div>
+    <<div class="elfsight-app-630fd93a-aeb9-461b-9b63-ef20ece89bf6" data-elfsight-app-lazy></div>
     <p class="happening-caption" style="padding:0;">Follow <a href="https://www.facebook.com/fakugesi" target="_blank" rel="noopener" style="color:var(--navy)">Fak'ugesi Festival</a> on Facebook for news and updates</p>
   </div>
 </div>
@@ -923,53 +1069,90 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
     <h2 class="prog-partners-title">Programme Partners</h2>
     <div class="prog-carousel-outer">
       <div class="prog-carousel-track" id="progPartnersTrack">
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Bath%20Spa%20University/Slate%20Blue%20Logo_RGB.png" alt="Bath Spa University" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/CTIAF/CTIAF-logo-white.png" alt="CTIAF"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Dark%20Room%20Contemporary/drc.png" alt="Dark Room Contemporary" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Digital%20Lab%20Africa/DLA-01.png" alt="Digital Lab Africa" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/HabitatXR/habitatxr.png" alt="HabitatXR" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Highly%20Dedicated/HD.jpg" alt="Highly Dedicated" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Iziko/Logos%20for%20Iziko%20x%20DSAC/DSACxIziko_Logos.jpg" alt="Iziko" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Jack%20Ginsberg%20Centre%20for%20Book%20Arts/wits_jgcba_logos_02.png" alt="Jack Ginsberg Centre for Book Arts" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Japan%20Foundation/Lockup1_A_1.jpg" alt="Japan Foundation" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/JIWE/jiwe-io-lockup-dark.svg" alt="JIWE" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/JIX/Logo%20Black.png" alt="JIX" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Latitudes%20Art%20Fair/RMBLat-b.png" alt="Latitudes Art Fair" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Matamba%20Film%20Labs/matambafilms.png" alt="Matamba Film Labs" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Mollo/Mollo-Logo-web-3906027300.png" alt="Mollo" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Naledi3D/cropped-cropped-logo-512.png" alt="Naledi3D" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/NORMVL/cropped-NORMVL-2025-Logo-11-scaled.png" alt="NORMVL" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Open%20Restitution%20Africa/Open-Restitution-Africa-_ORA-Logo-White.svg" alt="Open Restitution Africa"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Red%20Balloon/rbf-logo-r.svg" alt="Red Balloon" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Redbull/redbull.svg" alt="Red Bull" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/SAMPRA/sampra-logo-1.svg" alt="SAMPRA" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/University%20of%20Johannesburg/uj.svg" alt="University of Johannesburg" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/VR%20Capture/vrcapture.svg" alt="VR Capture" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/XR%20Native/XR%20Native%20HighRes%20Black.png" alt="XR Native" class="keep-color"/></div>
-        <!-- duplicate set for seamless loop -->
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Bath%20Spa%20University/Slate%20Blue%20Logo_RGB.png" alt="Bath Spa University" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/CTIAF/CTIAF-logo-white.png" alt="CTIAF"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Dark%20Room%20Contemporary/drc.png" alt="Dark Room Contemporary" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Digital%20Lab%20Africa/DLA-01.png" alt="Digital Lab Africa" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/HabitatXR/habitatxr.png" alt="HabitatXR" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Highly%20Dedicated/HD.jpg" alt="Highly Dedicated" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Iziko/Logos%20for%20Iziko%20x%20DSAC/DSACxIziko_Logos.jpg" alt="Iziko" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Jack%20Ginsberg%20Centre%20for%20Book%20Arts/wits_jgcba_logos_02.png" alt="Jack Ginsberg Centre for Book Arts" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Japan%20Foundation/Lockup1_A_1.jpg" alt="Japan Foundation" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/JIWE/jiwe-io-lockup-dark.svg" alt="JIWE" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/JIX/Logo%20Black.png" alt="JIX" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Latitudes%20Art%20Fair/RMBLat-b.png" alt="Latitudes Art Fair" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Matamba%20Film%20Labs/matambafilms.png" alt="Matamba Film Labs" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Mollo/Mollo-Logo-web-3906027300.png" alt="Mollo" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Naledi3D/cropped-cropped-logo-512.png" alt="Naledi3D" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/NORMVL/cropped-NORMVL-2025-Logo-11-scaled.png" alt="NORMVL" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Open%20Restitution%20Africa/Open-Restitution-Africa-_ORA-Logo-White.svg" alt="Open Restitution Africa"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Red%20Balloon/rbf-logo-r.svg" alt="Red Balloon" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/Redbull/redbull.svg" alt="Red Bull" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/SAMPRA/sampra-logo-1.svg" alt="SAMPRA" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/University%20of%20Johannesburg/uj.svg" alt="University of Johannesburg" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/VR%20Capture/vrcapture.svg" alt="VR Capture" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Programme%20partners/XR%20Native/XR%20Native%20HighRes%20Black.png" alt="XR Native" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/A-Game/agame-logo-BBBzK_6u.png" alt="A-Game" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Bath%20Spa%20University/BSU-blue-logo_lettering_blue-font-stac_sm.png" alt="Bath Spa University" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Bath%20Spa%20University/IAN%20-%20Logo%20complete%20-%20vertical%20-%20blk%20trans.png" alt="Bath Spa University" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Bath%20Spa%20University/Slate%20Blue%20Logo_RGB.png" alt="Bath Spa University" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Bath%20Spa%20University/STUDIO%20%2B%20BSU%20LOGO.png" alt="Bath Spa University" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Cosmoceno/emera.png" alt="Cosmoceno" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Cosmoceno/logos_cosmoceno.jpeg" alt="Cosmoceno" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Cosmoceno/subverso.png" alt="Cosmoceno" class="logo-dark"/></div>
+        <div class="prog-partner-logo logo-bg-dark"><img src="images/programme%20partners/Cosmoceno/uvm_understanding_visual_music.png" alt="Cosmoceno"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/CTIAF/CTIAF-logo-white.png" alt="CTIAF" class="logo-dark"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Dark%20Room%20Contemporary/drc.png" alt="Dark Room Contemporary" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Digital%20Lab%20Africa/DLA-01.png" alt="Digital Lab Africa" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Fete%20du%20Cinema%20d_Animation/cropped-logo-2026.png" alt="Fete du Cinema d_Animation" class="logo-dark"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/HabitatXR/habitatxr.png" alt="HabitatXR" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Highly%20Dedicated/HD.jpg" alt="Highly Dedicated" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Iziko/Logos%20for%20Iziko%20x%20DSAC/DSACxIziko_Logos.jpg" alt="Logos for Iziko x DSAC" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Iziko/Logos%20for%20Planetarium/Planetarium_Logo_black_002.png" alt="Logos for Planetarium" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Jack%20Ginsberg%20Centre%20for%20Book%20Arts/header_01.png" alt="Jack Ginsberg Centre for Book Arts" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Jack%20Ginsberg%20Centre%20for%20Book%20Arts/wits_jgcba_logos_02.png" alt="Jack Ginsberg Centre for Book Arts" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Japan%20Foundation/Lockup1_B_2.jpg" alt="Japan Foundation" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Japan%20Foundation/unnamed.png" alt="Japan Foundation" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/JIWE/large-format/jiwe-io-icon-light-xl.svg" alt="large-format" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/JIWE/large-format/jiwe-io-lockup-native-xl.svg" alt="large-format" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/JIX/City_of_Johannesburg_logo-28403140.png" alt="JIX" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/JIX/Logo%20Black.png" alt="JIX" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Latitudes%20Art%20Fair/RMBLat-b.png" alt="Latitudes Art Fair" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Matamba%20Film%20Labs/matambafilms.png" alt="Matamba Film Labs" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Mollo/Mollo-Logo-web-3906027300.png" alt="Mollo" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Naledi3D/cropped-cropped-logo-512.png" alt="Naledi3D" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/NORMVL/cropped-NORMVL-2025-Logo-11-scaled.png" alt="NORMVL" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Open%20Restitution%20Africa/698af68f59bb5dc4911fb9be_Andani%2010%20years%20logo%20Development%20V3%20(11)-p-500.png" alt="Open Restitution Africa" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Open%20Restitution%20Africa/MADEYOULOOK.png" alt="Open Restitution Africa" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Open%20Restitution%20Africa/Open-Restitution-Africa-_ORA-Logo-White.svg" alt="Open Restitution Africa" class="logo-dark"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Red%20Balloon/horizontal.svg" alt="Red Balloon" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Red%20Balloon/rbf-logo-r.svg" alt="Red Balloon" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Red%20Balloon/Zuri_LOGO_WHT.webp" alt="Red Balloon" class="logo-dark"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/SAMPRA/SAMPRA_Logo%20(1).png" alt="SAMPRA" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/SAMRO/641d7133159108670557350a_samro-logoondark.svg" alt="SAMRO" class="logo-dark"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/University%20of%20Johannesburg/uj20.png" alt="University of Johannesburg" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/VR%20Capture/vrcapture.svg" alt="VR Capture" class="logo-dark"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/XR%20Native/Biennale%20College%20Logo.png" alt="XR Native" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/XR%20Native/XR%20Native%20HighRes%20Black.png" alt="XR Native" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/A-Game/agame-logo-BBBzK_6u.png" alt="A-Game" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Bath%20Spa%20University/BSU-blue-logo_lettering_blue-font-stac_sm.png" alt="Bath Spa University" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Bath%20Spa%20University/IAN%20-%20Logo%20complete%20-%20vertical%20-%20blk%20trans.png" alt="Bath Spa University" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Bath%20Spa%20University/Slate%20Blue%20Logo_RGB.png" alt="Bath Spa University" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Bath%20Spa%20University/STUDIO%20%2B%20BSU%20LOGO.png" alt="Bath Spa University" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Cosmoceno/emera.png" alt="Cosmoceno" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Cosmoceno/logos_cosmoceno.jpeg" alt="Cosmoceno" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Cosmoceno/subverso.png" alt="Cosmoceno" class="logo-dark"/></div>
+        <div class="prog-partner-logo logo-bg-dark"><img src="images/programme%20partners/Cosmoceno/uvm_understanding_visual_music.png" alt="Cosmoceno"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/CTIAF/CTIAF-logo-white.png" alt="CTIAF" class="logo-dark"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Dark%20Room%20Contemporary/drc.png" alt="Dark Room Contemporary" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Digital%20Lab%20Africa/DLA-01.png" alt="Digital Lab Africa" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Fete%20du%20Cinema%20d_Animation/cropped-logo-2026.png" alt="Fete du Cinema d_Animation" class="logo-dark"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/HabitatXR/habitatxr.png" alt="HabitatXR" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Highly%20Dedicated/HD.jpg" alt="Highly Dedicated" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Iziko/Logos%20for%20Iziko%20x%20DSAC/DSACxIziko_Logos.jpg" alt="Logos for Iziko x DSAC" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Iziko/Logos%20for%20Planetarium/Planetarium_Logo_black_002.png" alt="Logos for Planetarium" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Jack%20Ginsberg%20Centre%20for%20Book%20Arts/header_01.png" alt="Jack Ginsberg Centre for Book Arts" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Jack%20Ginsberg%20Centre%20for%20Book%20Arts/wits_jgcba_logos_02.png" alt="Jack Ginsberg Centre for Book Arts" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Japan%20Foundation/Lockup1_B_2.jpg" alt="Japan Foundation" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Japan%20Foundation/unnamed.png" alt="Japan Foundation" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/JIWE/large-format/jiwe-io-icon-light-xl.svg" alt="large-format" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/JIWE/large-format/jiwe-io-lockup-native-xl.svg" alt="large-format" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/JIX/City_of_Johannesburg_logo-28403140.png" alt="JIX" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/JIX/Logo%20Black.png" alt="JIX" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Latitudes%20Art%20Fair/RMBLat-b.png" alt="Latitudes Art Fair" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Matamba%20Film%20Labs/matambafilms.png" alt="Matamba Film Labs" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Mollo/Mollo-Logo-web-3906027300.png" alt="Mollo" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Naledi3D/cropped-cropped-logo-512.png" alt="Naledi3D" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/NORMVL/cropped-NORMVL-2025-Logo-11-scaled.png" alt="NORMVL" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Open%20Restitution%20Africa/698af68f59bb5dc4911fb9be_Andani%2010%20years%20logo%20Development%20V3%20(11)-p-500.png" alt="Open Restitution Africa" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Open%20Restitution%20Africa/MADEYOULOOK.png" alt="Open Restitution Africa" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Open%20Restitution%20Africa/Open-Restitution-Africa-_ORA-Logo-White.svg" alt="Open Restitution Africa" class="logo-dark"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Red%20Balloon/horizontal.svg" alt="Red Balloon" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Red%20Balloon/rbf-logo-r.svg" alt="Red Balloon" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/Red%20Balloon/Zuri_LOGO_WHT.webp" alt="Red Balloon" class="logo-dark"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/SAMPRA/SAMPRA_Logo%20(1).png" alt="SAMPRA" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/SAMRO/641d7133159108670557350a_samro-logoondark.svg" alt="SAMRO" class="logo-dark"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/University%20of%20Johannesburg/uj20.png" alt="University of Johannesburg" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/VR%20Capture/vrcapture.svg" alt="VR Capture" class="logo-dark"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/XR%20Native/Biennale%20College%20Logo.png" alt="XR Native" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/programme%20partners/XR%20Native/XR%20Native%20HighRes%20Black.png" alt="XR Native" class="keep-color"/></div>
       </div>
     </div>
   </div>
@@ -980,36 +1163,46 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
     <h2 class="prog-partners-title">Media Partners</h2>
     <div class="prog-carousel-outer">
       <div class="prog-carousel-track" style="animation-duration:40s">
-        <div class="prog-partner-logo"><img src="images/media partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail & Gaurdian" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail & Gaurdian" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail & Gaurdian" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail & Gaurdian" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail & Gaurdian" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail & Gaurdian" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/media partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail &amp; Gaurdian" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail &amp; Gaurdian" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail &amp; Gaurdian" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail &amp; Gaurdian" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail &amp; Gaurdian" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail &amp; Gaurdian" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail &amp; Gaurdian" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Daily%20Maverick/masthead.svg" alt="Daily Maverick" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Joburg%20in%20Your%20Pocket/NGTUw6JB_400x400-3401833935.jpg" alt="Joburg in Your Pocket" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/Mail%20%26%20Gaurdian/mail%26gaurdian.png" alt="Mail &amp; Gaurdian" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/The%20Game%20Room%20SA/TGRSA.jpg" alt="The Game Room SA" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/media%20partners/VOW/VOW.svg" alt="VOW" class="keep-color"/></div>
       </div>
     </div>
   </div>
@@ -1020,24 +1213,46 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
     <h2 class="prog-partners-title">Support Partners</h2>
     <div class="prog-carousel-outer">
       <div class="prog-carousel-track" style="animation-duration:40s">
-        <div class="prog-partner-logo"><img src="images/Supporting Partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Supporting Partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Supporting Partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Supporting Partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Supporting Partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Supporting Partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Supporting Partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Supporting Partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Supporting Partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Supporting Partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Supporting Partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Supporting Partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Supporting Partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Supporting Partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Supporting Partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Supporting Partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Supporting Partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
-        <div class="prog-partner-logo"><img src="images/Supporting Partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Habesha%20Creative%20Lab/logo-right.png" alt="Habesha Creative Lab" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Kasi%20Connect/logo.png" alt="Kasi Connect" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Habesha%20Creative%20Lab/logo-right.png" alt="Habesha Creative Lab" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Kasi%20Connect/logo.png" alt="Kasi Connect" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Habesha%20Creative%20Lab/logo-right.png" alt="Habesha Creative Lab" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Kasi%20Connect/logo.png" alt="Kasi Connect" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Habesha%20Creative%20Lab/logo-right.png" alt="Habesha Creative Lab" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Kasi%20Connect/logo.png" alt="Kasi Connect" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Habesha%20Creative%20Lab/logo-right.png" alt="Habesha Creative Lab" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Kasi%20Connect/logo.png" alt="Kasi Connect" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Habesha%20Creative%20Lab/logo-right.png" alt="Habesha Creative Lab" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Kasi%20Connect/logo.png" alt="Kasi Connect" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Habesha%20Creative%20Lab/logo-right.png" alt="Habesha Creative Lab" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Kasi%20Connect/logo.png" alt="Kasi Connect" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Bloo%20Money/a6cc8c85-b1f7-4d09-a4ed-7d4d71085dd3.png" alt="Bloo Money" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Habesha%20Creative%20Lab/logo-right.png" alt="Habesha Creative Lab" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/IBM/ibm.png" alt="IBM" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/Kasi%20Connect/logo.png" alt="Kasi Connect" class="keep-color"/></div>
+        <div class="prog-partner-logo"><img src="images/Supporting%20partners/MazikMail/images_5.png.webp" alt="MazikMail" class="keep-color"/></div>
       </div>
     </div>
   </div>

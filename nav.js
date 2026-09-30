@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   const path = window.location.pathname;
   const page = path.replace(/^\//, '').replace(/\.html$/, '') || 'index';
   function isActive(href) {
