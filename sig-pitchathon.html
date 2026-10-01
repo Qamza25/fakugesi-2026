@@ -451,6 +451,22 @@
     mix-blend-mode:normal !important;
   }
 </style>
+<style id="partners-size-spacing">
+  /* Support Partners: same logo size as Programme + Media Partners */
+  .prog-partners-section.supporting-partners-section .prog-carousel-track{gap:40px !important;}
+  .prog-partners-section.supporting-partners-section .prog-partner-logo{height:38px !important;width:104px !important;}
+  .prog-partners-section.supporting-partners-section .prog-partner-logo img{max-height:26px !important;}
+
+  /* Tighter gap between each carousel title and its logos */
+  .prog-partners-section .prog-partners-title{margin-bottom:28px !important;}
+
+  @media(max-width:768px){
+    .prog-partners-section.supporting-partners-section .prog-carousel-track{gap:24px !important;}
+    .prog-partners-section.supporting-partners-section .prog-partner-logo{height:30px !important;width:80px !important;}
+    .prog-partners-section.supporting-partners-section .prog-partner-logo img{max-height:20px !important;}
+    .prog-partners-section .prog-partners-title{margin-bottom:20px !important;}
+  }
+</style>
 </head>
 <body>
 
