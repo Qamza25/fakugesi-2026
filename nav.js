@@ -311,7 +311,6 @@
   const links = [
     { label: 'Home',                 href: '/index.html' },
     { label: 'Festival Programme',   href: '/festival-programmes.html' },
-    { label: 'Signal Guide',         href: 'https://claude.ai/code/artifact/7c466634-baab-4a48-84d8-3f2ce3cc9463', external: true },
     { label: 'Signature Programmes', href: '/sig-awards.html', sigDd: true },
     { label: 'Discover',             href: '#', dd: [
       { label: 'About Us',   href: '/about.html' },
