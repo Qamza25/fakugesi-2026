@@ -316,6 +316,7 @@
       { label: 'About Us',   href: '/about.html' },
       { label: 'Venues',     href: '/discover/venues.html' },
       { label: 'Resources',  href: '/discover/resources.html' },
+      { label: 'Media',      href: 'https://fakugesi.co.za/media/index.html' },
     ]},
   ];
 
@@ -492,6 +493,7 @@
    
     { title: "Fak'ugesi Market", section: 'Market', url: '/festival-programmes.html', tags: ['market','exhibitors','vendors','showcase','want a spot'] },
     { title: 'Research & Resources', section: 'Resources', url: '/discover/resources.html', tags: ['research','resources','report','intermediaries report','download','pdf'] },
+    { title: 'Media', section: 'Media', url: 'https://fakugesi.co.za/media/index.html', tags: ['media','press','news','press kit','journalists'] },
     { title: 'Get Involved', section: 'Get Involved', url: '/get-involved.html', tags: ['get involved','investors','funders','volunteers','exhibitors','sponsors','apply'] },
     { title: "Director's Highlights", section: 'Highlights', url: '/director-highlights.html', tags: ["director's highlights","director highlights","festival highlights","highlights"] },
 
@@ -503,6 +505,7 @@
     'Home': '#4a90d9', 'About': '#5a6a7a', 'Tickets': '#a03a3a', 'Venues': '#4a7a4a',
     'Awards': '#b8860b', 'Dala Khona': '#1a7a4a', 'PRO': '#3a5a9a', 'Immersive Africa': '#7a3a8a',
     'JAMZ': '#c43a3a', 'Pitchathon': '#2a6a8a', 'Market': '#3a8a6a', 'Resources': '#3a6a7a',
+    'Media': '#8a5a3a',
     'Get Involved': '#7b68ee', 'Highlights': '#c46200', 'Signal Guide': '#00a6a6'
   };
 
