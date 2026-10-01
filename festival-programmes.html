@@ -349,6 +349,26 @@
     mix-blend-mode:normal !important;
   }
 </style>
+<style id="spot-cta-button-styles">
+  /* Signal Guide button in the CTA section: glow is permanent, Get Involved purple on hover */
+  .spot-cta-section .btn-signal-guide{
+    background:#00f4f5;
+    color:#0d1b3e;
+    border-color:#00f4f5;
+    box-shadow:0 0 20px #00f4f5,0 0 44px #00f4f5;
+    margin-top:0;
+  }
+  .spot-cta-section .btn-signal-guide:hover{
+    background:#8b5cf6;
+    color:#ffffff;
+    border-color:#8b5cf6;
+    box-shadow:0 0 20px #8b5cf6,0 0 44px #8b5cf6;
+    transform:translateY(-1px);
+  }
+  /* Longer title: allow wrapping on small screens */
+  @media(max-width:768px){.spot-cta-title{white-space:normal;}}
+</style>
+
 </head>
 <body>
 <script src="nav.js"></script>
@@ -462,7 +482,7 @@
   <div class="spot-cta-bg"></div>
   <div class="spot-cta-overlay"></div>
   <div class="spot-cta-content">
-    <h2 class="spot-cta-title">View Live Programme</h2>
+    <h2 class="spot-cta-title">Visit the Full Festival Guide</h2>
     <a class="btn-signal-guide" href="https://claude.ai/code/artifact/7c466634-baab-4a48-84d8-3f2ce3cc9463" target="_blank" rel="noopener">Live Signal Guide</a>
   </div>
 </section>
@@ -749,7 +769,6 @@
 </script>
 </body>
 </html>
-
 
 
 

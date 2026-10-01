@@ -648,12 +648,25 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
   .featured-title{font-family:'RobotoMono',monospace;font-size:38px;font-weight:700;color:var(--white);line-height:1.05;}
   .featured-sub{font-family:'InterDisplay',sans-serif;font-size:14px;font-weight:400;letter-spacing:0.06em;color:var(--turquoise);opacity:0.9;max-width:380px;line-height:1.5;}
   .featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch;}
+
+ 
+/* Featured cards: match the Curatorial Frequencies body text */
+.featured-card,
+.featured-card *{
+  font-family:'InterDisplay',sans-serif !important;
+}
+.featured-name{font-size:24px;}
+.featured-body{
+  font-size:11.5px;
+  font-weight:400;
+  line-height:1.7;
+}
  
   .featured-card{position:relative;display:flex;flex-direction:column;padding:28px 24px 24px;border:1px solid rgba(255,255,255,0.22);background:rgba(255,255,255,0.03);transition:background 0.25s ease,border-color 0.25s ease,transform 0.25s ease,box-shadow 0.35s ease;}
   .featured-card:hover{background:rgba(0,244,245,0.07);border-color:var(--turquoise);transform:translateY(-4px);box-shadow:0 10px 32px rgba(0,244,245,0.12);}
   .featured-num{position:absolute;top:14px;right:18px;font-family:'InterDisplay',sans-serif;font-size:36px;font-weight:700;color:var(--white);opacity:0.9;line-height:1;}
   .featured-tag{font-family:'InterDisplay',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);opacity:0.6;margin-top:28px;margin-bottom:8px;}
-  .featured-name{font-family:'InterDisplay',sans-serif;font-size:24px;font-weight:600;line-height:1.15;color:var(--white);margin-bottom:10px;}
+  .featured-name{font-family:'InterDisplay',sans-serif;font-size:24px;font-weight:600;line-height:1.15;color:var(--turquoise);margin-bottom:10px;}
   .featured-role{font-family:'InterDisplay',sans-serif;font-size:12px;font-weight:500;color:var(--white);opacity:0.7;margin-bottom:18px;}
   .featured-hook{font-family:'InterDisplay',sans-serif;font-size:17px;font-weight:600;font-style:italic;color:var(--turquoise);line-height:1.3;margin-bottom:16px;}
   .featured-body{font-family:'InterDisplay',sans-serif;font-size:12.5px;font-weight:400;line-height:1.7;color:var(--white);opacity:0.82;margin-bottom:22px;flex:1;}
@@ -682,6 +695,36 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
   @media(max-width:480px){.featured-title{font-size:22px;}}
 </style>
  
+<style id="featured-tweaks">
+ .featured-name{
+  color:#ffffff;
+  font-weight:700;
+  display:inline-block;
+  align-self:flex-start;
+  position:relative;
+  padding-bottom:3px;
+  cursor:default;
+  transition:opacity 0.25s ease,transform 0.25s ease;
+}
+.featured-name::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:0;
+  width:100%;height:1px;
+  background:currentColor;
+  transform:scaleX(1);
+  transform-origin:left center;
+  transition:transform 0.28s ease;
+}
+.featured-name:hover::after{
+  transform:scaleX(0);
+  transform-origin:right center;
+}
+.featured-name:hover{opacity:0.75;}
+  .featured-body{margin-bottom:0;}
+  /* Spotlight now sits in its own section, so drop the divider/spacing it had inside the first one */
+  .spotlight-section-2 .spotlight-second{margin-top:0;padding-top:0;border-top:none;}
+</style>
 </head>
 <body>
 
@@ -830,6 +873,66 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
       </div>
     </div>
 
+    </div>
+</section>
+
+<!-- FEATURED ARTISTS -->
+<section class="featured-section reveal">
+  <div class="sec-crosses sec-crosses-top">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.55)" stroke-width="1"/><line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.55)" stroke-width="1"/></svg>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.55)" stroke-width="1"/><line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.55)" stroke-width="1"/></svg>
+  </div>
+  <div class="sec-crosses sec-crosses-bottom">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.55)" stroke-width="1"/><line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.55)" stroke-width="1"/></svg>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.55)" stroke-width="1"/><line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.55)" stroke-width="1"/></svg>
+  </div>
+ 
+  <div class="featured-inner">
+    <div class="featured-header">
+      <h2 class="featured-title">Featured Artists</h2>
+      <p class="featured-sub">Featured artists interrogate the machine. Three ways through AI: the image, the archive, the body.</p>
+    </div>
+ 
+    <div class="featured-grid">
+ 
+      <!-- 01 EVANS AKANYIJUKA -->
+      <article class="featured-card">
+        <span class="featured-num">01</span>
+        <p class="featured-tag">The Image</p>
+        <h3 class="featured-name">Evans Akanyijuka</h3>
+        <p class="featured-role">Digital artist · Kampala, Uganda</p>
+        <p class="featured-hook">Who gets to image Africa?</p>
+        <p class="featured-body">Akanyijuka builds hyperreal images by collaging photographs with AI-generated material, drawing on African graphic traditions and historical memory. One series revisits the Battle of Kagogo, where the small state of Rujumbura resisted Ankole rule. He was one of nine artists selected for S+T+ARTS Afropean Intelligence, hosted in Johannesburg by the Market Photo Workshop, where "LoRAs as an Archive, A Living Archive" trains custom models on co-curated archival photographs and lets audiences reshape the archive in real time.</p>
+      </article>
+ 
+      <!-- 02 RENZO FILINICH OROZCO -->
+      <article class="featured-card">
+        <span class="featured-num">02</span>
+        <p class="featured-tag">The Archive</p>
+        <h3 class="featured-name">Renzo Filinich Orozco</h3>
+        <p class="featured-role">Media artist and researcher · Wits University</p>
+        <p class="featured-hook">Listen to what the machine hears.</p>
+        <p class="featured-body">A Chilean media artist and postdoctoral research fellow at Wits, Filinich Orozco argues that technology is not a neutral carrier of information. "Quantum Echoes of Humanity" (2024) processes the Origins Centre's anthropological collection through facial recognition built to allow recursion and misrecognition, so no image appears twice.</p>
+      </article>
+ 
+      <!-- 03 DAGMAR SCHÜRRER -->
+      <article class="featured-card">
+        <span class="featured-num">03</span>
+        <p class="featured-tag">The Body</p>
+        <h3 class="featured-name">Dagmar Schürrer</h3>
+        <p class="featured-role">Expanded animation and XR artist · Berlin</p>
+        <p class="featured-hook">Same prompt, different planet.</p>
+        <p class="featured-body">Schürrer is an Austrian artist who turns concepts from biology and neuroscience into contemplative animations and spatial installations about consciousness and its environment. She has shown at the ICA London, Centre Pompidou, Haus der Kulturen der Welt, Ars Electronica, Belvedere 21 and Tate Modern. At Fak'ugesi she asks who is prompting, and from where.</p>
+      </article>
+ 
+    </div>
+  </div>
+</section>
+
+<!-- SPOTLIGHT -->
+<section class="spotlight-section spotlight-section-2 reveal">
+  <div class="spotlight-inner">
+
     <!-- SECOND SPOTLIGHT -->
     <div class="spotlight-second">
       <h2 class="spotlight-section-title">Spotlight</h2>
@@ -882,75 +985,7 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
   </div>
 </div>
 
-<!-- FEATURED ARTISTS -->
-<section class="featured-section reveal">
-  <div class="sec-crosses sec-crosses-top">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.55)" stroke-width="1"/><line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.55)" stroke-width="1"/></svg>
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.55)" stroke-width="1"/><line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.55)" stroke-width="1"/></svg>
-  </div>
-  <div class="sec-crosses sec-crosses-bottom">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.55)" stroke-width="1"/><line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.55)" stroke-width="1"/></svg>
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="8" y1="0" x2="8" y2="16" stroke="rgba(255,255,255,0.55)" stroke-width="1"/><line x1="0" y1="8" x2="16" y2="8" stroke="rgba(255,255,255,0.55)" stroke-width="1"/></svg>
-  </div>
- 
-  <div class="featured-inner">
-    <div class="featured-header">
-      <h2 class="featured-title">Featured Artists</h2>
-      <p class="featured-sub">Featured artists interrogate the machine. Three ways through AI: the image, the archive, the body.</p>
-    </div>
- 
-    <div class="featured-grid">
- 
-      <!-- 01 EVANS AKANYIJUKA -->
-      <article class="featured-card">
-        <span class="featured-num">01</span>
-        <p class="featured-tag">The Image</p>
-        <h3 class="featured-name">Evans Akanyijuka</h3>
-        <p class="featured-role">Digital artist · Kampala, Uganda</p>
-        <p class="featured-hook">Who gets to image Africa?</p>
-        <p class="featured-body">Akanyijuka builds hyperreal images by collaging photographs with AI-generated material, drawing on African graphic traditions and historical memory. One series revisits the Battle of Kagogo, where the small state of Rujumbura resisted Ankole rule. He was one of nine artists selected for S+T+ARTS Afropean Intelligence, hosted in Johannesburg by the Market Photo Workshop, where "LoRAs as an Archive, A Living Archive" trains custom models on co-curated archival photographs and lets audiences reshape the archive in real time.</p>
-        <div class="featured-session">
-          <p class="featured-session-label">At Fak'ugesi</p>
-          <p class="featured-session-title">"AI and Photography"</p>
-          <p class="featured-meta"><strong>13 October</strong>, 09:00 to 17:00<br>Tshimologong Digital Innovation Precinct</p>
-          <p class="featured-credit">Presented with the support of the Institut français through Appui aux Opérateurs Culturels en Afrique.</p>
-        </div>
-      </article>
- 
-      <!-- 02 RENZO FILINICH OROZCO -->
-      <article class="featured-card">
-        <span class="featured-num">02</span>
-        <p class="featured-tag">The Archive</p>
-        <h3 class="featured-name">Renzo Filinich Orozco</h3>
-        <p class="featured-role">Media artist and researcher · Wits University</p>
-        <p class="featured-hook">Listen to what the machine hears.</p>
-        <p class="featured-body">A Chilean media artist and postdoctoral research fellow at Wits, Filinich Orozco argues that technology is not a neutral carrier of information. "Quantum Echoes of Humanity" (2024) processes the Origins Centre's anthropological collection through facial recognition built to allow recursion and misrecognition, so no image appears twice.</p>
-        <div class="featured-session">
-          <p class="featured-session-label">At Fak'ugesi</p>
-          <p class="featured-session-title">"Quantum Echoes of Humanity" and "Echoes of the Machine: A Cybernetic Song"</p>
-          <p class="featured-meta"><strong>14 to 16 October</strong>, 09:00 to 17:00 daily<br>Tshimologong Digital Innovation Precinct</p>
-        </div>
-      </article>
- 
-      <!-- 03 DAGMAR SCHÜRRER -->
-      <article class="featured-card">
-        <span class="featured-num">03</span>
-        <p class="featured-tag">The Body</p>
-        <h3 class="featured-name">Dagmar Schürrer</h3>
-        <p class="featured-role">Expanded animation and XR artist · Berlin</p>
-        <p class="featured-hook">Same prompt, different planet.</p>
-        <p class="featured-body">Schürrer is an Austrian artist who turns concepts from biology and neuroscience into contemplative animations and spatial installations about consciousness and its environment. She has shown at the ICA London, Centre Pompidou, Haus der Kulturen der Welt, Ars Electronica, Belvedere 21 and Tate Modern. At Fak'ugesi she asks who is prompting, and from where.</p>
-        <div class="featured-session">
-          <p class="featured-session-label">At Fak'ugesi</p>
-          <p class="featured-session-title">"Same Prompt, Different Planet"</p>
-          <p class="featured-meta"><strong>15 October</strong>, 12:45 to 13:30<br>Chris Seabrooke Music Hall</p>
-          <p class="featured-credit">Presented in partnership with the Austrian Cultural Forum and Austrian Embassy.</p>
-        </div>
-      </article>
- 
-    </div>
-  </div>
-</section>
+
 
 <!-- WHAT'S HAPPENING -->
 <section class="happening-section reveal">
