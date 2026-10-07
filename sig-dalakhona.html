@@ -534,6 +534,55 @@
     .prog-partners-section.main-partners-section .prog-partners-title{margin-bottom:6px !important;}
   }
 </style>
+<style id="games-2026-css">
+  .games-section{background:#fff;position:relative;padding:0 0 24px;}
+  .games-header{padding:16px 248px 28px;}
+  .games-title{font-family:'RobotoMono',monospace;font-size:52px;font-weight:700;color:var(--dark-text);}
+  .games-strip-outer{position:relative;padding:0 248px 40px;}
+  .games-strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;}
+  .games-strip::-webkit-scrollbar{display:none;}
+  .game-card{flex:0 0 calc((100% - 24px) / 3);scroll-snap-align:start;min-width:0;}
+  .game-img-wrap{width:100%;aspect-ratio:16/9;overflow:hidden;background:#0d1b3e;}
+  .game-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
+  .game-card:hover .game-img-wrap img{transform:scale(1.04);}
+  .game-name{font-size:15px;font-weight:600;color:var(--dark-text);margin-top:12px;line-height:1.3;}
+  .games-arrow{position:absolute;top:calc(50% - 40px);z-index:8;width:44px;height:44px;border-radius:50%;border:1.5px solid #1a2744;background:#fff;color:#1a2744;font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'InterDisplay',sans-serif;transition:background .2s,color .2s,opacity .2s,transform .18s;}
+  .games-arrow:hover{background:#1a2744;color:#fff;transform:scale(1.06);}
+  .games-arrow[disabled]{opacity:.25;pointer-events:none;}
+  .games-arrow-prev{left:calc(248px - 56px);}
+  .games-arrow-next{right:calc(248px - 56px);}
+  @media(max-width:1024px){
+    .games-header{padding:16px 48px 24px;}
+    .games-title{font-size:36px;}
+    .games-strip-outer{padding:0 48px 36px;}
+    .game-card{flex-basis:calc((100% - 12px) / 2);}
+    .games-arrow-prev{left:4px;}
+    .games-arrow-next{right:4px;}
+  }
+  @media(max-width:768px){
+    .games-header{padding:16px 20px 20px;}
+    .games-title{font-size:28px;}
+    .games-strip-outer{padding:0 20px 32px;}
+    .game-card{flex-basis:100%;}
+    .games-arrow{width:36px;height:36px;font-size:16px;}
+    .games-arrow-prev{left:8px;}
+    .games-arrow-next{right:8px;}
+  }
+</style>
+<style id="games-lightbox-css">
+  .game-card{cursor:pointer;}
+  .game-lightbox{position:fixed;inset:0;z-index:9999;background:rgba(10,15,35,.92);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+  .game-lightbox.open{opacity:1;pointer-events:all;}
+  .game-lightbox-inner{position:relative;max-width:1100px;width:100%;display:flex;flex-direction:column;align-items:center;gap:14px;}
+  .game-lightbox-img{max-width:100%;max-height:80vh;width:auto;height:auto;object-fit:contain;display:block;background:#0d1b3e;}
+  .game-lightbox-name{color:#fff;font-size:18px;font-weight:600;text-align:center;font-family:'InterDisplay',sans-serif;}
+  .game-lightbox-close{position:absolute;top:-8px;right:0;transform:translateY(-100%);background:none;border:none;color:rgba(255,255,255,.75);font-size:34px;line-height:1;font-weight:300;cursor:pointer;transition:color .2s;}
+  .game-lightbox-close:hover{color:#fff;}
+  @media(max-width:768px){
+    .game-lightbox{padding:16px;}
+    .game-lightbox-close{top:-4px;}
+  }
+</style>
 </head>
 <body>
 
@@ -622,6 +671,34 @@
   </div>
 </section>
 
+<!-- â•â•â• 2026 GAMES â•â•â• -->
+<section class="games-section reveal" id="games2026">
+  <div class="fug-crosses-bar"><div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div><div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div></div>
+  <div class="games-header"><h2 class="games-title">2026 Games</h2></div>
+  <div class="games-strip-outer">
+    <button class="games-arrow games-arrow-prev" aria-label="Previous games">&larr;</button>
+    <div class="games-strip" id="gamesStrip">
+      <div class="game-card"><div class="game-img-wrap"><img src="images/Games/Colocated%20VR%20Table%20tennis.png" alt="Colocated VR Table tennis" loading="lazy"/></div><p class="game-name">Colocated VR Table tennis</p></div>
+      <div class="game-card"><div class="game-img-wrap"><img src="images/Games/Dragonpong.png" alt="Dragonpong" loading="lazy"/></div><p class="game-name">Dragon Pong</p></div>
+      <div class="game-card"><div class="game-img-wrap"><img src="images/Games/Echoes%20of%20The%20Baobab.png" alt="Echoes of The Baobab" loading="lazy"/></div><p class="game-name">Echoes of The Baobab</p></div>
+      <div class="game-card"><div class="game-img-wrap"><img src="images/Games/Gooka%20Irimu%20Ogre.jpg" alt="Gooka Irimu Ogre" loading="lazy"/></div><p class="game-name">Gooka Irimu Ogre</p></div>
+      <div class="game-card"><div class="game-img-wrap"><img src="images/Games/GravytX%20The%20Gravytoid.png" alt="GravytX The Gravytoid" loading="lazy"/></div><p class="game-name">GravytX The Gravytoid</p></div>
+      <div class="game-card"><div class="game-img-wrap"><img src="images/Games/Hill%20Climb.jpg" alt="Hill Climb" loading="lazy"/></div><p class="game-name">Hill Climb</p></div>
+      <div class="game-card"><div class="game-img-wrap"><img src="images/Games/I%20Can%20Transform.png" alt="I Can Transform" loading="lazy"/></div><p class="game-name">I Can Transform (Solo & Multiplayer)</p></div>
+      <div class="game-card"><div class="game-img-wrap"><img src="images/Games/Inferno%20Wing.png" alt="Inferno Wing" loading="lazy"/></div><p class="game-name">Inferno Wing</p></div>
+      <div class="game-card"><div class="game-img-wrap"><img src="images/Games/Last%20taxi%20to%20Braam.jpg" alt="Last taxi to Braam" loading="lazy"/></div><p class="game-name">Last taxi to Braam</p></div>
+      <div class="game-card"><div class="game-img-wrap"><img src="images/Games/Ma3%20Simulator%20-%20African%20Bus%20Simulator.png" alt="Ma3 Simulator - African Bus Simulator" loading="lazy"/></div><p class="game-name">Ma3 Simulator - African Bus Simulator</p></div>
+      <div class="game-card"><div class="game-img-wrap"><img src="images/Games/Red%20Moon.png" alt="Red Moon" loading="lazy"/></div><p class="game-name">Red Moon</p></div>
+      <div class="game-card"><div class="game-img-wrap"><img src="images/Games/Skyrax.png" alt="Skyrax" loading="lazy"/></div><p class="game-name">Skyrax</p></div>
+      <div class="game-card"><div class="game-img-wrap"><img src="images/Games/Tiny%20Horizons.png" alt="Tiny Horizons" loading="lazy"/></div><p class="game-name">Tiny Horizons</p></div>
+      <div class="game-card"><div class="game-img-wrap"><img src="images/Games/Turbo%20Jetpack%20X.png" alt="Turbo Jetpack X" loading="lazy"/></div><p class="game-name">Turbo Jetpack X</p></div>
+      <div class="game-card"><div class="game-img-wrap"><img src="images/Games/VECTONOVA.png" alt="VECTONOVA" loading="lazy"/></div><p class="game-name">VECTONOVA</p></div>
+      <div class="game-card"><div class="game-img-wrap"><img src="images/Games/ZawaniRPG%20(African%20Survival%20RPG).jpg" alt="ZawaniRPG (African Survival RPG)" loading="lazy"/></div><p class="game-name">ZawaniRPG (African Survival RPG)</p></div>
+    </div>
+    <button class="games-arrow games-arrow-next" aria-label="Next games">&rarr;</button>
+  </div>
+  <div class="fug-crosses-bar"><div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div><div class="cross-icon"><svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg></div></div>
+</section>
 <!-- ═══ JOIN OUR DEVELOPER NETWORK ═══ -->
 <section class="network-section reveal">
   <div class="network-bg"></div>
@@ -1102,6 +1179,68 @@ faqData.forEach((faq, i) => {
     opacity:1 !important;
   }
 </style>
+<script id="games-2026-js">
+(function () {
+  var strip = document.getElementById('gamesStrip');
+  if (!strip) return;
+  var outer = strip.parentElement;
+  var prev = outer.querySelector('.games-arrow-prev');
+  var next = outer.querySelector('.games-arrow-next');
+  function update() {
+    prev.disabled = strip.scrollLeft <= 2;
+    next.disabled = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 2;
+  }
+  function step() { return strip.clientWidth + 12; }
+  prev.addEventListener('click', function () { strip.scrollBy({ left: -step(), behavior: 'smooth' }); });
+  next.addEventListener('click', function () { strip.scrollBy({ left:  step(), behavior: 'smooth' }); });
+  strip.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+<script id="games-lightbox-js">
+(function () {
+  var lb = document.createElement('div');
+  lb.className = 'game-lightbox';
+  lb.setAttribute('role', 'dialog');
+  lb.setAttribute('aria-modal', 'true');
+  lb.innerHTML =
+    '<div class="game-lightbox-inner">' +
+      '<button class="game-lightbox-close" aria-label="Close">&times;</button>' +
+      '<img class="game-lightbox-img" src="" alt="" />' +
+      '<p class="game-lightbox-name"></p>' +
+    '</div>';
+  document.body.appendChild(lb);
+
+  var img   = lb.querySelector('.game-lightbox-img');
+  var name  = lb.querySelector('.game-lightbox-name');
+  var close = lb.querySelector('.game-lightbox-close');
+
+  function open(src, alt) {
+    img.src = src;
+    img.alt = alt || '';
+    name.textContent = alt || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function hide() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(function () { if (!lb.classList.contains('open')) img.src = ''; }, 300);
+  }
+
+  document.querySelectorAll('#games2026 .game-card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      var im = card.querySelector('img');
+      if (im) open(im.getAttribute('src'), im.getAttribute('alt'));
+    });
+  });
+
+  close.addEventListener('click', hide);
+  lb.addEventListener('click', function (e) { if (e.target === lb) hide(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
+})();
+</script>
 </body>
 </html>
 
