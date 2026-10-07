@@ -2,239 +2,107 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fak'ugesiPRO – Our Dedicated Industry Platform – Fak'ugesi Festival</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Pitchathon • Fak'ugesi Festival 2026</title>
+  <link rel="stylesheet" href="styles.css">
   <style>
-    @font-face { font-family:'InterDisplay'; src:url('fonts/InterDisplay-Regular.otf') format('opentype'); font-weight:400; font-style:normal; }
-    @font-face { font-family:'InterDisplay'; src:url('fonts/InterDisplay-Medium.otf') format('opentype'); font-weight:500; font-style:normal; }
-    @font-face { font-family:'InterDisplay'; src:url('fonts/InterDisplay-SemiBold.otf') format('opentype'); font-weight:600; font-style:normal; }
-    @font-face { font-family:'InterDisplay'; src:url('fonts/InterDisplay-Bold.otf') format('opentype'); font-weight:700; font-style:normal; }
+    @font-face { font-family:'InterDisplay'; src:url('fonts/InterDisplay-Regular.otf') format('opentype'); font-weight:400; }
+    @font-face { font-family:'InterDisplay'; src:url('fonts/InterDisplay-Medium.otf') format('opentype'); font-weight:500; }
+    @font-face { font-family:'InterDisplay'; src:url('fonts/InterDisplay-SemiBold.otf') format('opentype'); font-weight:600; }
+    @font-face { font-family:'InterDisplay'; src:url('fonts/InterDisplay-Bold.otf') format('opentype'); font-weight:700; }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
     :root {
-      --navy:      #1a2744;
-      --blue-mid:  #2a3f72;
-      --lavender:  #dde3f0;
-      --white:     #ffffff;
+      --navy: #1a2744;
+      --lavender: #dde3f0;
+      --white: #ffffff;
       --dark-text: #0d1b3e;
       --body-gray: #3a4060;
-      --band:      248px;
     }
-
-    html { scroll-behavior: smooth; }
-    body { font-family: 'InterDisplay', sans-serif; background: var(--white); color: var(--dark-text); overflow-x: hidden; }
+    html { scroll-behavior:smooth; scroll-padding-top:70px; overflow-x:hidden; width:100%; }
+    body { font-family:'InterDisplay',sans-serif; background:var(--white); color:var(--dark-text); overflow-x:hidden; width:100%; position:relative; }
 
     /* ── CROSS ICONS ── */
     .cross-icon {
       display: inline-flex; align-items: center; justify-content: center;
-      width: 18px; height: 18px; flex-shrink: 0; position: absolute;
-      z-index: 6; opacity: 0.55; transition: transform 0.1s linear;
+      width: 18px; height: 18px; flex-shrink: 0; position: absolute; z-index: 6;
+      opacity: 0.55; transition: transform 0.1s linear;
     }
     .cross-icon svg { width: 100%; height: 100%; }
 
+    .cross-inline {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 18px; height: 18px; flex-shrink: 0;
+      opacity: 0.55; transition: transform 0.1s linear;
+    }
+    .cross-inline svg { width: 100%; height: 100%; }
+
     /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
+    .reveal { opacity:0; transform:translateY(28px); transition:opacity .75s ease,transform .75s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+
+    /* ── GLOBAL button hover ── */
+    button:hover,
+    .hero-cta:hover,
+    .intro-cta:hover,
+    .challenge-cta:hover,
+    .prize-cta:hover,
+    a[class*="cta"]:hover,
+    a[class*="btn"]:hover {
+      background: var(--navy) !important;
+      color: #fff !important;
+      border-color: var(--navy) !important;
+    }
 
     /* ══ HERO ══ */
     .hero {
-      position: relative; width: 100%; min-height: 580px; overflow: hidden;
+      position: relative; width: 100%; min-height: 490px; overflow: hidden;
       display: grid;
       grid-template-rows: calc(16px + 9px) 1fr calc(16px + 9px);
       grid-template-columns: 248px 1fr 248px;
-      align-items: stretch; padding-top: 0;
+      align-items: stretch;
     }
-   .hero-bg {
+ .hero-bg {
   position: absolute; inset: 0;
-  background-image: url('images/image updates/Copy of 0A9A9140.jpg');
-  background-size: cover; background-position: center 20%;
+  background-image: url('images/image updates/_C6A8687.jpg');
+  background-size: cover;
+  background-position: 30% calc(35% - 10px);
   animation: kenBurns 18s ease-in-out infinite alternate;
 }
-    @keyframes kenBurns { from { transform: scale(1); } to { transform: scale(1.07); } }
-    .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.35); z-index: 1; pointer-events: none; }
+   
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.20);
+    }
     .hero-content {
       grid-row: 2; grid-column: 2; position: relative; z-index: 4;
-      display: flex; flex-direction: row;
+      display: flex; flex-direction: row-reverse;
       justify-content: space-between; align-items: flex-start;
-      gap: 48px; padding: 110px 0 60px;
-      animation: fadeUp 0.9s ease both;
+      gap: 48px; padding-top: 100px; padding-bottom: 48px;
+      animation: fadeUp .9s ease both;
     }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
-    .hero-text-wrapper { flex: 1; min-width: 0; max-width: 580px; }
-    .hero-eyebrow {
-      font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
-      text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 14px;
-      text-shadow: 0 1px 8px rgba(0,0,0,0.4);
-    }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
+    .hero-text-wrapper { flex:1; min-width:0; }
+    .hero-eyebrow { font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.75); margin-bottom:14px; }
     .hero-title {
-      font-family: 'InterDisplay', sans-serif;
-      font-size: 50px; font-weight: 600; line-height: 1.05;
-      color: #fff; margin-bottom: 20px; max-width: 640px;
-      text-shadow: 0 2px 18px rgba(0,0,0,0.4);
+      font-family: 'InterDisplay', sans-serif; font-size: 58px; font-weight: 600; line-height:1.05; color:#fff; margin-bottom:20px; max-width:640px;
+      text-shadow: 0 2px 18px rgba(0,0,0,0.45);
     }
-    .hero-body {
-      font-size:13px; font-weight: 400; line-height: 1.72;
-      color: rgba(255,255,255,0.92); max-width: 510px; margin-bottom: 20px;
-      text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+    .hero-body { font-size:13px; line-height:1.72; max-width:510px; color:rgba(255,255,255,.85); margin-bottom:16px; text-shadow: 0 1px 10px rgba(0,0,0,0.4); }
+    .hero-dates { font-size:28px; font-weight:400; opacity:0.9; color:#fff; margin-bottom:20px; text-shadow: 0 1px 10px rgba(0,0,0,0.4); }
+    .hero-cta-wrapper { display:flex; gap:12px; flex-wrap:wrap; }
+    .hero-cta {
+      display:inline-flex; align-items:center; gap:10px;
+      border:1.5px solid #fff; color:#fff; background:transparent;
+      padding:11px 26px; font-size:11px; font-weight:700;
+      letter-spacing:.1em; text-transform:uppercase; cursor:pointer;
+      text-decoration:none;
+      transition:background .22s, color .22s, border-color .22s;
     }
-    .hero-dates { font-size:28px; font-weight:400; opacity: 0.95; color: #fff; margin-bottom: 0; text-shadow: 0 1px 10px rgba(0,0,0,0.4); }
+    .hero-signia { flex-shrink:none; width:auto; max-width:280px; padding-top:60px; margin-right:-16px; }
+    .hero-signia img { display:block; width:100%; height:auto; max-height:100px; object-fit:contain; }
 
-    /* ── LOGO COL — matched to sig-awards ── */
-    .hero-logo-col {
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-end;
-      padding-top: 100px;
-       padding-right: 24px;
-      flex-shrink: 0;
-    }
-    .hero-logo-col img {
-      height: 90px;
-      width: auto;
-      display: block;
-      
-    }
-
-    /* ── TICKER ── */
-    .ticker-wrapper {
-      background: var(--dark-text); overflow: hidden; white-space: nowrap;
-      padding: 12px 0; position: relative; z-index: 10; transition: background 0.28s ease;
-    }
-    .ticker-wrapper:hover { background: #fff; }
-    .ticker-wrapper:hover .ticker-track { animation-play-state: paused; }
-    .ticker-wrapper:hover .ticker-track span { color: var(--dark-text); }
-    .ticker-track { display: inline-flex; animation: tickerScroll 35s linear infinite; }
-    .ticker-track span {
-      padding: 0 40px; font-size: 12px; font-weight: 500;
-      color: #fff; letter-spacing: 0.04em; transition: color 0.2s; cursor: pointer;
-    }
-    @keyframes tickerScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-    /* ── SIG NAV STRIP ── */
-    .fug-sig-strip {
-      background: rgba(26,39,68,0.92); backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      overflow: hidden; position: relative; z-index: 20;
-    }
-    .fug-sig-strip-inner {
-      display: flex; align-items: stretch;
-      overflow-x: auto; scrollbar-width: none; justify-content: center;
-    }
-    .fug-sig-strip-inner::-webkit-scrollbar { display: none; }
-    .fug-sig-item {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 7px; padding: 12px 38px; text-decoration: none; color: rgba(255,255,255,0.60);
-      font-family: 'InterDisplay', sans-serif; font-size: 9px; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      border-right: 1px solid rgba(255,255,255,0.07);
-      transition: background 0.22s, color 0.22s;
-      flex-shrink: 0; min-width: 100px; position: relative; white-space: nowrap;
-    }
-    .fug-sig-item:first-child { border-left: 1px solid rgba(255,255,255,0.07); }
-    .fug-sig-item:hover { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.95); }
-    .fug-sig-item.fug-active { background: rgba(255,255,255,0.12); color: #fff; }
-    .fug-sig-item.fug-active::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-      height: 2px; background: rgba(255,255,255,0.5);
-    }
-    .fug-sig-item img {
-      display: block; max-width: 88px; max-height: 40px; object-fit: contain;
-      transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), opacity 0.22s; opacity: 0.65;
-    }
-    .fug-sig-item:hover img, .fug-sig-item.fug-active img { transform: scale(1.18); opacity: 1; }
-
-    /* ══ INTRO ══ */
-    .intro-section { background: var(--white); padding: 72px 248px; position: relative; }
-    .intro-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; }
-    .intro-title { font-size: 50px; font-weight: 900; color: var(--dark-text); line-height: 1.05; margin-bottom: 32px; }
-    .intro-body { font-size: 14px; line-height: 1.75; color: var(--dark-text); max-width: 100%; margin-bottom: 48px; }
-
-    /* ══ NETWORK ══ */
-    .network-section { position: relative; min-height: 600px; overflow: hidden; }
-    .network-bg {
-      position: absolute; inset: 0;
-      background-image: url('images/image updates/Copy of 0A9A9384.JPG');
-      background-size: cover; background-position: center 30%;
-      transform: scaleX(-1);
-    }
-    .network-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.35); z-index: 1; pointer-events: none; }
-    .network-inner {
-      position: relative; z-index: 3; padding: 100px 248px;
-      display: flex; justify-content: space-between; align-items: flex-start;
-    }
-    .network-content { max-width: 560px; }
-    .network-title { font-size: 52px; font-weight: 700; color: #fff; line-height: 1.05; margin-bottom: 28px; text-shadow: 0 2px 18px rgba(0,0,0,0.4); }
-    .network-body { font-size: 14px; line-height: 1.78; color: rgba(255,255,255,0.92); margin-bottom: 40px; text-shadow: 0 1px 10px rgba(0,0,0,0.4); }
-    .network-cta {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      border: 1.5px solid #fff; color: #fff; background: transparent;
-      padding: 13px 32px; font-size: 11px; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      cursor: pointer; font-family: 'InterDisplay', sans-serif; text-decoration: none;
-      transition: background 0.22s, color 0.22s, transform 0.18s, box-shadow 0.35s, border-color 0.3s;
-    }
-    .network-cta:hover { background: #8b5cf6; color: #ffffff; border-color: #8b5cf6; box-shadow: 0 0 20px #8b5cf6, 0 0 44px #8b5cf6; transform: translateY(-1px); }
-
-    /* ══ 2025 HIGHLIGHTS ══ */
-    .highlights-section { background: #fff; padding: 0; position: relative; overflow: hidden; }
-    .highlights-header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 56px 248px 36px; position: relative;
-    }
-    .highlights-title { font-size: 52px; font-weight: 700; color: var(--dark-text); }
-    .highlights-strip-outer { padding: 0 248px 64px; }
-    .highlights-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; width: 100%; align-items: stretch; }
-    .highlight-card { min-width: 0; display: flex; flex-direction: column; height: 100%; }
-    .highlight-img-wrap { width: 100%; height: 260px; overflow: hidden; position: relative; flex-shrink: 0; }
-    .highlight-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; transition: transform 0.5s ease; }
-    .highlight-card:hover .highlight-img-wrap img { transform: scale(1.04); }
-    .highlight-info { padding: 12px 0 0; display: flex; flex-direction: column; flex: 1; }
-    .highlight-cat { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--body-gray); margin-bottom: 6px; }
-    .highlight-name { font-size: 17px; font-weight: 700; color: var(--dark-text); margin-bottom: 8px; line-height: 1.2; }
-
-    /* ── 2-line clamp + read more ── */
-    .highlight-excerpt {
-      font-size: 12px; color: var(--body-gray); line-height: 1.65;
-      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
-      overflow: hidden; margin-bottom: 8px;
-    }
-    .highlight-read-more {
-      font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--navy); cursor: pointer; border-bottom: 1px solid var(--navy);
-      display: inline-block; width: fit-content; padding-bottom: 1px; transition: opacity 0.2s;
-      background: none; border-top: none; border-left: none; border-right: none;
-      font-family: 'InterDisplay', sans-serif; margin-top: auto;
-    }
-    .highlight-read-more:hover { opacity: 0.6; }
-
-    /* ── HIGHLIGHT POPUP ── */
-    .highlight-popup-backdrop {
-      display: none; position: fixed; inset: 0;
-      background: rgba(13,27,62,0.78); z-index: 2000;
-      align-items: flex-start; justify-content: center;
-      padding: 60px 24px 40px; overflow-y: auto;
-      backdrop-filter: blur(4px);
-    }
-    .highlight-popup-backdrop.open { display: flex; }
-    .highlight-popup {
-      background: var(--white); max-width: 640px; width: 100%;
-      padding: 44px 44px 40px; position: relative;
-      animation: modalIn 0.28s ease both;
-    }
-    @keyframes modalIn { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform:none; } }
-    .highlight-popup-cat { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--body-gray); margin-bottom: 10px; }
-    .highlight-popup-title { font-size: 24px; font-weight: 700; color: var(--dark-text); line-height: 1.15; margin-bottom: 20px; }
-    .highlight-popup-body { font-size: 13px; line-height: 1.78; color: var(--body-gray); white-space: pre-line; }
-    .highlight-popup-close {
-      position: absolute; top: 16px; right: 20px;
-      background: none; border: none; cursor: pointer;
-      font-size: 26px; color: var(--dark-text); line-height: 1;
-      font-family: 'InterDisplay', sans-serif; transition: opacity 0.2s;
-    }
-    .highlight-popup-close:hover { opacity: 0.5; }
-
-    /* ── Shared link hover ── */
+    /* ── Fak'ugesi shared link hover ── */
     .involved-link, .curatorial-view-link, .showcases-link, .showcases-header a,
     .showcase-card-more, .winners-view-link, .highlights-view-link, .intro-view-link,
     .network-view-link, .faq-tickets-link, .faq-apply-link, .faq-apply-top,
@@ -242,8 +110,8 @@
     .exhibitors-link, .exhibitor-card-more, .more-card-link, .prizes-apply-link,
     .cat-apply-link, .req-apply-link, .challenge-apply-link, .section-link,
     .media-link, .locations-map-link, .directions-link, .hero-link, [data-fug-link] {
-      position: relative !important; text-decoration: none !important;
-      padding-bottom: 2px !important; transition: opacity 0.25s ease, transform 0.25s ease !important;
+      position:relative !important; text-decoration:none !important;
+      padding-bottom:2px !important; transition:opacity .25s ease, transform .25s ease !important;
     }
     .involved-link::after, .curatorial-view-link::after, .showcases-link::after,
     .showcases-header a::after, .showcase-card-more::after, .winners-view-link::after,
@@ -255,32 +123,66 @@
     .req-apply-link::after, .challenge-apply-link::after, .section-link::after,
     .media-link::after, .locations-map-link::after, .directions-link::after,
     .hero-link::after, [data-fug-link]::after {
-      content: ''; position: absolute; bottom: 0; left: 0;
-      width: 100%; height: 1px; background: currentColor;
-      transform: scaleX(1); transform-origin: left center; transition: transform 0.28s ease;
+      content:''; position:absolute; bottom:0; left:0; width:100%; height:1px;
+      background:currentColor; transform:scaleX(1); transform-origin:left center;
+      transition:transform .28s ease;
     }
-    .involved-link:hover::after, .curatorial-view-link:hover::after, .showcases-link:hover::after,
-    .showcases-header a:hover::after, .showcase-card-more:hover::after, .winners-view-link:hover::after,
-    .highlights-view-link:hover::after, .intro-view-link:hover::after, .network-view-link:hover::after,
-    .faq-tickets-link:hover::after, .faq-apply-link:hover::after, .faq-apply-top:hover::after,
-    .partners-link:hover::after, .partners-view-link:hover::after, .main-partners-link:hover::after,
-    .market-info-link:hover::after, .exhibitors-link:hover::after, .exhibitor-card-more:hover::after,
-    .more-card-link:hover::after, .prizes-apply-link:hover::after, .cat-apply-link:hover::after,
-    .req-apply-link:hover::after, .challenge-apply-link:hover::after, .section-link:hover::after,
-    .media-link:hover::after, .locations-map-link:hover::after, .directions-link:hover::after,
-    .hero-link:hover::after, [data-fug-link]:hover::after {
-      transform: scaleX(0); transform-origin: right center;
+    .involved-link:hover::after, .section-link:hover::after, .partners-link:hover::after,
+    .prizes-apply-link:hover::after, .faq-apply-link:hover::after,
+    .faq-apply-top:hover::after, [data-fug-link]:hover::after {
+      transform:scaleX(0); transform-origin:right center;
     }
-    .involved-link:hover, .curatorial-view-link:hover, .showcases-link:hover,
-    .showcases-header a:hover, .showcase-card-more:hover, .winners-view-link:hover,
-    .highlights-view-link:hover, .intro-view-link:hover, .network-view-link:hover,
-    .faq-tickets-link:hover, .faq-apply-link:hover, .faq-apply-top:hover,
-    .partners-link:hover, .partners-view-link:hover, .main-partners-link:hover,
-    .market-info-link:hover, .exhibitors-link:hover, .exhibitor-card-more:hover,
-    .more-card-link:hover, .prizes-apply-link:hover, .cat-apply-link:hover,
-    .req-apply-link:hover, .challenge-apply-link:hover, .section-link:hover,
-    .media-link:hover, .locations-map-link:hover, .directions-link:hover,
-    .hero-link:hover, [data-fug-link]:hover { transform: translateX(3px); }
+    .section-link:hover, .partners-link:hover, .prizes-apply-link:hover,
+    .faq-apply-link:hover, .faq-apply-top:hover, [data-fug-link]:hover {
+      transform:translateX(3px);
+    }
+
+    /* ── TICKER ── */
+    .ticker-wrapper {
+      background:var(--navy); overflow:hidden; white-space:nowrap;
+      padding:10px 0; position:relative; z-index:10;
+      transition:background .28s ease;
+    }
+    .ticker-wrapper:hover { background:#fff !important; }
+    .ticker-wrapper:hover .ticker-track { animation-play-state:paused; }
+    .ticker-wrapper:hover .ticker-track span { color:var(--navy) !important; }
+    .ticker-track { display:inline-flex; animation:tickerScroll 35s linear infinite; }
+    .ticker-track span { padding:0 32px; font-size:12.5px; font-weight:500; color:rgba(255,255,255,.85); letter-spacing:.02em; }
+    @keyframes tickerScroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+
+    /* ── SIG NAV STRIP ── */
+    .fug-sig-strip {
+      background:rgba(26,39,68,0.92); backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      overflow:hidden; position:relative; z-index:20;
+    }
+    .fug-sig-strip-inner {
+      display:flex; align-items:stretch;
+      overflow-x:auto; scrollbar-width:none; justify-content:center;
+    }
+    .fug-sig-strip-inner::-webkit-scrollbar { display:none; }
+    .fug-sig-item {
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      gap:7px; padding:12px 38px; text-decoration:none; color:rgba(255,255,255,.60);
+      font-family:'InterDisplay',sans-serif; font-size:9px; font-weight:700;
+      letter-spacing:.12em; text-transform:uppercase;
+      border-right:1px solid rgba(255,255,255,.07);
+      transition:background .22s, color .22s;
+      flex-shrink:0; min-width:100px; position:relative; white-space:nowrap;
+    }
+    .fug-sig-item:first-child { border-left:1px solid rgba(255,255,255,.07); }
+    .fug-sig-item:hover { background:rgba(255,255,255,.08); color:rgba(255,255,255,.95); }
+    .fug-sig-item.fug-active { background:rgba(255,255,255,.12); color:#fff; }
+    .fug-sig-item.fug-active::after {
+      content:''; position:absolute; bottom:0; left:0; right:0;
+      height:2px; background:rgba(255,255,255,.5);
+    }
+    .fug-sig-item img {
+      display:block; max-width:88px; max-height:40px; object-fit:contain;
+      transition:transform .28s cubic-bezier(0.34,1.56,0.64,1), opacity .22s;
+      opacity:.65;
+    }
+    .fug-sig-item:hover img, .fug-sig-item.fug-active img { transform:scale(1.08); opacity:1; }
 
     /* ── SIGNAL GUIDE BUTTON ── */
 .hero-btn-row{margin-top:20px;}
@@ -317,111 +219,141 @@
   .prog-partner-logo{height:22px;width:60px;}
   .prog-partner-logo img{max-height:14px;}
 }
-    
+
+
+
+    /* ══ ABOUT / WHAT IS PITCHATHON ══ */
+   .about-section {
+  background:linear-gradient(180deg,#c8cede 0%,#e5e7ef 100%);
+  padding:88px 248px;
+  position:relative;
+  overflow:hidden;
+}
+    .about-layout {
+      display:flex; flex-direction:column; gap:32px;
+    }
+    .about-title { font-size:50px; font-weight:900; color:var(--dark-text); line-height:1.05; margin-bottom:0; }
+    .about-eyebrow {
+      font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+      color:var(--navy); margin-bottom:14px; display:block;
+    }
+    .about-body { display:flex; flex-direction:column; max-width:100%; }
+    .about-body p { font-size:14px; line-height:1.75; color:var(--dark-text); margin-bottom:18px; }
+    .about-body p:last-child { margin-bottom:0; }
+
     /* ══ FAQ ══ */
-    .faq-section { background: var(--white); padding: 64px 248px; position: relative; }
-    .faq-layout { display: grid; grid-template-columns: 1fr 1.8fr; gap: 64px; align-items: flex-start; }
-    .faq-title-left { font-size: 50px; font-weight: 600; color: var(--dark-text); margin-bottom: 20px; }
-    .faq-items-wrap { display: flex; flex-direction: column; }
-    .faq-item { border-top: 1px solid rgba(26,39,68,.15); background: transparent; transition: background 0.28s ease; }
-    .faq-item:last-child { border-bottom: 1px solid rgba(26,39,68,.15); }
-    .faq-item:hover { background: var(--navy); }
-    .faq-item:hover .faq-q-text { color: var(--white); }
-    .faq-item:hover .faq-t-icon { color: var(--white); }
-    .faq-item:hover .faq-ans { color: rgba(255,255,255,.8); }
-    .faq-q-btn { display: flex; justify-content: space-between; align-items: center; padding: 22px 16px; cursor: pointer; gap: 16px; background: none; border: none; width: 100%; text-align: left; font-family: 'InterDisplay', sans-serif; }
-    .faq-q-text { font-size: 16px; font-weight: 500; color: var(--dark-text); line-height: 1.35; transition: color 0.28s ease; max-width: calc(100% - 40px); }
-    .faq-t-icon { font-size: 22px; color: var(--dark-text); flex-shrink: 0; font-weight: 300; line-height: 1; transition: color 0.28s ease, transform 0.3s ease; }
-    .faq-item.open .faq-t-icon { transform: rotate(45deg); }
-    .faq-ans { max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .35s ease, color 0.28s ease; font-size: 13px; line-height: 1.72; color: var(--body-gray); padding: 0 16px; }
-    .faq-item.open .faq-ans { max-height: 300px; padding: 0 16px 22px; }
+    .faq-section { background:var(--white); padding:64px 248px; position:relative; }
+    .faq-layout { display:grid; grid-template-columns:1fr 1.8fr; gap:64px; align-items:flex-start; }
+    .faq-title-left { font-size:50px; font-weight:600; color:var(--dark-text); margin-bottom:20px; }
+    .faq-intro-text { font-size:13px; line-height:1.7; color:var(--body-gray); max-width:280px; }
+    .faq-right-hdr { display:flex; justify-content:flex-end; margin-bottom:8px; }
+    .faq-apply-top { font-size:12px; color:var(--dark-text); text-decoration:underline; letter-spacing:.06em; cursor:pointer; }
+    .faq-items-wrap { display:flex; flex-direction:column; }
+    .faq-item { border-top:1px solid rgba(26,39,68,.15); background:transparent; transition:background .28s ease; }
+    .faq-item:last-child { border-bottom:1px solid rgba(26,39,68,.15); }
+    .faq-item:hover { background:var(--navy); }
+    .faq-item:hover .faq-q-text { color:var(--white); font-family:'Georgia',serif; }
+    .faq-item:hover .faq-t-icon { color:var(--white); }
+    .faq-item:hover .faq-ans { color:rgba(255,255,255,.8); }
+    .faq-q-btn { display:flex; justify-content:space-between; align-items:center; padding:22px 16px; cursor:pointer; gap:16px; background:none; border:none; width:100%; text-align:left; font-family:'InterDisplay',sans-serif; }
+    .faq-q-text { font-size:16px; font-weight:500; color:var(--dark-text); line-height:1.35; transition:color .28s ease; max-width:calc(100% - 40px); }
+    .faq-t-icon { font-size:22px; color:var(--dark-text); flex-shrink:0; font-weight:300; line-height:1; transition:color .28s ease, transform .3s ease; }
+    .faq-item.open .faq-t-icon { transform:rotate(45deg); }
+    .faq-ans { max-height:0; overflow:hidden; transition:max-height .35s ease, padding .35s ease, color .28s ease; font-size:13px; line-height:1.72; color:var(--body-gray); padding:0 16px; }
+    .faq-item.open .faq-ans { max-height:300px; padding:0 16px 22px; }
+    .faq-apply-link {
+      font-size:11px; font-weight:600; color:var(--navy);
+      text-decoration:underline; letter-spacing:.06em;
+      display:block; margin-top:40px; cursor:pointer;
+      text-underline-offset:3px; transition:opacity .2s;
+    }
+    .faq-apply-link:hover { opacity:.6; }
 
     /* ══ PARTNERS ══ */
-    .partners-section { background: var(--lavender); padding: 72px 0; position: relative; }
-    .partners-inner { padding: 0 248px; }
-    .partners-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
-    .partners-title { font-size: 38px; font-weight: 700; color: var(--dark-text); }
-    .partners-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
-    .partner-card { display: flex; flex-direction: column; }
-    .partner-logo-box {
-      background: #fff; border: 1px solid rgba(26,39,68,0.10);
-      aspect-ratio: 1 / 1; display: flex; align-items: center;
-      justify-content: center; padding: 32px 28px;
-      transition: box-shadow 0.3s, transform 0.3s; margin-bottom: 16px;
+    .partners-section {
+      background:var(--lavender); padding:72px 0; position:relative;
     }
-    .partner-card:hover .partner-logo-box { box-shadow: 0 10px 32px rgba(26,39,68,0.13); transform: translateY(-5px); }
-    .partner-logo-box img { max-width: 100%; max-height: 110px; object-fit: contain; display: block; filter: brightness(0) saturate(100%) invert(18%) sepia(52%) saturate(800%) hue-rotate(197deg) brightness(85%); }
-    .partner-logo-box img.keep-color { filter: none !important; }
-    .partner-logo-box img.origins-logo { max-height: 68px; align-self: center; }
-    .partner-logo-link { display: contents; text-decoration: none; }
+    .partners-inner { padding:0 248px; }
+    .partners-header {
+      display:flex; justify-content:space-between;
+      align-items:center; margin-bottom:40px;
+    }
+    .partners-title { font-size:38px; font-weight:700; color:var(--dark-text); }
+    .partners-view-link {
+      font-size:11px; font-weight:600; color:var(--navy);
+      text-decoration:underline; letter-spacing:.06em;
+      cursor:pointer; text-underline-offset:3px; transition:opacity .2s;
+    }
+    .partners-view-link:hover { opacity:.6; }
+    .partners-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:14px; }
+    .partner-card { display:flex; flex-direction:column; }
+    .partner-logo-link { display:block; text-decoration:none; }
+    .partner-logo-box {
+      background:var(--white); border:1px solid rgba(26,39,68,.10);
+      aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;
+      padding:18px 14px; transition:box-shadow .3s, transform .3s; margin-bottom:16px;
+      overflow:hidden;
+    }
+    .partner-card:hover .partner-logo-box { box-shadow:0 10px 32px rgba(26,39,68,.13); transform:translateY(-5px); }
+    .partner-logo-box img { max-width:100%; max-height:68px; object-fit:contain; display:block; filter:brightness(0) saturate(100%) invert(18%) sepia(52%) saturate(800%) hue-rotate(197deg) brightness(85%); }
+    .partner-logo-box img.keep-color { filter:none !important; }
+
+     @media (max-width: 1400px) {
+  .hero-logo-col img { height: 80px;  }
+  .hero-title { font-size: 50px; font-weight:700px; }
+}
+
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
-      :root { --band: 48px; }
-      .hero { grid-template-columns: 48px 1fr 48px; }
-      .hero-title { font-size:52px; }
-      .hero-logo-col { display: none; }
-      .intro-section { padding: 56px 48px; }
-      .intro-title { font-size: 38px; }
-      .network-inner { padding: 72px 48px; }
-      .network-title { font-size: 40px; }
-      .highlights-header { padding: 40px 48px 28px; }
-      .highlights-strip-outer { padding: 0 48px 48px; }
-      .highlights-strip { grid-template-columns: repeat(2, 1fr); }
-      .faq-section { padding: 56px 48px; }
-      .faq-layout { grid-template-columns: 220px 1fr; gap: 48px; }
-      .partners-inner { padding: 0 48px; }
-      .partners-title { font-size: 32px; }
-      .partners-grid { grid-template-columns: repeat(5, 1fr); gap: 12px; }
-      .partner-logo-box { padding: 24px 20px; }
+      .hero { grid-template-columns: 20px 1fr 20px; }
+      .hero-content { padding-top:110px !important; padding-bottom:60px !important; flex-direction:column; align-items:flex-start; gap:28px; }
+      .hero-title { font-size:36px; }
+      .about-section { padding:64px 40px; }
+      .about-title { font-size:38px; }
+      .faq-section { padding:48px 40px 56px; }
+      .faq-layout { grid-template-columns:220px 1fr; gap:48px; }
+      .partners-inner { padding:0 40px; }
+      .partners-title { font-size:32px; }
+      .partners-grid { grid-template-columns:repeat(6,1fr); gap:10px; }
+      .partner-logo-box { padding:12px 10px; }
+      .partner-logo-box img { max-height:52px; }
     }
-   @media (max-width: 1400px) {
-  .hero-logo-col img { height: 70px; }
-  .hero-title { font-size: 50px; font-weight:700; }
-}
-
- @media (max-width: 1200px) {
-  .hero-title { font-size: 38px; }
-  .hero-logo-col { display: none; }
-}
-
+    @media (max-width: 900px) {
+      .partners-grid { grid-template-columns:repeat(3,1fr); gap:12px; }
+    }
     @media (max-width: 768px) {
-      :root { --band: 20px; }
-      .cross-icon { display: none; }
-      .hero { display: flex; flex-direction: column; min-height: auto; }
-      .hero-content { padding: 90px 24px 48px !important; flex-direction: column; align-items: flex-start; gap: 20px; width: 100%; }
-      .hero-title { font-size:36px; max-width: 100%; }
-      .hero-logo-col { display: flex !important; align-items: center; justify-content: flex-start; padding-top: 0; padding-right: 0; margin-top: 4px; }
-      .hero-logo-col img { height: 56px; }
-      .intro-section { padding: 40px 20px; }
-      .intro-title { font-size: 32px; margin-bottom: 20px; }
-      .network-section { min-height: auto; }
-      .network-inner { padding: 56px 20px; flex-direction: column; gap: 24px; }
-      .network-title { font-size: 30px; }
-      .highlights-header { padding: 40px 20px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
-      .highlights-strip-outer { padding: 0 20px 40px; }
-      .highlights-strip { grid-template-columns: 1fr 1fr; }
-      .highlights-title { font-size: 32px; }
-      .highlight-img-wrap { height: 180px; }
-      .highlight-img-wrap img { object-position: center 25%; }
-      .faq-section { padding: 40px 20px 56px; }
-      .faq-layout { grid-template-columns: 1fr; gap: 24px; }
-      .faq-title-left { font-size: 32px; }
-      .partners-section { padding: 40px 0 48px; }
-      .partners-inner { padding: 0 20px; }
-      .partners-header { flex-direction: column; align-items: flex-start; gap: 10px; }
-      .partners-title { font-size: 26px; }
-      .partners-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
-      .partner-logo-box { padding: 20px 16px; }
-      .fug-sig-strip-inner { justify-content: flex-start; }
-      .highlight-popup { padding: 32px 24px 28px; }
+      .hero { display:flex; flex-direction:column; min-height:auto; }
+      .hero-content { padding:90px 24px 48px !important; flex-direction:column; align-items:flex-start; gap:20px; width:100%; }
+      .hero-title { font-size:28px; max-width:100%; }
+      .hero-text-wrapper { order:1; width:100%; }
+      .hero-signia { order:2; max-width:150px; padding-top:0; margin-right:0; align-self:flex-start; }
+      .hero-cta-wrapper { flex-direction:column; width:100%; }
+      .hero-cta { width:100%; justify-content:center; }
+      .about-section { padding:48px 20px; }
+      .about-title { font-size:32px; }
+      .faq-section { padding:40px 20px 48px; }
+      .faq-layout { grid-template-columns:1fr; gap:24px; }
+      .faq-title-left { font-size:32px; }
+      .faq-right-hdr { justify-content:flex-start; }
+      .partners-section { padding:40px 0 48px; }
+      .partners-inner { padding:0 20px; }
+      .partners-title { font-size:26px; }
+      .partners-grid { grid-template-columns:repeat(3,1fr); gap:10px; }
+      .partner-logo-box { padding:12px 10px; }
+      .partner-logo-box img { max-height:46px; }
+      .cross-icon { display:none; }
+      .fug-sig-strip-inner { justify-content:flex-start; }
     }
     @media (max-width: 480px) {
-      .hero-title { font-size:26px; }
-      .intro-title { font-size: 26px; }
-      .highlights-strip { grid-template-columns: 1fr; }
-      .partners-title { font-size: 22px; }
-      .partners-grid { grid-template-columns: 1fr 1fr; }
+      .hero-title { font-size:22px; }
+      .about-title { font-size:26px; }
+      .partners-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width: 768px) {
+      #fug-footer .fug-footer-inner { flex-direction:column !important; align-items:center !important; gap:32px !important; text-align:center !important; padding:32px 20px !important; }
+      #fug-footer .fug-footer-right { flex-direction:column !important; align-items:center !important; gap:12px !important; }
+      #fug-footer .fug-footer-cross { display:none !important; }
     }
   
     /* ── MEDIA + SUPPORTING PARTNERS ── */
@@ -555,12 +487,9 @@
   /* Logos at 2x size */
   .prog-partners-section .prog-carousel-track .prog-partner-logo.logo-lg.logo-2x{height:133px !important;width:364px !important;}
   .prog-partners-section .prog-carousel-track .prog-partner-logo.logo-lg.logo-2x img{max-height:91px !important;}
-  /* Main Partners: less space between title and logos */
-  .prog-partners-section.main-partners-section .prog-partners-title{margin-bottom:10px !important;}
   @media(max-width:768px){
     .prog-partners-section .prog-carousel-track .prog-partner-logo.logo-lg.logo-2x{height:105px !important;width:280px !important;}
     .prog-partners-section .prog-carousel-track .prog-partner-logo.logo-lg.logo-2x img{max-height:70px !important;}
-    .prog-partners-section.main-partners-section .prog-partners-title{margin-bottom:6px !important;}
   }
 </style>
 </head>
@@ -573,15 +502,14 @@
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-text-wrapper">
-      <p class="hero-eyebrow">Fak'ugesiPRO</p>
-      <h1 class="hero-title">Our Dedicated<br>Industry Platform</h1>
-      <p class="hero-body">An evolution of the Intermediaries legacy programme – Fak'ugesiPRO is the Festival's dedicated talks and industry platform. It is a working environment curated for organisations and practitioners operating at the intersection of creativity, technology, research, and policy, and for the professionals who move between those worlds with intent.</p>
-      <div class="hero-btn-row"><a class="btn-signal-guide" href="https://claude.ai/code/artifact/7c466634-baab-4a48-84d8-3f2ce3cc9463" target="_blank" rel="noopener">PROMPT: The Live Festival Guide</a></div>
-     
+    <div class="hero-signia">
+      <img src="/images/logos/signatureProgrammes/pitchathon_logo_light.svg" alt="Pitchathon"/>
     </div>
-    <div class="hero-logo-col">
-      <img src="images/logos/signatureProgrammes/pro_logo_logo_light.svg" alt="Fak'ugesiPRO"/>
+    <div class="hero-text-wrapper">
+      <h1 class="hero-title">High Stakes, <br>Shark Tank Pitches</h1>
+      <p class="hero-body">The Fak'ugesi Pitchathon is where ideas and prototypes stop existing as slides and start facing the conditions of the real world. Participants present projects to a panel of investors, venture capitalists, accelerator leads, producers, and industry strategists working across African markets and cultural sectors.</p>
+      <div class="hero-btn-row"><a class="btn-signal-guide" href="https://claude.ai/code/artifact/7c466634-baab-4a48-84d8-3f2ce3cc9463" target="_blank" rel="noopener">Live Signal Guide</a></div>
+      
     </div>
   </div>
 </section>
@@ -589,16 +517,14 @@
 <!-- ═══ TICKER ═══ -->
 <div class="ticker-wrapper">
   <div class="ticker-track">
-    <span>REGISTER FOR FAK'UGESIPRO INDUSTRY EVENTS &nbsp;→&nbsp;</span>
-    <span>REGISTER FOR FAK'UGESIPRO INDUSTRY EVENTS &nbsp;→&nbsp;</span>
-    <span>REGISTER FOR FAK'UGESIPRO INDUSTRY EVENTS &nbsp;→&nbsp;</span>
-    <span>REGISTER FOR FAK'UGESIPRO INDUSTRY EVENTS &nbsp;→&nbsp;</span>
-    <span>REGISTER FOR FAK'UGESIPRO INDUSTRY EVENTS &nbsp;→&nbsp;</span>
-    <span>REGISTER FOR FAK'UGESIPRO INDUSTRY EVENTS &nbsp;→&nbsp;</span>
-    <span>REGISTER FOR FAK'UGESIPRO INDUSTRY EVENTS &nbsp;→&nbsp;</span>
-    <span>REGISTER FOR FAK'UGESIPRO INDUSTRY EVENTS &nbsp;→&nbsp;</span>
-    <span>REGISTER FOR FAK'UGESIPRO INDUSTRY EVENTS &nbsp;→&nbsp;</span>
-    <span>REGISTER FOR FAK'UGESIPRO INDUSTRY EVENTS &nbsp;→&nbsp;</span>
+    <span>TICKETS ON SALE NOW • EARLY BIRD PRICING &nbsp;• 13-17 OCTOBER 2026 &nbsp;• JOHANNESBURG &nbsp;• AFRICAN IMAGINARIES &nbsp;• FAK'UGESI FESTIVAL 2026 &nbsp;</span>
+    <span>TICKETS ON SALE NOW • EARLY BIRD PRICING &nbsp;• 13-17 OCTOBER 2026 &nbsp;• JOHANNESBURG &nbsp;• AFRICAN IMAGINARIES &nbsp;• FAK'UGESI FESTIVAL 2026 &nbsp;</span>
+    <span>TICKETS ON SALE NOW • EARLY BIRD PRICING &nbsp;• 13-17 OCTOBER 2026 &nbsp;• JOHANNESBURG &nbsp;• AFRICAN IMAGINARIES &nbsp;• FAK'UGESI FESTIVAL 2026 &nbsp;</span>
+    <span>TICKETS ON SALE NOW • EARLY BIRD PRICING &nbsp;• 13-17 OCTOBER 2026 &nbsp;• JOHANNESBURG &nbsp;• AFRICAN IMAGINARIES &nbsp;• FAK'UGESI FESTIVAL 2026 &nbsp;</span>
+    <span>TICKETS ON SALE NOW • EARLY BIRD PRICING &nbsp;• 13-17 OCTOBER 2026 &nbsp;• JOHANNESBURG &nbsp;• AFRICAN IMAGINARIES &nbsp;• FAK'UGESI FESTIVAL 2026 &nbsp;</span>
+    <span>TICKETS ON SALE NOW • EARLY BIRD PRICING &nbsp;• 13-17 OCTOBER 2026 &nbsp;• JOHANNESBURG &nbsp;• AFRICAN IMAGINARIES &nbsp;• FAK'UGESI FESTIVAL 2026 &nbsp;</span>
+    <span>TICKETS ON SALE NOW • EARLY BIRD PRICING &nbsp;• 13-17 OCTOBER 2026 &nbsp;• JOHANNESBURG &nbsp;• AFRICAN IMAGINARIES &nbsp;• FAK'UGESI FESTIVAL 2026 &nbsp;</span>
+    <span>TICKETS ON SALE NOW • EARLY BIRD PRICING &nbsp;• 13-17 OCTOBER 2026 &nbsp;• JOHANNESBURG &nbsp;• AFRICAN IMAGINARIES &nbsp;• FAK'UGESI FESTIVAL 2026 &nbsp;</span>
   </div>
 </div>
 
@@ -611,126 +537,49 @@
     <a class="fug-sig-item" href="sig-dalakhona.html">
       <img src="images/logos/signatureProgrammes/dalakhona_logo_colour.svg" alt="Dala Khona" style="height:38px;"/>
     </a>
-    <a class="fug-sig-item fug-active" href="sig-fakugesipro.html">
+    <a class="fug-sig-item" href="sig-fakugesipro.html">
       <img src="images/logos/signatureProgrammes/pro_logo_logo_light.svg" alt="PRO" style="height:34px;"/>
     </a>
-   <a class="fug-sig-item" href="sig-immersive.html">
+    <a class="fug-sig-item" href="sig-immersive.html">
       <img src="images/logos/signatureProgrammes/afriverse_light.svg" alt="Immersive Africa" style="height:32px;filter:brightness(0) invert(1);opacity:.8;"/>
     </a>
     <a class="fug-sig-item" href="sig-jamz.html">
       <img src="images/logos/signatureProgrammes/jamz_logo_colour.svg" alt="JAMZ" style="height:42px;"/>
     </a>
-    <a class="fug-sig-item" href="sig-pitchathon.html">
+    <a class="fug-sig-item fug-active" href="sig-pitchathon.html">
       <img src="images/logos/signatureProgrammes/pitchathon_logo_light.svg" alt="Pitchathon" style="height:36px;"/>
     </a>
   </div>
 </nav>
 
-<!-- ═══ WHAT IS FAK'UGESI PRO ═══ -->
-<section class="intro-section reveal">
-  <div class="cross-icon" style="top:16px;left:200px;">
+<!-- ═══ ABOUT / WHAT IS PITCHATHON ═══ -->
+<section class="about-section reveal">
+  <div class="cross-icon" style="top:20px;left:200px;">
     <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
   </div>
-  <div class="cross-icon" style="top:16px;right:200px;">
+  <div class="cross-icon" style="top:20px;right:200px;">
     <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
   </div>
-  <div class="intro-header">
-    <h2 class="intro-title">What is Fak'ugesiPRO ?</h2>
-  </div>
-  <p class="intro-body">Studios, cultural institutions, production houses, government agencies, development finance organisations, tertiary institutions, and technology companies gather to address the practical realities shaping Africa's digital ecosystems. Sessions span intellectual property, investment access, platform regulation, creative infrastructure, skills pipelines, cross-border collaboration amongst others. Delegates gain access to facilitated introductions, closed roundtables, and strategic conversations linked to the broader Festival community and networks.</p>
-  <p class="intro-body">Fak'ugesiPRO is not a conference. It is where organisations that have decided to engage seriously with African digital creative infrastructure come to do the work of engagement: identifying partners, structuring agreements, and building lasting relationships. </p>
-  <div class="cross-icon" style="bottom:16px;left:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
-  </div>
-  <div class="cross-icon" style="bottom:16px;right:200px;">
-    <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
-  </div>
-</section>
 
-<!-- ═══ JOIN OUR INDUSTRY NETWORK ═══ -->
-<section class="network-section reveal">
-  <div class="network-bg"></div>
-  <div class="network-overlay"></div>
-  <div class="network-inner">
-    <div class="network-content">
-      <h2 class="network-title">Join Our Industry<br>Network</h2>
-      <p class="network-body">Fak'ugesiPRO is not a conference. It is where organisations that have decided to engage seriously with African digital creative infrastructure come to do the work of engagement: identifying partners, structuring agreements, and building lasting relationships.</p>
-      <a class="network-cta" href="https://tally.so/r/dWp5LD">GET INVOLVED</a>
+  <div class="about-layout">
+    <div>
+      <span class="about-eyebrow">Pitchathon</span>
+      <h2 class="about-title">Building Tomorrow<br>One Pitch at a Time</h2>
+    </div>
+    <div class="about-body">
+      <p>The stage where ideas and prototypes stop existing as slides and start facing the conditions of the real world. Participants present projects to a panel of investors, venture capitalists, accelerator leads, producers, and industry strategists working across African markets and cultural sectors. Potential projects range from animation, gaming and immersive technology to AI in music and various other fields.</p>
+      <p>The process is rigorous and always specific. Participants are challenged on sustainability, audience understanding, intellectual property, market positioning, and operational clarity. Strong projects stand to receive mentorship, partnership, and/or funding support.</p>
+      <p>Applications are open to digital practitioners, collectives, and early-stage ventures from across the continent. Ventures are evaluated on conceptual rigour, market readiness, and their contribution to the wider African Imaginaries ecosystem.</p>
     </div>
   </div>
-</section>
 
-<!-- ═══ 2025 HIGHLIGHTS ═══ -->
-<section class="highlights-section reveal">
-  <div class="cross-icon" style="top:56px;left:200px;">
+  <div class="cross-icon" style="bottom:20px;left:200px;">
     <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
   </div>
-  <div class="cross-icon" style="top:56px;right:200px;">
+  <div class="cross-icon" style="bottom:20px;right:200px;">
     <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
   </div>
-  <div class="highlights-header">
-    <h2 class="highlights-title">2025 Highlights</h2>
-  </div>
-  <div class="highlights-strip-outer">
-    <div class="highlights-strip" id="highlightsStrip">
-
-      <!-- Card 1 -->
-      <div class="highlight-card">
-        <div class="highlight-img-wrap"><img src="images/image updates/pro highlights/ac3.jpg" alt="ACIII Booklet Launch" /></div>
-        <div class="highlight-info">
-          <p class="highlight-cat">In Conversation</p>
-          <p class="highlight-name">ACIII Booklet Launch</p>
-          <p class="highlight-excerpt">The flagship session formally launched the Afrique Créative III Advocacy Booklet, presenting key insights on investment gaps, financing needs, and sustainability pathways in Africa's Cultural and Creative Industries (CCIs).</p>
-          <button class="highlight-read-more" data-idx="0">READ MORE</button>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="highlight-card">
-        <div class="highlight-img-wrap"><img src="images/image updates/pro highlights/seat at the table2.png" alt="A Seat at the Table of Change" /></div>
-        <div class="highlight-info">
-          <p class="highlight-cat">Panel Discussion</p>
-          <p class="highlight-name">A Seat at the Table of Change</p>
-          <p class="highlight-excerpt">Visionary minds from sustainable food systems, digital innovation, fashion, and cultural storytelling examined how Africa can grow, share, and sustain life.</p>
-          <button class="highlight-read-more" data-idx="1">READ MORE</button>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="highlight-card">
-        <div class="highlight-img-wrap"><img class="highlight-img-electric" src="/images/image updates/pro highlights/electric futures.png" alt="Electric Futures" /></div>
-        <div class="highlight-info">
-          <p class="highlight-cat">Keynote Provocation</p>
-          <p class="highlight-name">Electric Futures</p>
-          <p class="highlight-excerpt">Multidisciplinary artist Xabiso Vili explored African Futurism as a radical act of creative agency. Through XR, avatars, gaming, and speculative aesthetics, the session positioned African creators as architects of new systems.</p>
-          <button class="highlight-read-more" data-idx="2">READ MORE</button>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="highlight-card">
-        <div class="highlight-img-wrap"><img src="images/image updates/pro highlights/ai workshop.jpg" alt="The AI Workshop" /></div>
-        <div class="highlight-info">
-          <p class="highlight-cat">Workshop</p>
-          <p class="highlight-name">The AI Workshop</p>
-          <p class="highlight-excerpt">This hands-on session invited participants to dive into the world of generative AI and discover tools that enhance creative projects from brainstorming to final production.</p>
-          <button class="highlight-read-more" data-idx="3">READ MORE</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
 </section>
-
-<!-- ═══ HIGHLIGHT POPUP ═══ -->
-<div class="highlight-popup-backdrop" id="highlightPopupBackdrop">
-  <div class="highlight-popup">
-    <button class="highlight-popup-close" id="highlightPopupClose" aria-label="Close">×</button>
-    <p class="highlight-popup-cat" id="popupCat"></p>
-    <h3 class="highlight-popup-title" id="popupTitle"></h3>
-    <div class="highlight-popup-body" id="popupBody"></div>
-  </div>
-</div>
 
 <!-- ═══ FAQ ═══ -->
 <section class="faq-section reveal">
@@ -740,7 +589,7 @@
   <div class="cross-icon" style="top:16px;right:200px;">
     <svg viewBox="0 0 18 18" fill="none"><line x1="9" y1="0" x2="9" y2="18" stroke="#1a2744" stroke-width="0.75"/><line x1="0" y1="9" x2="18" y2="9" stroke="#1a2744" stroke-width="0.75"/></svg>
   </div>
-  <div class="faq-layout">
+  <div class="faq-layout" style="margin-top:32px;">
     <div>
       <h2 class="faq-title-left">FAQ</h2>
     </div>
@@ -766,43 +615,58 @@
   </div>
   <div class="partners-inner">
     <div class="partners-header">
-      <h2 class="partners-title">Our PRO Partners</h2>
+      <h2 class="partners-title">Our 2026 Pitchathon Partners</h2>
     </div>
     <div class="partners-grid">
+
+      <!-- Tshimologong -->
       <div class="partner-card">
-        <a href="https://tshimologong.joburg/" target="_blank" rel="noopener" class="partner-logo-link" aria-label="Tshimologong">
+        <a href="https://tshimologong.joburg/" target="_blank" rel="noopener" class="partner-logo-link">
           <div class="partner-logo-box">
             <img src="images/logos/tshimologong/logo_tshimologong_dark.svg" alt="Tshimologong"/>
           </div>
         </a>
       </div>
+
+      <!-- Wits -->
       <div class="partner-card">
-        <a href="https://www.wits.ac.za/" target="_blank" rel="noopener" class="partner-logo-link" aria-label="Wits University">
+        <a href="https://www.wits.ac.za/" target="_blank" rel="noopener" class="partner-logo-link">
           <div class="partner-logo-box">
             <img src="images/logos/wits/logo_wits_colour_colloquial_extended.svg" alt="Wits University" class="keep-color"/>
           </div>
         </a>
       </div>
-      <div class="partner-card">
+
+      <!-- Origins Centre -->
+     <div class="partner-card">
         <a href="https://www.wits.ac.za/origins/" target="_blank" rel="noopener" class="partner-logo-link" aria-label="Origins Centre">
-          <div class="partner-logo-box">
-            <img src="images/logos/wits/origins-centre-logox200.png" alt="Origins Centre" class="keep-color origins-logo"/>
-          </div>
+          <div class="partner-logo-box"><img src="images/logos/wits/origins-centre-logox200.png" alt="Origins Centre" class="keep-color"/></div>
         </a>
       </div>
-     <div class="partner-card">
+
+      <!-- Black Pepper -->
+      <div class="partner-card">
+        <a href="https://www.blackpepperafrica.co.za/" target="_blank" rel="noopener" class="partner-logo-link" aria-label="Black Pepper">
+          <div class="partner-logo-box"><img src="images/logos/BPP_black_cropped.png" alt="Black Pepper" class="keep-color"/></div>
+        </a>
+      </div>
+
+      <!-- MIND -->
+      <div class="partner-card">
         <a href="https://www.wits.ac.za/mind/" target="_blank" rel="noopener" class="partner-logo-link" aria-label="MIND"></a>
         <div class="partner-logo-box">
           <img src="images/logos/MIND-BLACK-logomark+tp.png" alt="MIND"/>
         </div>
       </div>
+
+      <!-- WIC -->
       <div class="partner-card">
-        <a href="https://www.webtickets.co.za/v2/event.aspx?itemid=1597892034" target="_blank" rel="noopener" class="partner-logo-link" aria-label="Buy tickets on Web Tickets">
-          <div class="partner-logo-box">
-            <img src="images/image updates/WT New CI Short-03.png" alt="Web Tickets" class="keep-color"/>
-          </div>
-        </a>
+        <a href="https://www.wits.ac.za/innovation/wits-innovation-centre/" target="_blank" rel="noopener" class="partner-logo-link" aria-label="Wits Innovation Centre"></a>
+        <div class="partner-logo-box">
+          <img src="images/logos/wic.svg" alt="WIC" class="keep-color"/>
+        </div>
       </div>
+
     </div>
   </div>
   <div class="cross-icon" style="bottom:20px;left:200px;">
@@ -818,7 +682,7 @@
   <div class="prog-partners-inner">
     <h2 class="prog-partners-title">Programme Partners</h2>
     <div class="prog-carousel-outer">
-      <div class="prog-carousel-track" id="progPartnersTrack" style="animation-duration:130s">
+      <div class="prog-carousel-track" id="progPartnersTrack" style="animation-duration:128s">
         <div class="prog-partner-logo logo-lg"><img src="images/programme%20partners/A-Game/agame-logo-BBBzK_6u.png" alt="A-Game" class="keep-color"/></div>
         <div class="prog-partner-logo logo-lg"><img src="images/programme%20partners/AIONS/Aions%20Ventures%20Logo%20(Black).png" alt="AIONS" class="keep-color"/></div>
         <div class="prog-partner-logo logo-lg"><img src="images/programme%20partners/Alliance%20Francaise/Alliance-Francaise-Logo-2282877265.jpg" alt="Alliance Francaise" class="keep-color"/></div>
@@ -852,7 +716,7 @@
         <div class="prog-partner-logo logo-lg"><img src="images/programme%20partners/Latitudes%20Art%20Fair/RMBLat-b.png" alt="Latitudes Art Fair" class="keep-color"/></div>
         <div class="prog-partner-logo logo-lg"><img src="images/programme%20partners/Matamba%20Film%20Labs/matambafilms.png" alt="Matamba Film Labs" class="keep-color"/></div>
         <div class="prog-partner-logo logo-lg"><img src="images/programme%20partners/Mollo/Mollo-Logo-web-3906027300.png" alt="Mollo" class="keep-color"/></div>
-        <div class="prog-partner-logo logo-lg logo-2x"><img src="images/programme%20partners/Music%20Business%20Lab/MBL-LOGO_TRANSPARRENT-PNG-03.png" alt="Music Business Lab" class="logo-black"/></div>
+        <div class="prog-partner-logo logo-lg"><img src="images/programme%20partners/Music%20Business%20Lab/MBL-LOGO_TRANSPARRENT-PNG-03.png" alt="Music Business Lab" class="logo-black"/></div>
         <div class="prog-partner-logo logo-lg"><img src="images/programme%20partners/Naledi3D/cropped-cropped-logo-512.png" alt="Naledi3D" class="keep-color"/></div>
         <div class="prog-partner-logo logo-lg"><img src="images/programme%20partners/NLC/NLC-Logo-200x200-1-July-2020.png" alt="NLC" class="keep-color"/></div>
         <div class="prog-partner-logo logo-lg"><img src="images/programme%20partners/NORMVL/cropped-NORMVL-2025-Logo-11-scaled.png" alt="NORMVL" class="keep-color"/></div>
@@ -904,7 +768,7 @@
         <div class="prog-partner-logo logo-lg"><img src="images/programme%20partners/Latitudes%20Art%20Fair/RMBLat-b.png" alt="" class="keep-color"/></div>
         <div class="prog-partner-logo logo-lg"><img src="images/programme%20partners/Matamba%20Film%20Labs/matambafilms.png" alt="" class="keep-color"/></div>
         <div class="prog-partner-logo logo-lg"><img src="images/programme%20partners/Mollo/Mollo-Logo-web-3906027300.png" alt="" class="keep-color"/></div>
-        <div class="prog-partner-logo logo-lg logo-2x"><img src="images/programme%20partners/Music%20Business%20Lab/MBL-LOGO_TRANSPARRENT-PNG-03.png" alt="" class="logo-black"/></div>
+        <div class="prog-partner-logo logo-lg"><img src="images/programme%20partners/Music%20Business%20Lab/MBL-LOGO_TRANSPARRENT-PNG-03.png" alt="" class="logo-black"/></div>
         <div class="prog-partner-logo logo-lg"><img src="images/programme%20partners/Naledi3D/cropped-cropped-logo-512.png" alt="" class="keep-color"/></div>
         <div class="prog-partner-logo logo-lg"><img src="images/programme%20partners/NLC/NLC-Logo-200x200-1-July-2020.png" alt="" class="keep-color"/></div>
         <div class="prog-partner-logo logo-lg"><img src="images/programme%20partners/NORMVL/cropped-NORMVL-2025-Logo-11-scaled.png" alt="" class="keep-color"/></div>
@@ -1027,80 +891,6 @@
 <script src="footer.js"></script>
 
 <script>
-/* ── HIGHLIGHT POPUP DATA ── */
-const highlightData = [
-  {
-    cat: 'In Conversation with Yarri Kamara',
-    title: 'ACIII Booklet Launch',
-    body: `The flagship session formally launched the Afrique Créative III Advocacy Booklet, presenting key insights on investment gaps, financing needs, and sustainability pathways in Africa's Cultural and Creative Industries (CCIs). The session sparked a dynamic, multi-voice dialogue on the continent's creative-sector future. Speakers, drawn from the Afrique Créative Consortium and cohort entrepreneurs, highlighted the programme's practice-driven perspective and the richness of its pan-African creative ecosystem.
-
-Host
-→ Yarri Kamara – Independent Cultural‑Policy Researcher, Advisor, and Literary Translator & Writer
-
-Speakers
-→ Karima Grant – Afrique Créative Entrepreneur / Playmakers Studio
-→ Khalil Liouane – Afrique Créative Entrepreneur / Cloud Visual Art
-→ Faisal Kiwewa – Afrique Créative Consortium Member / Bayimba Foundation
-→ Sam Wijnants – Afrique Créative Consortium Lead / Africalia`
-  },
-  {
-    cat: 'Panel Discussion',
-    title: 'A Seat at the Table of Change',
-    body: `Visionary minds from sustainable food systems, digital innovation, fashion, and cultural storytelling examined how Africa can grow, share, and sustain life. Supported by British Council and MN Risk Services, the session included creative leaders and entrepreneurs exploring sustainable models, innovation, and resilient systems for African communities.
-
-Moderator
-→ Thobile Chittenden – Network Co-Lead / Afrikan Liberation Hub
-
-Panelists
-→ Samukelisiwe Dube – Artist in Residence / 3 Fields
-→ Masentle Nzimande – Director / MN Risk Services
-→ Tadeo Lopez-Sendon – Chief Executive Officer / Abandon Normal Devices / 3 Fields
-→ Meghna Singh – Artist & Activist / Founders Pillars
-→ Daniel Getachew – Designer & Project Manager / TechStitched / Guzo Tech`
-  },
-  {
-    cat: 'Keynote Provocation',
-    title: 'Electric Futures',
-    body: `Multidisciplinary artist Xabiso Vili explored African Futurism as a radical act of creative agency. Through XR, avatars, gaming, and speculative aesthetics, the session positioned African creators as architects of new systems, narratives, and infrastructures, demonstrating how storytelling and digital design actively reclaim the future.
-
-→ Xabiso Vili – Poet and Storyteller`
-  },
-  {
-    cat: 'Workshop',
-    title: 'The AI Workshop',
-    body: `This hands-on session, presented by Pierre Saal, invited participants to dive into the world of generative AI and discover tools that enhance creative projects from brainstorming to final production. Attendees gained practical skills, a curated toolkit, and the confidence to integrate AI seamlessly into art, design, writing, or content creation, all while maintaining their unique creative voice. The session offered a practical, inspiring exploration of how AI can be a powerful ally in the creative process.
-
-→ Pierre Saal – AI Specialist`
-  }
-];
-
-/* ── POPUP OPEN / CLOSE ── */
-const popupBackdrop = document.getElementById('highlightPopupBackdrop');
-const popupClose    = document.getElementById('highlightPopupClose');
-const popupCat      = document.getElementById('popupCat');
-const popupTitle    = document.getElementById('popupTitle');
-const popupBody     = document.getElementById('popupBody');
-
-function openHighlightPopup(idx) {
-  const d = highlightData[idx];
-  popupCat.textContent   = d.cat;
-  popupTitle.textContent = d.title;
-  popupBody.textContent  = d.body;
-  popupBackdrop.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeHighlightPopup() {
-  popupBackdrop.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-document.querySelectorAll('.highlight-read-more').forEach(btn => {
-  btn.addEventListener('click', () => openHighlightPopup(parseInt(btn.dataset.idx)));
-});
-popupClose.addEventListener('click', closeHighlightPopup);
-popupBackdrop.addEventListener('click', e => { if (e.target === popupBackdrop) closeHighlightPopup(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeHighlightPopup(); });
-
 /* ── REVEAL ON SCROLL ── */
 const revealEls = document.querySelectorAll('.reveal');
 const io = new IntersectionObserver(entries => {
@@ -1110,50 +900,49 @@ revealEls.forEach(el => io.observe(el));
 
 /* ── FAQ ── */
 const faqData = [
-  { q: "Who is Fak'ugesiPRO designed for?", a: "Organisations, professionals and practitioners working at the strategic interface between creative output and systemic change. Studios, production houses, development finance institutions, government agencies, cultural organisations, tertiary institutions and technology partners." },
-  { q: "How do I register?", a: "Registration is through the Visit page. Session numbers are limited. Early registration is advised." },
-  { q: "Can individuals attend, or is it only for organisations?", a: "Both are eligible." },
-  { q: "How does Fak'ugesiPRO connect to the wider festival?", a: "Fak'ugesiPRO is embedded within the full festival programme. Delegates have access to the broader festival and its programme in addition to the PRO-specific sessions and roundtables." },
-  { q: "What topics do sessions cover?", a: "Sessions span intellectual property, investment access, platform regulation, creative infrastructure, skills pipelines, and cross-border collaboration amongst others." },
+  { q: 'Who can participate?', a: 'Eligible participants are drawn from the university and Tshimologong ecosystems.' },
+  { q: 'What stage does my venture need to be at?', a: 'Early-stage ventures are eligible for entry. Minimal viable products and prototypes are welcomed. There does need to be a clear concept, evidence of the problem being solved, and a credible sense of the intended audience.' },
+  { q: 'What are the criteria?', a: 'Conceptual rigour, market readiness, and contribution to the African Imaginaries ecosystem. The jury includes investors, venture capitalists, accelerator leads, producers, and industry strategists. They are looking for clarity, honesty about limitations, and genuine understanding of the market.' },
+  { q: 'What do winning teams receive?', a: 'Winning teams receive prizes and access to post-festival mentorship and funding conversations. Full prize details will be announced with the application opening.' },
 ];
 const faqContainer = document.getElementById('faqAccordion');
 faqData.forEach((faq, i) => {
   const item = document.createElement('div');
   item.className = 'faq-item';
-  item.innerHTML = `<button class="faq-q-btn" aria-expanded="false"><span class="faq-q-text">${faq.q}</span><span class="faq-t-icon">${i === 0 ? '×' : '+'}</span></button><div class="faq-ans">${faq.a}</div>`;
+  item.innerHTML = `<button class="faq-q-btn" aria-expanded="false"><span class="faq-q-text">${faq.q}</span><span class="faq-t-icon">+</span></button><div class="faq-ans">${faq.a}</div>`;
   item.querySelector('.faq-q-btn').addEventListener('click', () => {
     const isOpen = item.classList.contains('open');
     faqContainer.querySelectorAll('.faq-item').forEach(el => {
       el.classList.remove('open');
       el.querySelector('.faq-t-icon').textContent = '+';
-      el.querySelector('.faq-q-btn').setAttribute('aria-expanded', 'false');
+      el.querySelector('.faq-q-btn').setAttribute('aria-expanded','false');
     });
     if (!isOpen) {
       item.classList.add('open');
       item.querySelector('.faq-t-icon').textContent = '×';
-      item.querySelector('.faq-q-btn').setAttribute('aria-expanded', 'true');
+      item.querySelector('.faq-q-btn').setAttribute('aria-expanded','true');
     }
   });
   faqContainer.appendChild(item);
 });
 
 /* ── CROSS ICON SCROLL SPIN ── */
-(function () {
+(function() {
   var lastY = window.scrollY, rot = 0, ticking = false, scrollTimer = null;
   function resetRot() {
     rot = 0;
-    document.querySelectorAll('.cross-icon, .fug-footer-cross').forEach(function (el) {
+    document.querySelectorAll('.cross-icon, .cross-inline, .fug-footer-cross').forEach(function(el) {
       el.style.transition = 'transform 0.45s ease';
       el.style.transform = 'rotate(0deg)';
     });
   }
   function onScroll() {
     if (!ticking) {
-      requestAnimationFrame(function () {
+      requestAnimationFrame(function() {
         var y = window.scrollY, delta = y - lastY;
         if (Math.abs(delta) > 0) {
           rot += delta > 0 ? 15 : -15;
-          document.querySelectorAll('.cross-icon, .fug-footer-cross').forEach(function (el) {
+          document.querySelectorAll('.cross-icon, .cross-inline, .fug-footer-cross').forEach(function(el) {
             el.style.transition = 'transform 0.1s linear';
             el.style.transform = 'rotate(' + rot + 'deg)';
           });
@@ -1167,6 +956,36 @@ faqData.forEach((faq, i) => {
     }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
+/* ── MOBILE MENU ── */
+(function() {
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu   = document.getElementById('mobileMenu');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+  const mobileBar    = document.getElementById('mobileHamburgerBar');
+  if (hamburgerBtn && mobileMenu && mobileOverlay) {
+    function toggleMenu() {
+      const isOpen = mobileMenu.classList.contains('open');
+      mobileMenu.classList.toggle('open', !isOpen);
+      mobileOverlay.classList.toggle('active', !isOpen);
+      hamburgerBtn.classList.toggle('active', !isOpen);
+      document.body.classList.toggle('menu-open', !isOpen);
+    }
+    hamburgerBtn.addEventListener('click', toggleMenu);
+    mobileOverlay.addEventListener('click', toggleMenu);
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      mobileOverlay.classList.remove('active');
+      hamburgerBtn.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    }));
+  }
+  if (mobileBar) {
+    window.addEventListener('scroll', () => {
+      mobileBar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  }
 })();
 </script>
 

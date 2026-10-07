@@ -841,7 +841,7 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
 </style>
 <style id="postcards-own-section">
   /* Postcards: own white section, 3 images across the screen */
-  .postcards-section{background:#ffffff;padding:56px 0;position:relative;overflow:hidden;}
+  .postcards-section{background:var(--navy);padding:56px 0;position:relative;overflow:hidden;}
   .postcards-section .postcards-carousel{margin-top:0;}
   .postcards-section .postcards-track{gap:16px;}
   .postcards-section .postcards-track img{
@@ -856,6 +856,65 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
     .postcards-section .postcards-track img{width:calc((100vw - 12px) / 2) !important;} /* 2 across on phones */
   }
 </style>
+<style id="postcards-under-evans">
+  /* Evans block: no divider line, the postcards band sits right under it */
+  .featured-lead{border-bottom:none !important;padding-bottom:0 !important;}
+
+  /* White postcards band, full width of the navy section (cancels the section side padding) */
+  .postcards-in-featured{margin:0 calc(-1 * var(--band)) 56px;}
+  @media(max-width:1024px){.postcards-in-featured{margin:0 -48px 40px;}}
+  @media(max-width:768px){.postcards-in-featured{margin:0 -20px 36px;}}
+</style>
+
+<style id="postcards-move-up">
+  /* Pull the postcards band closer to the Evans block */
+  .postcards-section.postcards-in-featured{
+    padding-top:0 !important;      /* was 56px */
+    margin-top:-32px !important;   /* pulls the band up toward Evans */
+  }
+  @media(max-width:768px){
+    .postcards-section.postcards-in-featured{
+      padding-top:0 !important;
+      margin-top:-16px !important;
+    }
+  }
+</style>
+
+<style id="featured-bright-white">
+  /* Role line + body copy: bright white, full strength */
+  .featured-role,
+  .featured-body,
+  .featured-card .featured-role,
+  .featured-card .featured-body,
+  .featured-lead-text .featured-role,
+  .featured-lead-text .featured-body{
+    color:#ffffff !important;
+    opacity:1 !important;
+  }
+</style>
+
+<style id="featured-sub-list-style">
+  .featured-sub{max-width:460px;}
+  .featured-sub p{margin:0 0 6px;}
+  .featured-sub-row{
+    display:flex;
+    align-items:flex-start;
+    gap:6px;
+  }
+  .featured-sub-label{
+    flex:0 0 auto;
+    white-space:nowrap;
+  }
+  .featured-sub-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .featured-sub-list li{
+    line-height:1.5;
+  }
+</style>
+
 </head>
 <body>
 
@@ -909,10 +968,7 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
         </div>
       </div>
 
-      <!-- Dropdown: sits BELOW the video panel in normal flow, so it never covers the face.
-           When open, this replaces the compact box entirely — it starts with the
-           "2026 Theme" header and runs all the way down to the dates.
-           On desktop this renders inline as part of the theme content, same as before. -->
+    
       <div class="theme-expandable" id="themeExpandable">
         <div class="theme-expandable-inner">
         <div id="themeYearFresh" style="display:block !important;visibility:visible !important;opacity:1 !important;position:relative !important;z-index:50 !important;font-family:Arial,Helvetica,sans-serif !important;font-size:52px !important;font-weight:700 !important;color:#0d1b3e !important;background:transparent;margin:0 0 16px 0 !important;line-height:1.05 !important;">2026 Theme</div>
@@ -1021,8 +1077,12 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
   <div class="featured-inner">
     <div class="featured-header">
       <h2 class="featured-title">Featured Artists</h2>
-      <p class="featured-sub">Featured artists interrogate the machine. Three ways through AI: the image, the archive, the body.</p>
-    </div>
+     <div class="featured-sub">
+  <p>Featured artists interrogate the machine.</p>
+  <p>Three ways through AI: The Image | The Archive | The Body</p>
+</div>
+</div>
+
 
     <!-- LEAD ARTIST: same layout as the Director's message -->
     <div class="featured-lead">
@@ -1044,6 +1104,23 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- POSTCARDS (under Evans) -->
+    <div class="postcards-section postcards-in-featured">
+      <div class="postcards-carousel">
+    <div class="postcards-track" id="postcardsTrack">
+      <img src="images/potraits/postcards%20fromm%20latent%20space%20(2)_page-0003.jpg" alt="Postcard from latent space">
+      <img src="images/potraits/postcards%20fromm%20latent%20space%20(2)_page-0004.jpg" alt="Postcard from latent space">
+      <img src="images/potraits/postcards%20fromm%20latent%20space%20(2)_page-0005.jpg" alt="Postcard from latent space">
+      <img src="images/potraits/postcards%20fromm%20latent%20space%20(2)_page-0006.jpg" alt="Postcard from latent space">
+      <img src="images/potraits/postcards%20fromm%20latent%20space%20(2)_page-0007.jpg" alt="Postcard from latent space">
+      <img src="images/potraits/postcards%20fromm%20latent%20space%20(2)_page-0008.jpg" alt="Postcard from latent space">
+      <img src="images/potraits/postcards%20fromm%20latent%20space%20(2)_page-0009.jpg" alt="Postcard from latent space">
+      <img src="images/potraits/postcards%20fromm%20latent%20space%20(2)_page-0010.jpg" alt="Postcard from latent space">
+      <img src="images/potraits/postcards%20fromm%20latent%20space%20(2)_page-0011.jpg" alt="Postcard from latent space">
+    </div>
+  </div>
     </div>
 
     <!-- OTHER TWO: existing card format -->
@@ -1115,22 +1192,6 @@ body{font-family:'InterDisplay',sans-serif;background:var(--white);color:var(--w
 
 </section>
 
-<!-- POSTCARDS -->
-<section class="postcards-section">
-  <div class="postcards-carousel">
-    <div class="postcards-track" id="postcardsTrack">
-      <img src="images/potraits/postcards%20fromm%20latent%20space%20(2)_page-0003.jpg" alt="Postcard from latent space">
-      <img src="images/potraits/postcards%20fromm%20latent%20space%20(2)_page-0004.jpg" alt="Postcard from latent space">
-      <img src="images/potraits/postcards%20fromm%20latent%20space%20(2)_page-0005.jpg" alt="Postcard from latent space">
-      <img src="images/potraits/postcards%20fromm%20latent%20space%20(2)_page-0006.jpg" alt="Postcard from latent space">
-      <img src="images/potraits/postcards%20fromm%20latent%20space%20(2)_page-0007.jpg" alt="Postcard from latent space">
-      <img src="images/potraits/postcards%20fromm%20latent%20space%20(2)_page-0008.jpg" alt="Postcard from latent space">
-      <img src="images/potraits/postcards%20fromm%20latent%20space%20(2)_page-0009.jpg" alt="Postcard from latent space">
-      <img src="images/potraits/postcards%20fromm%20latent%20space%20(2)_page-0010.jpg" alt="Postcard from latent space">
-      <img src="images/potraits/postcards%20fromm%20latent%20space%20(2)_page-0011.jpg" alt="Postcard from latent space">
-    </div>
-  </div>
-</section>
 
 <!-- DIRECTOR MESSAGE MODAL -->
 <div id="directorModal" class="spotlight-modal-overlay">
